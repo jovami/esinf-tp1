@@ -5,39 +5,54 @@ public class Fruto {
     private String nome;
     private int id;
 
+    public Fruto(String nome, int id) {
+        setNome(nome);
+        setId(id);
+    }
+
+    private void setNome(String nome) {
+        if (nome == null || nome.trim().isEmpty())
+            throw new IllegalArgumentException("erro: fruto com nome invalido");
+        this.nome = nome;
+    }
+    private void setId(int id) {
+        this.id = id;
+    }
 
     public String getNome() {
         return nome;
     }
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
     public int getId() {
         return id;
-    }
-    public void setId(int id) {
-        this.id = id;
     }
 
     @Override
     public boolean equals(Object o){
 
-        if(this==o){
+        if (this == o)
             return true;
+        else if (o == null || this.getClass() != o.getClass())
+            return false;
 
-        }else if((o instanceof Fruto)){
-            Fruto outroFruto= (Fruto)o;
+        Fruto outroFruto = (Fruto) o;
 
-            //Apenas sao iguais caso o seu id seja o mesmo, uma vez que é possível ter
-            //frutos com o mesmo nome representando frutos diferentesº
+        //Apenas sao iguais caso o seu id seja o mesmo, uma vez que é possível ter
+        //frutos com o mesmo nome representando frutos diferentesº
 
-            if(this.getId()==outroFruto.getId()){
-                return true;
-            }
-        }
-        return false;
-
+        return this.getId() == outroFruto.getId();
     }
 
+    @Override
+    public int hashCode() {
+        /* De acordo com
+         * https://medium.com/codelog/overriding-hashcode-method-effective-java-notes-723c1fedf51c
+         */
+        final int multiplier = 31;
+        int hash = 17;
+
+        hash = multiplier * hash + this.id;
+        hash = multiplier * hash + this.nome.hashCode();
+
+        return hash;
+    }
 }
