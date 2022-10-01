@@ -69,4 +69,32 @@ public class Pais {
     public ListIterator<ProducaoAno> getIteradorAnos(int indice) {
         return this.producaoAnual.listIterator(indice);
     }
+
+    // Overrides
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        else if (o == null || this.getClass() != o.getClass())
+            return false;
+
+        Pais p = (Pais) o;
+
+        return this.nomePais.equals(p.getNomePais())
+            && this.paisCodigo == p.getPaisCodigo();
+    }
+
+    @Override
+    public int hashCode() {
+        final int multiplier = 31;
+        int result = 17;
+
+        result = multiplier * result + this.paisCodigo;
+        result = multiplier * result + this.nomePais.hashCode();
+        result = multiplier * result + this.producaoAnual.hashCode();
+
+        return result;
+    }
+
 }
