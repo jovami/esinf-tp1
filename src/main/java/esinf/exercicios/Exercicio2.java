@@ -9,6 +9,7 @@ import java.util.Vector;
 
 import esinf.App;
 import esinf.model.Pais;
+import esinf.util.ListPrinter;
 import esinf.util.Triplet;
 
 /**
@@ -44,6 +45,10 @@ public class Exercicio2 implements Runnable {
 
         // filtered already got sorted above
         var alineaB = sortList(filtered, cmpB);
+
+        ListPrinter.print(alineaA, "Alinea a)", null);
+        System.out.printf("\n--------------------\n");
+        ListPrinter.print(alineaB, "Alinea b)", null);
     }
 
     public List<Triplet<Pais, Integer, Integer>>
