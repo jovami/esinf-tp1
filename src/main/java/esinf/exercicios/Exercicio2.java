@@ -5,7 +5,7 @@ import java.util.Comparator;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Vector;
+import java.util.function.IntPredicate;
 
 import esinf.App;
 import esinf.model.Pais;
@@ -20,12 +20,10 @@ public class Exercicio2 implements Runnable {
     private App app;
 
     private Comparator<Triplet<Pais, Integer, Integer>> cmpA =
-        (Triplet<Pais, Integer, Integer> t1, Triplet<Pais, Integer, Integer> t2) ->
-        Integer.compare(t1.getSecond(), t2.getSecond());
+        (t1, t2) -> Integer.compare(t1.getSecond(), t2.getSecond());
 
     private Comparator<Triplet<Pais, Integer, Integer>> cmpB =
-        (Triplet<Pais, Integer, Integer> t1, Triplet<Pais, Integer, Integer> t2) ->
-        Integer.compare(t2.getThird(), t1.getThird());
+        (t1, t2) -> Integer.compare(t2.getThird(), t1.getThird());
 
     public Exercicio2() {
         app = App.getInstance();
@@ -35,16 +33,15 @@ public class Exercicio2 implements Runnable {
     public void run() throws RuntimeException
     {
         int id = 12;
-        int qtd = 200;
+        int quantidade = 200;
 
         List<Triplet<Pais, Integer, Integer>> filtered;
+        filtered = filtrarPaises(id, q -> q >= quantidade);
 
-        filtered = aaaa(id, qtd);
+        List<Pais> alineaA = sortPais(filtered, cmpA);
 
-        var alineaA = sortList(filtered, cmpA);
-
-        // filtered already got sorted above
-        var alineaB = sortList(filtered, cmpB);
+        // filtered modificado
+        List<Pais> alineaB = sortPais(filtered, cmpB);
 
         ListPrinter.print(alineaA, "Alinea a)", null);
         System.out.printf("\n--------------------\n");
@@ -52,39 +49,42 @@ public class Exercicio2 implements Runnable {
     }
 
     public List<Triplet<Pais, Integer, Integer>>
-        aaaa(int frutoId, int quantidade)
+        filtrarPaises(int frutoId, IntPredicate condicao)
     {
-        var l = new LinkedList<Triplet<Pais, Integer, Integer>>();
+        var triplets = new LinkedList<Triplet<Pais, Integer, Integer>>();
         Iterator<Pais> paisIter = app.getPaisStore().getIteradorPais();
 
         if (!paisIter.hasNext())
             throw new RuntimeException("erro: nao ha paises armazenados");
 
-        paisIter.forEachRemaining((Pais p) -> {
+        paisIter.forEachRemaining(p -> {
             var iter = p.getIteradorAnos();
             while (iter.hasNext()) {
                 var ano = iter.next();
                 int qtd = 0/* ano.getFruto(frutoId).getProducao()*/;
-                if (qtd >= quantidade) {
-                    l.add(new Triplet<Pais,Integer,Integer>(p, ano.getAno(), qtd));
+                if (condicao.test(qtd)) {
+                    triplets.add(new Triplet<Pais,Integer,Integer>(p, ano.getAno(), qtd));
                     return;
                 }
             }
         });
 
-        return l;
+        return triplets;
     }
 
     /* T type alias */
     public <T extends Triplet<Pais, Integer, Integer>> List<Pais>
-        sortList(List<T> lst, Comparator<T> cmp)
+        sortPais(List<T> list, Comparator<T> cmp)
     {
-        var result = new Vector<Pais>();
-        Collections.sort(lst, cmp);
+        // return list.stream()
+        //            .sorted(cmp)
+        //            .map(t -> t.getFirst())
+        //            .toList();
 
-        lst.forEach((T t) -> result.add(t.getFirst()));
+        var result = new LinkedList<Pais>();
+        Collections.sort(list, cmp);
+
+        list.forEach(t -> result.add(t.getFirst()));
         return result;
     }
-
-    // Exercicio aqui
 }
