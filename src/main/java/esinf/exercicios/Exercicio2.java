@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.function.IntPredicate;
 
 import esinf.App;
+import esinf.model.Fruto;
 import esinf.model.Pais;
 import esinf.util.ListPrinter;
 import esinf.util.Triplet;
@@ -60,11 +61,19 @@ public class Exercicio2 implements Runnable {
             var iter = p.getIteradorAnos();
             while (iter.hasNext()) {
                 var ano = iter.next();
-                int qtd = 0/* ano.getFruto(frutoId).getProducao()*/;
+                int qtd = 0;
                 if (condicao.test(qtd)) {
                     triplets.add(new Triplet<Pais,Integer,Integer>(p, ano.getAno(), qtd));
                     return;
                 }
+                /* TODO: mudar para este */
+                // var ano = iter.next();
+                // int qtd;
+                // Fruto f = ano.getFruto(frutoId);
+                // if (f != null && condicao.test((qtd = f.getProducao()))) {
+                //     triplets.add(new Triplet<Pais,Integer,Integer>(p, ano.getAno(), qtd));
+                //     return;
+                // }
             }
         });
 
