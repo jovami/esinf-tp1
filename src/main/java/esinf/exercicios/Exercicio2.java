@@ -1,6 +1,5 @@
 package esinf.exercicios;
 
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -72,19 +71,19 @@ public class Exercicio2 implements Runnable {
         return triplets;
     }
 
-    /* T type alias */
-    public <T extends Triplet<Pais, Integer, Integer>> List<Pais>
-        sortPais(List<T> list, Comparator<T> cmp)
+    /* E type alias */
+    public <E extends Triplet<Pais, Integer, Integer>> List<Pais>
+        sortPais(List<E> list, Comparator<E> cmp)
     {
-        // return list.stream()
-        //            .sorted(cmp)
-        //            .map(t -> t.getFirst())
-        //            .toList();
+        return list.stream()
+                   .sorted(cmp)
+                   .map(e -> e.getFirst())
+                   .toList();
 
-        var result = new LinkedList<Pais>();
-        Collections.sort(list, cmp);
+        // var result = new LinkedList<Pais>();
 
-        list.forEach(t -> result.add(t.getFirst()));
-        return result;
+        // list.sort(cmp);
+        // list.forEach(e -> result.add(e.getFirst()));
+        // return result;
     }
 }
