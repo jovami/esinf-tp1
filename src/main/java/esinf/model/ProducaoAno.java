@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 
 
-public class ProducaoAno {
+public class ProducaoAno implements Comparable<ProducaoAno> {
 
     private HashMap <Integer, ProducaoFrutoPorPaisPorAno> prodAnual;
 
@@ -14,7 +14,7 @@ public class ProducaoAno {
 
     public ProducaoAno(LocalDate ano) {
         // estimativa para reduzir hashing
-        final int estimativa = 2 << 4;
+        final int estimativa = 0x10;
         this.prodAnual = new HashMap<>(estimativa);
 
         this.ano = ano;
@@ -30,5 +30,10 @@ public class ProducaoAno {
 
     public Iterator<ProducaoFrutoPorPaisPorAno> getIterador() {
         return this.prodAnual.values().iterator();
+    }
+
+    @Override
+    public int compareTo(ProducaoAno outro) {
+        return Integer.compare(this.getAno(), outro.getAno());
     }
 }
