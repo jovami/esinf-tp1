@@ -73,6 +73,11 @@ public class Pais {
     // Overrides
 
     @Override
+    public String toString() {
+        return String.format("%s (%d)", this.nomePais, this.paisCodigo);
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o)
             return true;
@@ -81,8 +86,8 @@ public class Pais {
 
         Pais p = (Pais) o;
 
-        return this.nomePais.equals(p.getNomePais())
-            && this.paisCodigo == p.getPaisCodigo();
+        return this.nomePais.equals(p.nomePais)
+            && this.paisCodigo == p.paisCodigo;
     }
 
     @Override

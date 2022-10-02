@@ -27,6 +27,11 @@ public class Fruto {
     }
 
     @Override
+    public String toString() {
+        return String.format("%s (%d)", this.nome, this.id);
+    }
+
+    @Override
     public boolean equals(Object o){
 
         if (this == o)
@@ -38,8 +43,7 @@ public class Fruto {
 
         //Apenas sao iguais caso o seu id seja o mesmo, uma vez que é possível ter
         //frutos com o mesmo nome representando frutos diferentesº
-
-        return this.getId() == outroFruto.getId();
+        return this.id == outroFruto.id;
     }
 
     @Override
