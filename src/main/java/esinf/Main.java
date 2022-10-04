@@ -1,6 +1,8 @@
 package esinf;
 
 import esinf.exercicios.*;
+import esinf.exercicios.Exercicio2;
+import esinf.exercicios.Exercicio1;
 
 import java.util.LinkedList;
 
