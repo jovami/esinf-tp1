@@ -1,5 +1,6 @@
 package esinf;
 
+import esinf.model.store.FrutoStore;
 import esinf.model.store.PaisStore;
 
 /**
@@ -8,17 +9,23 @@ import esinf.model.store.PaisStore;
  * used to obtain the PaisStore
  */
 public class App {
-    private PaisStore store;
+    private PaisStore paisStore;
+    private FrutoStore frutoStore;
 
     private App() {
-        this.store = new PaisStore();
+        this.paisStore = new PaisStore();
+        this.frutoStore = new FrutoStore();
     }
 
     public PaisStore getPaisStore() {
-        return this.store;
+        return this.paisStore;
     }
 
-    /* singleton pattern */
+    public FrutoStore getFrutoStore() {
+		return this.frutoStore;
+	}
+
+	/* singleton pattern */
     private static App singleton = null;
     public static App getInstance() {
         if (singleton == null) {

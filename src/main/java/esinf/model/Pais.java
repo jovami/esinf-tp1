@@ -11,18 +11,22 @@ public class Pais implements Iterable<ProducaoAno> {
 
     private String nomePais;
     private int paisCodigo;
+    private int prodTotal;
+
 
     public Pais(String nomePais, int paisCodigo) {
         this.producaoAnual = new TreeSet<>(ProducaoAno::compareTo);
 
+        this.prodTotal = 0;
         setNomePais(nomePais);
         setCodigoPais(paisCodigo);
     }
 
     public Pais(String nome, int codigo, Collection<ProducaoAno> producoes) {
         this(nome, codigo);
-        this.producaoAnual.addAll(producoes);
+        producoes.forEach(p -> addAnoProducao(p));
     }
+
 
     public Pais(String nome, int codigo, ProducaoAno... producoes) {
         this(nome, codigo, List.of(producoes));
@@ -39,11 +43,19 @@ public class Pais implements Iterable<ProducaoAno> {
     }
 
     public String getNomePais() {
-        return nomePais;
+        return this.nomePais;
     }
 
     public int getPaisCodigo() {
-        return paisCodigo;
+        return this.paisCodigo;
+    }
+
+    public int getProdTotal() {
+        return this.prodTotal;
+    }
+
+    private void incrementProducao(int prodTotal) {
+        this.prodTotal += prodTotal;
     }
 
     // TreeSet
@@ -52,7 +64,10 @@ public class Pais implements Iterable<ProducaoAno> {
         if (ano == null)
             throw new IllegalArgumentException("erro: ano invalido");
 
-        return this.producaoAnual.add(ano);
+        boolean ok = this.producaoAnual.add(ano);
+        if (ok)
+            incrementProducao(ano.getProdAnual());
+        return ok;
     }
 
     public boolean addAllAnos(Collection<ProducaoAno> producoes) {

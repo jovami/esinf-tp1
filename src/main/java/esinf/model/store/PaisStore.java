@@ -1,11 +1,12 @@
 package esinf.model.store;
 
-import esinf.model.Pais;
-
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.stream.Stream;
 
-public class PaisStore {
+import esinf.model.Pais;
+
+public class PaisStore implements Iterable<Pais> {
 
     private HashMap<Integer,Pais> paisStore;
 
@@ -16,12 +17,17 @@ public class PaisStore {
         this.paisStore = new HashMap<>(numCountries);
     }
 
+
+    public Stream<Pais> getOrderStream() {
+        return this.paisStore.values().stream();
+    }
+
     public int getSize() {
         return this.paisStore.size();
     }
 
     //TODO: necessário?
-    public boolean checkPais(int id){
+    public boolean checkPais(int id) {
         return this.paisStore.containsKey(id);
     }
 
@@ -37,7 +43,7 @@ public class PaisStore {
         return this.paisStore.get(id);
     }
 
-    public Iterator<Pais> getIteradorPais() {
+    public Iterator<Pais> iterator() {
         return this.paisStore.values().iterator();
     }
 }
