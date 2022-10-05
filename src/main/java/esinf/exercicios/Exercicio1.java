@@ -36,6 +36,15 @@ public class Exercicio1 implements Runnable {
         }
     }
 
+    //TODO excep instead:
+    private boolean savePais(String pais, int id){
+        return app.getPaisStore().addPais(id, pais);
+    }
+
+    private boolean saveFrutas(String fruta, int id){
+        return app.get(id, pais);
+    }
+
     private final String FILE_DIRECTORY = null;
 
     public File fileDirReader() throws Exception {
