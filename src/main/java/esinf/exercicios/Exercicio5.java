@@ -61,30 +61,11 @@ public class Exercicio5 implements Runnable {
     // Exercicio aqui
 
 
-    private Pais getPaisAnalisar(String nomePais)
-    {
-        //percorrer todos os paises e escolher o pedido
-        for (Iterator<Pais> paisIter = app.getPaisStore().getIteradorPais(); paisIter.hasNext(); )
-        {
-            if (!paisIter.hasNext())
-                throw new RuntimeException("erro: nao ha paises armazenados");
-
-            Pais p = paisIter.next();
-
-            //se o pais passado como parametro estiver na lista de paises continuar dentro do if
-            if(p.getNomePais().compareToIgnoreCase(nomePais) == 0)
-                return p;
-        }
-
-        return null;
-    }
-
-
-    public List<Triplet<Integer, String, Integer>> getListDeTodosOsFrutosProdQuantidade(String nomePais)
+    public List<Triplet<Integer, String, Integer>> getListDeTodosOsFrutosProdQuantidade(int idPais)
     {
         // [ano, Fruto , quantidade de producao]
         var estrutura = new LinkedList<Triplet<Integer, String, Integer>>();
-        Pais pais = getPaisAnalisar(nomePais);
+        Pais pais =  app.getPaisStore().getPais(idPais);
 
 
         for (Iterator<ProducaoAno> producaoAnualIter = pais.getIteradorAnos(); producaoAnualIter.hasNext(); )
