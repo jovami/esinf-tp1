@@ -1,13 +1,13 @@
 package esinf.exercicios;
 
+import java.io.File;
+import java.util.List;
+
 import esinf.App;
 import esinf.model.CSVReader;
 import esinf.model.Fruto;
 import esinf.model.Pais;
 import esinf.model.ProducaoAno;
-
-import java.io.File;
-import java.util.List;
 
 /**
  * Exercicio1
@@ -33,7 +33,7 @@ public class Exercicio1 implements Runnable {
         }
     }
 
-    private enum Colunas{
+    private enum Colunas {
         NOMEPAIS(3), IDPAIS(2), NOMEFRUTO(7), IDFRUTO(6), ANOPRODUCAO(8), QTDPRODUCAO(11);
 
         private int i;

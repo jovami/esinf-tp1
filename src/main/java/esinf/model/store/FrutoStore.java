@@ -36,5 +36,4 @@ public class FrutoStore {
 
         return frutoStore.put(idFruto,new Fruto(nomeFruto, idFruto))!= null;
     }
-
 }
