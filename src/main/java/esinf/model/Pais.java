@@ -108,7 +108,7 @@ public class Pais implements Iterable<ProducaoAno> {
         Pais p = (Pais) o;
 
         return this.nomePais.equals(p.nomePais)
-            && this.paisCodigo == p.paisCodigo;
+                && this.paisCodigo == p.paisCodigo;
     }
 
     @Override
