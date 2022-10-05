@@ -52,7 +52,7 @@ public class Exercicio2 implements Runnable {
         filtrarPaises(int frutoId, IntPredicate condicao)
     {
         var triplets = new LinkedList<Triplet<Pais, Integer, Integer>>();
-        Iterator<Pais> paisIter = app.getPaisStore().getIteradorPais();
+        Iterator<Pais> paisIter = app.getPaisStore().iterator();
 
         if (!paisIter.hasNext())
             throw new RuntimeException("erro: nao ha paises armazenados");

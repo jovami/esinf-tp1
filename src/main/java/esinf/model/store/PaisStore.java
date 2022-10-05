@@ -1,13 +1,12 @@
 package esinf.model.store;
 
-import esinf.model.Pais;
-
 import java.util.HashMap;
 import java.util.Iterator;
-
 import java.util.stream.Stream;
 
-public class PaisStore  /*implements Iterable<Pais>*/{
+import esinf.model.Pais;
+
+public class PaisStore implements Iterable<Pais> {
 
     private HashMap<Integer,Pais> paisStore;
 
@@ -28,7 +27,7 @@ public class PaisStore  /*implements Iterable<Pais>*/{
     }
 
     //TODO: necessário?
-    public boolean checkPais(int id){
+    public boolean checkPais(int id) {
         return this.paisStore.containsKey(id);
     }
 
@@ -44,18 +43,7 @@ public class PaisStore  /*implements Iterable<Pais>*/{
         return this.paisStore.get(id);
     }
 
-    public Iterator<Pais> getIteradorPais() {
+    public Iterator<Pais> iterator() {
         return this.paisStore.values().iterator();
     }
-
-    //TODO: implemnt iterator
-    /* (non-Javadoc)
-     * @see java.lang.Iterable#iterator()
-     */
-    // @Override
-    // public Iterator iterator() {
-    //     // TODO Auto-generated method stub
-    //     return this.paisStore.values().iterator();
-    // }
-    
 }
