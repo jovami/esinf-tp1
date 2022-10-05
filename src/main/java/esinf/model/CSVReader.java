@@ -7,54 +7,60 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import esinf.model.enumerated.CSVHeader;
+
 public class CSVReader {
 
     private final CSVHeader header;
 
     private final int EXPECTED_COLUMNS;
 
-    public CSVReader(CSVHeader header)
-    {
+    private final String delimiter;
+
+    public CSVReader(CSVHeader header) {
+        // https://stackoverflow.com/questions/1757065/java-splitting-a-comma-separated-string-but-ignoring-commas-in-quotes/1757107#1757107
+        // final String magicalRegex = "(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)";
+
         this.header = header;
         this.EXPECTED_COLUMNS = header.getColumnCount();
+        this.delimiter = String.format("\"%s\"", header.getDelimiter());
+    }
+
+    public CSVReader() {
+        this(CSVHeader.HEADER1);
     }
 
     public List<String[]> readCSV(File dir) throws Exception {
-    List<String[]> info = new ArrayList<>();
+        List<String[]> info = new ArrayList<>();
 
-    String line, delim;
-    String[] tmp;
+        String line;
+        String[] tmp;
 
-        try {
-        var br = new BufferedReader(new FileReader(dir));
-
-        try {
+        try (var br = new BufferedReader(new FileReader(dir))) {
             line = br.readLine();
 
-            if (isHeader(line)) {
-                delim = this.header.getDelimiter();
-            } else {
+            if (!isHeader(line))
                 throw new Exception("error: the header of the file is INVALID");
-            }
 
-            while ((line = br.readLine()) != null);{
-                tmp = line.split(delim);
-                if (tmp.length != EXPECTED_COLUMNS)
+            while ((line = br.readLine()) != null) {
+                tmp = line.split(delimiter);
+                if (tmp.length != EXPECTED_COLUMNS) {
                     throw new Exception(String.format("error: the csv file contains invalid data!\nOffending Line:\n\t%s", line));
-                else
+                } else {
+                    // remove " at begining and " at end
+                    tmp[0] = tmp[0].substring(1);
+                    tmp[tmp.length-1] = tmp[tmp.length-1].substring(0, tmp.length-2);
                     info.add(tmp);
+                }
             }
-        } finally {
-            br.close();
+        } catch (IOException e) {
+            System.err.println("Error reading file. Aborting...");
         }
-    } catch (IOException e) {
-        System.err.println("Error reading file. Aborting...");
-    }
 
         return info;
     }
-    private boolean isHeader(String line)
-    {
+
+    private boolean isHeader(String line) {
         return line.trim().equalsIgnoreCase(this.header.toString());
     }
 
