@@ -1,13 +1,13 @@
 package esinf.model;
 
 import java.util.Collection;
-import java.util.LinkedList;
+import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
+import java.util.TreeSet;
 
-public class Pais {
+public class Pais implements Iterable<ProducaoAno> {
 
-    private LinkedList<ProducaoAno> producaoAnual;
+    private TreeSet<ProducaoAno> producaoAnual;
 
     private String nomePais;
     private int paisCodigo;
@@ -15,21 +15,16 @@ public class Pais {
 
 
     public Pais(String nomePais, int paisCodigo) {
-        this.producaoAnual = new LinkedList<>();
-        setProdTotal(0);
+        this.producaoAnual = new TreeSet<>(ProducaoAno::compareTo);
+
+        this.prodTotal = 0;
         setNomePais(nomePais);
         setCodigoPais(paisCodigo);
     }
 
     public Pais(String nome, int codigo, Collection<ProducaoAno> producoes) {
         this(nome, codigo);
-        this.producaoAnual.addAll(producoes);
-    }
-
-    public Pais(String nome, int codigo, Collection<ProducaoAno> producoes,int prodTotal) {
-        this(nome, codigo);
-        setProdTotal(prodTotal);
-        this.producaoAnual.addAll(producoes);
+        producoes.forEach(p -> addAnoProducao(p));
     }
 
 
@@ -48,30 +43,31 @@ public class Pais {
     }
 
     public String getNomePais() {
-        return nomePais;
+        return this.nomePais;
     }
 
     public int getPaisCodigo() {
-        return paisCodigo;
+        return this.paisCodigo;
     }
-    
+
     public int getProdTotal() {
-        return prodTotal;
+        return this.prodTotal;
     }
 
-    //TODO: atualizar este valor sempre que há uma operação que incrementa outro fruto a um determinado ano
-    
-    private void setProdTotal(int prodTotal) {
-        this.prodTotal=prodTotal;
-    } 
+    private void incrementProducao(int prodTotal) {
+        this.prodTotal += prodTotal;
+    }
 
-    // LinkedList
+    // TreeSet
 
     public boolean addAnoProducao(ProducaoAno ano) {
         if (ano == null)
             throw new IllegalArgumentException("erro: ano invalido");
-        
-        return this.producaoAnual.add(ano);
+
+        boolean ok = this.producaoAnual.add(ano);
+        if (ok)
+            incrementProducao(ano.getProdAnual());
+        return ok;
     }
 
     public boolean addAllAnos(Collection<ProducaoAno> producoes) {
@@ -81,15 +77,16 @@ public class Pais {
         return this.producaoAnual.addAll(producoes);
     }
 
-    public ListIterator<ProducaoAno> getIteradorAnos() {
-        return this.producaoAnual.listIterator();
-    }
-
-    public ListIterator<ProducaoAno> getIteradorAnos(int indice) {
-        return this.producaoAnual.listIterator(indice);
-    }
-
     // Overrides
+
+	@Override
+	public Iterator<ProducaoAno> iterator() {
+		return this.producaoAnual.iterator();
+	}
+
+    public Iterator<ProducaoAno> iteradorDecrescente() {
+        return this.producaoAnual.descendingIterator();
+    }
 
     @Override
     public String toString() {
@@ -120,5 +117,4 @@ public class Pais {
 
         return result;
     }
-
 }

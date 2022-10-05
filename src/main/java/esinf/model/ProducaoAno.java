@@ -1,29 +1,28 @@
 package esinf.model;
 
-import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Iterator;
 
 
-public class ProducaoAno implements Comparable<ProducaoAno> {
+public class ProducaoAno implements Comparable<ProducaoAno>, Iterable<ProducaoFrutoPorPaisPorAno> {
 
+    // Key: FrutoID
     private HashMap <Integer, ProducaoFrutoPorPaisPorAno> prodAnual;
     private int quantidadeProdAnual;
     // TODO: ver se int chega (provavelmente sim?)
-    private LocalDate ano;
+    private int ano;
 
-    public ProducaoAno(LocalDate ano) {
+    public ProducaoAno(int ano) {
         // estimativa para reduzir hashing
         final int estimativa = 0x10;
         this.prodAnual = new HashMap<>(estimativa);
         setProdAnual(0);
         this.ano = ano;
-        
+
     }
 
-
-    public ProducaoAno(int ano) {
-        this(LocalDate.ofYearDay(ano, 1));
+    public ProducaoFrutoPorPaisPorAno getProducaoFruto(int frutoId) {
+        return this.prodAnual.get(frutoId);
     }
 
     public boolean addProducaoFruto(Fruto fruto,int quantidadeProd){
@@ -41,10 +40,10 @@ public class ProducaoAno implements Comparable<ProducaoAno> {
     }
 
     public int getAno() {
-        return ano.getYear();
+        return this.ano;
     }
 
-    public Iterator<ProducaoFrutoPorPaisPorAno> getIterador() {
+    public Iterator<ProducaoFrutoPorPaisPorAno> iterator() {
         return this.prodAnual.values().iterator();
     }
 

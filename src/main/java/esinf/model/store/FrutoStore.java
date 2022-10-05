@@ -8,9 +8,9 @@ public class FrutoStore {
     private HashMap<Integer,Fruto> frutoStore;
 
     public FrutoStore(){
-        frutoStore= new HashMap<>();    
-    }    
-    
+        frutoStore= new HashMap<>();
+    }
+
     public Fruto getFruto(int idFruto){
         return frutoStore.get(idFruto);
     }
@@ -20,16 +20,16 @@ public class FrutoStore {
         return frutoStore.containsKey(idFruto);
     }
 
-    
-    public Fruto createFruto(int idFruto, String nomeFruto){
+
+    /* public Fruto createFruto(int idFruto, String nomeFruto){
         if(!checkFrutoExistence(idFruto))// se já existir vai nao vai adicionar nada ao hashMap
-            return new Fruto(nomeFruto, idFruto);            
+            return new Fruto(nomeFruto, idFruto);
         else
             throw new NullPointerException(String.format("Element already exist: Fruto %s"+nomeFruto));
-    }
+    } */
 
 
-    //retorna falso caso exista já um elemento destes 
+    //retorna falso caso exista já um elemento destes
     public boolean addFruto(int idFruto, String nomeFruto){
         return frutoStore.put(idFruto,new Fruto(nomeFruto, idFruto))!= null;
     }
