@@ -5,7 +5,9 @@ import esinf.model.Pais;
 import java.util.HashMap;
 import java.util.Iterator;
 
-public class PaisStore {
+import java.util.stream.Stream;
+
+public class PaisStore  /*implements Iterable<Pais>*/{
 
     private HashMap<Integer,Pais> paisStore;
 
@@ -14,6 +16,11 @@ public class PaisStore {
         // Taiwan + https://www.worldometers.info/geography/how-many-countries-are-there-in-the-world/
         final int numCountries = 196;
         this.paisStore = new HashMap<>(numCountries);
+    }
+
+
+    public Stream<Pais> getOrderStream() {
+        return this.paisStore.values().stream();
     }
 
     public int getSize() {
@@ -40,4 +47,15 @@ public class PaisStore {
     public Iterator<Pais> getIteradorPais() {
         return this.paisStore.values().iterator();
     }
+
+    //TODO: implemnt iterator
+    /* (non-Javadoc)
+     * @see java.lang.Iterable#iterator()
+     */
+    // @Override
+    // public Iterator iterator() {
+    //     // TODO Auto-generated method stub
+    //     return this.paisStore.values().iterator();
+    // }
+    
 }
