@@ -1,19 +1,19 @@
 package esinf.model;
 
 import java.util.Collection;
-import java.util.LinkedList;
+import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
+import java.util.TreeSet;
 
-public class Pais {
+public class Pais implements Iterable<ProducaoAno> {
 
-    private LinkedList<ProducaoAno> producaoAnual;
+    private TreeSet<ProducaoAno> producaoAnual;
 
     private String nomePais;
     private int paisCodigo;
 
     public Pais(String nomePais, int paisCodigo) {
-        this.producaoAnual = new LinkedList<>();
+        this.producaoAnual = new TreeSet<>(ProducaoAno::compareTo);
 
         setNomePais(nomePais);
         setCodigoPais(paisCodigo);
@@ -46,7 +46,7 @@ public class Pais {
         return paisCodigo;
     }
 
-    // LinkedList
+    // TreeSet
 
     public boolean addAnoProducao(ProducaoAno ano) {
         if (ano == null)
@@ -62,15 +62,16 @@ public class Pais {
         return this.producaoAnual.addAll(producoes);
     }
 
-    public ListIterator<ProducaoAno> getIteradorAnos() {
-        return this.producaoAnual.listIterator();
-    }
-
-    public ListIterator<ProducaoAno> getIteradorAnos(int indice) {
-        return this.producaoAnual.listIterator(indice);
-    }
-
     // Overrides
+
+	@Override
+	public Iterator<ProducaoAno> iterator() {
+		return this.producaoAnual.iterator();
+	}
+
+    public Iterator<ProducaoAno> iteradorDecrescente() {
+        return this.producaoAnual.descendingIterator();
+    }
 
     @Override
     public String toString() {
@@ -101,5 +102,4 @@ public class Pais {
 
         return result;
     }
-
 }

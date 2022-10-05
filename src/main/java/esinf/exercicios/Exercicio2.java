@@ -58,7 +58,7 @@ public class Exercicio2 implements Runnable {
             throw new RuntimeException("erro: nao ha paises armazenados");
 
         paisIter.forEachRemaining(p -> {
-            var iter = p.getIteradorAnos();
+            var iter = p.iterator();
             while (iter.hasNext()) {
                 var ano = iter.next();
                 int qtd = 0;
