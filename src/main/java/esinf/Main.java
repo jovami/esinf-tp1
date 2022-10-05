@@ -15,7 +15,7 @@ public class Main {
         App.getInstance(); // init App
 
         var exercicios = new LinkedList<Runnable>();
-        exercicios.add(new Exercicio1());
+        //exercicios.add(new Exercicio1());
         exercicios.add(new Exercicio2());
         exercicios.add(new Exercicio3());
         exercicios.add(new Exercicio4());
