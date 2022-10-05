@@ -2,6 +2,9 @@ package esinf.exercicios;
 
 import esinf.App;
 import esinf.model.CSVReader;
+import esinf.model.Fruto;
+import esinf.model.Pais;
+import esinf.model.ProducaoAno;
 
 import java.io.File;
 import java.util.List;
@@ -30,9 +33,31 @@ public class Exercicio1 implements Runnable {
         }
     }
 
+    private enum Colunas{
+        NOMEPAIS(3), IDPAIS(2), NOMEFRUTO(7), IDFRUTO(6), ANOPRODUCAO(8), QTDPRODUCAO(11);
+
+        private int i;
+
+        Colunas(int i) {
+            this.i = i;
+        }
+
+        private int getColuna(){
+            return i;
+        }
+    }
+
     private void saveinfo(List<String[]> list) {
         for (String[] info : list) {
+            savePais(info[Colunas.NOMEPAIS.getColuna()], Integer.parseInt(info[Colunas.IDPAIS.getColuna()]));
+            saveFruto(info[Colunas.NOMEFRUTO.getColuna()], Integer.parseInt(info[Colunas.IDFRUTO.getColuna()]));
 
+            Fruto fruto = app.getFrutoStore().getFruto(Colunas.IDPAIS.getColuna());
+            Pais pais = app.getPaisStore().getPais(Colunas.IDPAIS.getColuna());
+            pais.addAnoProducao(pais.createAnoProducao(Colunas.ANOPRODUCAO.getColuna()));
+
+            ProducaoAno producaoAno = pais.getProducaoAno(Colunas.ANOPRODUCAO.getColuna());
+            producaoAno.addProducaoFruto(fruto, Colunas.QTDPRODUCAO.getColuna());
         }
     }
 
@@ -41,11 +66,12 @@ public class Exercicio1 implements Runnable {
         return app.getPaisStore().addPais(id, pais);
     }
 
-    private boolean saveFrutas(String fruta, int id){
-        return app.get(id, pais);
+    //TODO excep instead:
+    private boolean saveFruto(String fruto, int id){
+        return app.getFrutoStore().addFruto(id, fruto);
     }
 
-    private final String FILE_DIRECTORY = null;
+    private final String FILE_DIRECTORY = "/Users/diogonapoles/Downloads/FAOSTAT_data_9-7-2022 (1)/FAOSTAT_data_en_9-7-2022_SMALL.csv";
 
     public File fileDirReader() throws Exception {
         File dir = new File(FILE_DIRECTORY);

@@ -1,13 +1,10 @@
 package esinf.model;
 
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.TreeSet;
+import java.util.*;
 
 public class Pais implements Iterable<ProducaoAno> {
 
-    private TreeSet<ProducaoAno> producaoAnual;
+    private TreeMap<Integer, ProducaoAno> producaoAnual;
 
     private String nomePais;
     private int paisCodigo;
@@ -15,7 +12,7 @@ public class Pais implements Iterable<ProducaoAno> {
 
 
     public Pais(String nomePais, int paisCodigo) {
-        this.producaoAnual = new TreeSet<>(ProducaoAno::compareTo);
+        this.producaoAnual = new TreeMap<>(Integer::compareTo);
 
         this.prodTotal = 0;
         setNomePais(nomePais);
@@ -24,7 +21,7 @@ public class Pais implements Iterable<ProducaoAno> {
 
     public Pais(String nome, int codigo, Collection<ProducaoAno> producoes) {
         this(nome, codigo);
-        producoes.forEach(p -> addAnoProducao(p));
+        producoes.forEach(this::addAnoProducao);
     }
 
 
@@ -64,28 +61,36 @@ public class Pais implements Iterable<ProducaoAno> {
         if (ano == null)
             throw new IllegalArgumentException("erro: ano invalido");
 
-        boolean ok = this.producaoAnual.add(ano);
+        boolean ok = this.producaoAnual.putIfAbsent(ano.getAno(),ano) != null;
         if (ok)
             incrementProducao(ano.getProdAnual());
         return ok;
     }
 
-    public boolean addAllAnos(Collection<ProducaoAno> producoes) {
+    public ProducaoAno createAnoProducao(int ano) {
+        return new ProducaoAno(ano);
+    }
+
+    public void addAllAnos(Collection<ProducaoAno> producoes) {
         if (producoes == null || producoes.isEmpty())
             throw new IllegalArgumentException("erro: anos invalidos");
 
-        return this.producaoAnual.addAll(producoes);
+        producoes.forEach(p -> this.producaoAnual.putIfAbsent(p.getAno(), p));
+    }
+
+    public ProducaoAno getProducaoAno(Integer ano){
+        return producaoAnual.get(ano);
     }
 
     // Overrides
 
 	@Override
 	public Iterator<ProducaoAno> iterator() {
-		return this.producaoAnual.iterator();
+		return this.producaoAnual.values().iterator();
 	}
 
     public Iterator<ProducaoAno> iteradorDecrescente() {
-        return this.producaoAnual.descendingIterator();
+        return this.producaoAnual.descendingMap().values().iterator();
     }
 
     @Override
@@ -117,4 +122,6 @@ public class Pais implements Iterable<ProducaoAno> {
 
         return result;
     }
+
+
 }

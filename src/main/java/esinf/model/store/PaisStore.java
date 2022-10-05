@@ -33,7 +33,7 @@ public class PaisStore implements Iterable<Pais> {
 
     public boolean addPais(int id, String paisNome) {
         if (this.paisStore.containsKey(id))
-            return false; // throw excep instead:
+            return false; //TODO excep instead:
 
         return this.paisStore.put(id, new Pais(paisNome,id)) != null;
     }

@@ -31,6 +31,9 @@ public class FrutoStore {
 
     //retorna falso caso exista já um elemento destes
     public boolean addFruto(int idFruto, String nomeFruto){
+        if (this.frutoStore.containsKey(idFruto))
+            return false; //TODO excep instead:
+
         return frutoStore.put(idFruto,new Fruto(nomeFruto, idFruto))!= null;
     }
 
