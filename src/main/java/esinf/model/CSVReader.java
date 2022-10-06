@@ -16,7 +16,7 @@ public class CSVReader {
 
     private final int EXPECTED_COLUMNS;
 
-    private final String delimiter;
+    private String delimiter;
 
     private static final char BOM = '\ufeff';
 
@@ -26,7 +26,7 @@ public class CSVReader {
 
         this.header = header;
         this.EXPECTED_COLUMNS = header.getColumnCount();
-        this.delimiter = String.format("\"%s\"", header.getDelimiter());
+        this.delimiter = header.getDelimiter();
     }
 
     public CSVReader() {
@@ -45,15 +45,20 @@ public class CSVReader {
 
             if (!isHeader(line))
                 throw new Exception("error: the header of the file is INVALID");
-
+            boolean quotationMarks = checkQuotationMark(br);
+            if (quotationMarks){
+                delimiter = '"' + delimiter + '"';
+            }
             while ((line = br.readLine()) != null) {
                 tmp = line.split(delimiter);
                 if (tmp.length != EXPECTED_COLUMNS) {
                     throw new Exception(String.format("error: the csv file contains invalid data!\nOffending Line:\n\t%s", line));
                 } else {
                     // remove " at begining and " at end
-                    tmp[0] = tmp[0].substring(1);
-                    tmp[tmp.length-1] = tmp[tmp.length-1].substring(0, tmp.length-2);
+                    if(quotationMarks) {
+                        tmp[0] = tmp[0].substring(1);
+                        tmp[tmp.length - 1] = tmp[tmp.length - 1].substring(0, tmp.length - 2);
+                    }
                     info.add(tmp);
                 }
             }
@@ -84,5 +89,13 @@ public class CSVReader {
 
         if (buf[0] != BOM)
             reader.reset();
+    }
+
+    private boolean checkQuotationMark(Reader reader) throws IOException {
+        reader.mark(1);
+        char[] buf = new char[1];
+        reader.read(buf);
+        reader.reset();
+        return buf[0] == '"';
     }
 }
