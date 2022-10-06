@@ -16,7 +16,7 @@ import esinf.model.store.PaisStore;
 public class Exercicio3 implements Runnable {
 
     private App app;
-    
+
     private PaisStore paisStore;
     private FrutoStore frutoStore;
 
@@ -25,7 +25,7 @@ public class Exercicio3 implements Runnable {
 
     public Exercicio3() {
         app = App.getInstance();
-        
+
         paisStore = app.getPaisStore();
         frutoStore = app.getFrutoStore();
     }
@@ -35,7 +35,7 @@ public class Exercicio3 implements Runnable {
 
         //como serao apresentadas os paises
         instancias();
-        
+
         //TODO: como receber este valor
         int producaoMax=901;
         int sumTotal=0;
@@ -64,20 +64,20 @@ public class Exercicio3 implements Runnable {
     }
 
     //INSTANCIAS PARA TESTES
-    private void instancias() { 
+    private void instancias() {
         //PESSEGO
         final int FRUTOID=203;
-        final String FRUTONOME="pessego";        
+        final String FRUTONOME="pessego";
         frutoStore.addFruto(FRUTOID,FRUTONOME);
         Fruto pessego=frutoStore.getFruto(FRUTOID);
 
 
         //pera
         final int PERAID=203;
-        final String PERANOME="pessego";        
+        final String PERANOME="pessego";
         frutoStore.addFruto(PERAID,PERANOME);
         Fruto pera=frutoStore.getFruto(PERAID);
-        
+
 
 
         final int ANOPROD=2003;
@@ -89,44 +89,49 @@ public class Exercicio3 implements Runnable {
 
         paisStore.addPais(PORTUGALID, PORTUGAL);
         Pais portugal = paisStore.getPais(PORTUGALID);
-        portugal.addAnoProducao(portugal.createAnoProducao(ANOPROD));
-        portugal.addProducaoFruto(ANOPROD, pessego, PORTUGALPESSEGOPROD);
+        var prodPT = portugal.createAnoProducao(ANOPROD);
+        prodPT.addProducaoFruto(pessego, PORTUGALPESSEGOPROD);
+        portugal.addAnoProducao(prodPT);
 
         //ESPANHA
         final int ESPANHAID=1245;
         final int ESPANHAPESSEGOPROD=111;
         final String ESPANHA="Espanha";
-        
+
         paisStore.addPais(ESPANHAID, ESPANHA);
         Pais espanha = paisStore.getPais(ESPANHAID);
-        espanha.addAnoProducao(espanha.createAnoProducao(ANOPROD));
-        espanha.addProducaoFruto(ANOPROD,pessego,ESPANHAPESSEGOPROD);
+        var prodES = espanha.createAnoProducao(ANOPROD);
+        prodES.addProducaoFruto(pessego, ESPANHAPESSEGOPROD);
+        espanha.addAnoProducao(prodES);
 
         //GRECIA
         final int GRECIAID=1200;
         final int GRECIAPESSEGOPROD=300;
         final String GRECIA="Grecia";
-        
+
         paisStore.addPais(GRECIAID, GRECIA);
         Pais grecia = paisStore.getPais(GRECIAID);
-        grecia.addAnoProducao(grecia.createAnoProducao(ANOPROD));
-        grecia.addProducaoFruto(ANOPROD,pessego,GRECIAPESSEGOPROD);
+        var prodGR = grecia.createAnoProducao(ANOPROD);
+        prodGR.addProducaoFruto(pessego, GRECIAPESSEGOPROD);
+        grecia.addAnoProducao(prodGR);
 
-        
+
         //ITALIA
         final int ITALIAID=120;
         final int ITALIAPESSEGOPROD=200;
         final int ITALIAPERAPROD=200;
         final String ITALIA="Italia";
-        
+
         paisStore.addPais(ITALIAID, ITALIA);
         Pais italia = paisStore.getPais(ITALIAID);
-        italia.addAnoProducao(italia.createAnoProducao(ANOPROD));
-        italia.addProducaoFruto(ANOPROD,pessego,ITALIAPESSEGOPROD);
-        italia.addAnoProducao(italia.createAnoProducao(ANOPROD2));
-        italia.addProducaoFruto(ANOPROD2,pera,ITALIAPERAPROD);
 
+        var prodIT1 = italia.createAnoProducao(ANOPROD);
+        prodIT1.addProducaoFruto(pessego, ITALIAPESSEGOPROD);
+        italia.addAnoProducao(prodIT1);
 
+        var prodIT2 = italia.createAnoProducao(ANOPROD2);
+        prodIT2.addProducaoFruto(pera, ITALIAPERAPROD);
+        italia.addAnoProducao(prodIT2);
     }
 
     // Exercicio aqui
