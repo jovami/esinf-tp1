@@ -24,13 +24,13 @@ public class ProducaoAno implements Comparable<ProducaoAno>, Iterable<ProducaoFr
         return this.prodAnual.get(frutoId);
     }
 
-    public boolean addProducaoFruto(Fruto fruto, int quantidadeProd) {
+    public void addProducaoFruto(Fruto fruto, int quantidadeProd) {
         var prodFruto = new ProducaoFrutoPorPaisPorAno(fruto, quantidadeProd);
-        boolean ok = this.prodAnual.putIfAbsent(fruto.getId(), prodFruto) == null;
 
-        if (ok)
-            incrementProdAnual(prodFruto.getQuantidadeProducao());
-        return ok;
+        var oldProdFruto = this.prodAnual.put(fruto.getId(), prodFruto);
+
+        int qtd = prodFruto.getQuantidadeProducao();
+        incrementProdAnual(qtd - (oldProdFruto != null ? oldProdFruto.getQuantidadeProducao() : 0));
     }
 
     private void incrementProdAnual(int prod) {

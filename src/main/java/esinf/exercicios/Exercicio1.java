@@ -58,7 +58,14 @@ public class Exercicio1 implements Runnable {
 
                 Pais pais = app.getPaisStore().getPais(Integer.parseInt(info[Colunas.IDPAIS.getColuna()]));
 
-                ProducaoAno producaoAno = pais.createAnoProducao(Integer.parseInt(info[Colunas.ANOPRODUCAO.getColuna()]));
+                ProducaoAno producaoAno;
+                int ano = Integer.parseInt(info[Colunas.ANOPRODUCAO.getColuna()]);
+
+                if (pais.containsAnoProducao(ano))
+                    producaoAno = pais.getProducaoAno(ano);
+                else
+                    producaoAno = pais.createAnoProducao(ano);
+
                 Fruto fruto = app.getFrutoStore().getFruto(Integer.parseInt(info[Colunas.IDFRUTO.getColuna()]));
                 producaoAno.addProducaoFruto(fruto, Integer.parseInt(info[Colunas.QTDPRODUCAO.getColuna()]));
 

@@ -59,16 +59,18 @@ public class Pais implements Iterable<ProducaoAno> {
     }
 
     // TreeSet
+    public boolean containsAnoProducao(int ano) {
+        return this.producaoAnual.containsKey(ano);
+    }
 
-    public boolean addAnoProducao(ProducaoAno ano) {
+    public void addAnoProducao(ProducaoAno ano) {
         if (ano == null)
             throw new IllegalArgumentException("erro: ano invalido");
 
-        /* put returns the previous value */
-        boolean ok = this.producaoAnual.putIfAbsent(ano.getAno(),ano) == null;
-        if (ok)
-            incrementProducao(ano.getProdAnual());
-        return ok;
+        ProducaoAno oldAno = this.producaoAnual.put(ano.getAno(), ano);
+
+        int qtd = ano.getProdAnual();
+        incrementProducao(qtd - (oldAno != null ? oldAno.getProdAnual() : 0));
     }
 
     public ProducaoAno createAnoProducao(int ano) {
