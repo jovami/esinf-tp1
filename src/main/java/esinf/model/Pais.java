@@ -67,13 +67,6 @@ public class Pais implements Iterable<ProducaoAno> {
         return ok;
     }
 
-    //pedir o inteiro ou o anoProducao?
-    public void addProducaoFruto(int ano,Fruto fruto,int quantidadeProd) {   
-        getProducaoAno(ano).addProducaoFruto(fruto, quantidadeProd);
-        incrementProducao(quantidadeProd);
-        //throw caso o ano não exista??
-    }
-
     public ProducaoAno createAnoProducao(int ano) {
         return new ProducaoAno(ano);
     }
