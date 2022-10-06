@@ -3,6 +3,7 @@ package esinf.exercicios;
 import java.io.File;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.util.Iterator;
 import java.util.List;
 
 import esinf.App;
@@ -29,7 +30,6 @@ public class Exercicio1 implements Runnable {
     public void run() {
         try {
             File dir = fileDirReader();
-
             saveinfo(csvReader.readCSV(dir));
         } catch (Exception e) {
             System.out.println(e);
@@ -52,6 +52,7 @@ public class Exercicio1 implements Runnable {
 
     private void saveinfo(List<String[]> list) {
         for (String[] info : list) {
+
             // TODO: ha linhas sem quantidade NENHUMA de producao; ver linha 242 do ficheiro
             // fazer info[Colunas.QTDPRODUCAO.getColuna()] = "0" ????
             if (info[Colunas.QTDPRODUCAO.getColuna()].matches("[0-9]+")) {
@@ -86,8 +87,7 @@ public class Exercicio1 implements Runnable {
         return app.getFrutoStore().addFruto(id, fruto);
     }
 
-    // "/Users/diogonapoles/Downloads/FAOSTAT_data_9-7-2022 (1)/FAOSTAT_data_en_9-7-2022_SMALL.csv"
-    private final String FILE_NAME = "FAOSTAT_data_en_9-7-2022_BIG.csv";
+    private final String FILE_NAME = "FAOSTAT_data_en_9-7-2022_SMALL.csv";
 
     private File getFileFromResource(String fileName) throws URISyntaxException {
         ClassLoader classLoader = getClass().getClassLoader();
