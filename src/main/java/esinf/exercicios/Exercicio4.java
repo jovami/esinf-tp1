@@ -26,13 +26,15 @@ public class Exercicio4 implements Runnable {
     @Override
     public void run() {
 
-        app.getPaisStore().addPais(174, "Portugal");
+        /*app.getPaisStore().addPais(174, "Portugal");
         app.getPaisStore().addPais(234, "Espanha");
         app.getFrutoStore().addFruto(515, "Apples");
         app.getFrutoStore().addFruto(486, "Bananas");
+
+         */
         int idFrutoEscolhido = 515;
 
-
+/*
         Pais pais = app.getPaisStore().getPais(174);
         Pais pais1 = app.getPaisStore().getPais(234);
         Fruto frutoApples = app.getFrutoStore().getFruto(515);
@@ -99,6 +101,8 @@ public class Exercicio4 implements Runnable {
         System.out.println("Frutonome=" + pais.getProducaoAno(2002).getProducaoFruto(486).getFruto().getNome() +
                 " Ano=" + pais.getProducaoAno(2002).getAno() + " Quantidadeproducao=" + pais.getProducaoAno(2002).getProducaoFruto(486).getQuantidadeProducao());
 
+
+ */
 
         Iterator<Pais> paisIter = app.getPaisStore().iterator();
         ArrayList<Pair<Pais, Integer>> listProduction = new ArrayList<>();
