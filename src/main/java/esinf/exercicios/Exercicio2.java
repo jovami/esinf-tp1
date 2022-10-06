@@ -7,8 +7,8 @@ import java.util.List;
 import java.util.function.IntPredicate;
 
 import esinf.App;
-import esinf.model.Fruto;
 import esinf.model.Pais;
+import esinf.model.ProducaoAno;
 import esinf.util.ListPrinter;
 import esinf.util.Triplet;
 
@@ -32,8 +32,8 @@ public class Exercicio2 implements Runnable {
     @Override
     public void run() throws RuntimeException
     {
-        int id = 12;
-        int quantidade = 200;
+        int id = 515;
+        int quantidade = 14_000;
 
         List<Triplet<Pais, Integer, Integer>> filtered;
         filtered = filtrarPaises(id, q -> q >= quantidade);
@@ -49,7 +49,7 @@ public class Exercicio2 implements Runnable {
     }
 
     public List<Triplet<Pais, Integer, Integer>>
-        filtrarPaises(int frutoId, IntPredicate condicao)
+    filtrarPaises(int frutoId, IntPredicate condicao)
     {
         var triplets = new LinkedList<Triplet<Pais, Integer, Integer>>();
         Iterator<Pais> paisIter = app.getPaisStore().iterator();
@@ -58,22 +58,23 @@ public class Exercicio2 implements Runnable {
             throw new RuntimeException("erro: nao ha paises armazenados");
 
         paisIter.forEachRemaining(p -> {
+            if (p == null)
+                return;
+
             var iter = p.iterator();
             while (iter.hasNext()) {
-                var ano = iter.next();
-                int qtd = 0;
-                if (condicao.test(qtd)) {
-                    triplets.add(new Triplet<Pais,Integer,Integer>(p, ano.getAno(), qtd));
-                    return;
+                ProducaoAno ano;
+
+                if ((ano = iter.next()) != null) {
+                    var prodFruto = ano.getProducaoFruto(frutoId);
+                    int qtd;
+                    if (prodFruto != null
+                        && condicao.test((qtd = prodFruto.getQuantidadeProducao())))
+                    {
+                        triplets.add(new Triplet<Pais,Integer,Integer>(p, ano.getAno(), qtd));
+                        return; // move on to the next Pais
+                    }
                 }
-                /* TODO: mudar para este */
-                // var ano = iter.next();
-                // int qtd;
-                // Fruto f = ano.getFruto(frutoId);
-                // if (f != null && condicao.test((qtd = f.getProducao()))) {
-                //     triplets.add(new Triplet<Pais,Integer,Integer>(p, ano.getAno(), qtd));
-                //     return;
-                // }
             }
         });
 
@@ -82,7 +83,7 @@ public class Exercicio2 implements Runnable {
 
     /* E type alias */
     public <E extends Triplet<Pais, Integer, Integer>> List<Pais>
-        sortPais(List<E> list, Comparator<E> cmp)
+    sortPais(List<E> list, Comparator<E> cmp)
     {
         var result = new LinkedList<Pais>();
 

@@ -25,7 +25,7 @@ public class ListPrinter {
             stream = System.out;
 
         if (header != null)
-            stream.print(header);
+            stream.println(header);
 
         Iterator<E> iter = list.iterator();
         while (iter.hasNext())
