@@ -18,7 +18,7 @@ public class PaisStore implements Iterable<Pais> {
     }
 
 
-    public Stream<Pais> getOrderStream() {
+    public Stream<Pais> getStream() {
         return this.paisStore.values().stream();
     }
 
@@ -42,6 +42,7 @@ public class PaisStore implements Iterable<Pais> {
         // TODO: nao returnar ref?
         return this.paisStore.get(id);
     }
+    
 
     public Iterator<Pais> iterator() {
         return this.paisStore.values().iterator();
