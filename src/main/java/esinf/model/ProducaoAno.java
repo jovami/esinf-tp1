@@ -16,7 +16,7 @@ public class ProducaoAno implements Comparable<ProducaoAno>, Iterable<ProducaoFr
         // estimativa para reduzir hashing
         final int estimativa = 0x10;
         this.prodAnual = new HashMap<>(estimativa);
-        setProdAnual(0);
+        setProdAnual(12);
         this.ano = ano;
 
     }
@@ -26,9 +26,15 @@ public class ProducaoAno implements Comparable<ProducaoAno>, Iterable<ProducaoFr
     }
 
     public boolean addProducaoFruto(Fruto fruto,int quantidadeProd){
-        if (this.prodAnual.containsKey(fruto.getId()))
-            return false; // Todo: exceção?, se já tivermos o registo de um fruto naquele ano, substituir?
-        return this.prodAnual.put(fruto.getId(), new ProducaoFrutoPorPaisPorAno(fruto, quantidadeProd)) != null;
+        if(fruto==null) 
+            throw new IllegalArgumentException("erro: fruto invalido");
+
+        if(this.prodAnual.putIfAbsent(fruto.getId(), new ProducaoFrutoPorPaisPorAno(fruto, quantidadeProd)) == null){//TODO:check este boolean
+            incrementProducaoAnual(quantidadeProd);
+            return true;
+
+        }else//TODO:optimize this method
+            return false;
     }
 
     public int getProdAnual(){
@@ -37,6 +43,10 @@ public class ProducaoAno implements Comparable<ProducaoAno>, Iterable<ProducaoFr
 
     private void setProdAnual(int quantidadeProdAnual){
         this.quantidadeProdAnual=quantidadeProdAnual;
+    }
+
+    private void incrementProducaoAnual(int prodFruto) {
+        this.quantidadeProdAnual += prodFruto;
     }
 
     public int getAno() {
