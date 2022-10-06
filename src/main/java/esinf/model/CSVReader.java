@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.Reader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,6 +17,8 @@ public class CSVReader {
     private final int EXPECTED_COLUMNS;
 
     private final String delimiter;
+
+    private static final char BOM = '\ufeff';
 
     public CSVReader(CSVHeader header) {
         // https://stackoverflow.com/questions/1757065/java-splitting-a-comma-separated-string-but-ignoring-commas-in-quotes/1757107#1757107
@@ -37,6 +40,7 @@ public class CSVReader {
         String[] tmp;
 
         try (var br = new BufferedReader(new FileReader(dir))) {
+            maybeSkipBOM(br);
             line = br.readLine();
 
             if (!isHeader(line))
@@ -64,4 +68,21 @@ public class CSVReader {
         return line.trim().equalsIgnoreCase(this.header.toString());
     }
 
+    /**
+     * Some CSV files start with a BOM (Byte-Order-Mark) character,
+     * which messes up with parsing the file
+     * This method attempts to circumvent this issue by scanning the
+     * first character of the stream being read and resetting the file
+     * pointer to the beggining in case it isn't a BOM
+     * @param reader
+     * @throws IOException
+     */
+    private void maybeSkipBOM(Reader reader) throws IOException {
+        reader.mark(1);
+        char[] buf = new char[1];
+        reader.read(buf);
+
+        if (buf[0] != BOM)
+            reader.reset();
+    }
 }
