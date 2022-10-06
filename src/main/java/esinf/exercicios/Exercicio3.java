@@ -7,7 +7,6 @@ import java.util.stream.Stream;
 import esinf.App;
 import esinf.model.Fruto;
 import esinf.model.Pais;
-import esinf.model.ProducaoAno;
 import esinf.model.store.FrutoStore;
 import esinf.model.store.PaisStore;
 
@@ -34,48 +33,56 @@ public class Exercicio3 implements Runnable {
     @Override
     public void run() {
 
+        //como serao apresentadas os paises
         instancias();
+        
+        //TODO: como receber este valor
+        int producaoMax=901;
+        int sumTotal=0;
+
         //Stream
-
         Stream<Pais>  paisStream = paisStore.getStream();
-        List<Pais> listPais = paisStream.sorted(cmpPais).toList();
+        List<Pais> listPais = paisStream.sorted(cmpPais).toList();//list ordenada por ordem decrescente
 
-        System.out.printf("Pais por ordem crescente:\n");
+        //    System.out.println(listPais.toString()); //list ordenada
+
+
+        System.out.printf("Pais por ordem decrescente:\n");
+
+
         for (Pais pais : listPais) {
-            System.out.printf("Pais:    %s  | ProdTotal:    %d \n",pais.getNomePais(),pais.getProdTotal());
+            sumTotal += pais.getProdTotal();
+            System.out.printf("Pais:%s     Prod:%d\n",pais.getNomePais(),pais.getProdTotal());
+
+            if (sumTotal >= producaoMax){
+                //save this where??
+                break;
+            }
         }
 
 
-        // ^
-        /*
-            for(each pais ){
-                for(each ano){           calcular a produção anual
-
-                    for(each fruto){         sumar a produção de cada fruto
-
-
-                        Pais.producao+=fruto.getProduçao()
-
-
-                    }
-                }
-            }
-
-            armazenar por ordem decrescente
-            criar uma nova estrutura de dados para armazenar a ordem??
-
-        */
     }
 
-    private void instancias() {
+    //INSTANCIAS PARA TESTES
+    private void instancias() { 
         //PESSEGO
         final int FRUTOID=203;
         final String FRUTONOME="pessego";        
         frutoStore.addFruto(FRUTOID,FRUTONOME);
         Fruto pessego=frutoStore.getFruto(FRUTOID);
+
+
+        //pera
+        final int PERAID=203;
+        final String PERANOME="pessego";        
+        frutoStore.addFruto(PERAID,PERANOME);
+        Fruto pera=frutoStore.getFruto(PERAID);
         
-        //   Portugal
+
+
         final int ANOPROD=2003;
+        final int ANOPROD2=2003;
+        //   Portugal
         final int PORTUGALID=123;
         final int PORTUGALPESSEGOPROD=200;
         final String PORTUGAL="portugal";
@@ -87,13 +94,38 @@ public class Exercicio3 implements Runnable {
 
         //ESPANHA
         final int ESPANHAID=1245;
-        final int ESPANHAPESSEGOPROD=10;
+        final int ESPANHAPESSEGOPROD=111;
         final String ESPANHA="Espanha";
         
         paisStore.addPais(ESPANHAID, ESPANHA);
         Pais espanha = paisStore.getPais(ESPANHAID);
         espanha.addAnoProducao(espanha.createAnoProducao(ANOPROD));
         espanha.addProducaoFruto(ANOPROD,pessego,ESPANHAPESSEGOPROD);
+
+        //GRECIA
+        final int GRECIAID=1200;
+        final int GRECIAPESSEGOPROD=300;
+        final String GRECIA="Grecia";
+        
+        paisStore.addPais(GRECIAID, GRECIA);
+        Pais grecia = paisStore.getPais(GRECIAID);
+        grecia.addAnoProducao(grecia.createAnoProducao(ANOPROD));
+        grecia.addProducaoFruto(ANOPROD,pessego,GRECIAPESSEGOPROD);
+
+        
+        //ITALIA
+        final int ITALIAID=120;
+        final int ITALIAPESSEGOPROD=200;
+        final int ITALIAPERAPROD=200;
+        final String ITALIA="Italia";
+        
+        paisStore.addPais(ITALIAID, ITALIA);
+        Pais italia = paisStore.getPais(ITALIAID);
+        italia.addAnoProducao(italia.createAnoProducao(ANOPROD));
+        italia.addProducaoFruto(ANOPROD,pessego,ITALIAPESSEGOPROD);
+        italia.addAnoProducao(italia.createAnoProducao(ANOPROD2));
+        italia.addProducaoFruto(ANOPROD2,pera,ITALIAPERAPROD);
+
 
     }
 
