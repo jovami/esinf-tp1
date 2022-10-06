@@ -3,46 +3,49 @@ package esinf.model;
 import java.util.HashMap;
 import java.util.Iterator;
 
-
 public class ProducaoAno implements Comparable<ProducaoAno>, Iterable<ProducaoFrutoPorPaisPorAno> {
 
     // Key: FrutoID
-    private HashMap <Integer, ProducaoFrutoPorPaisPorAno> prodAnual;
+    private HashMap<Integer, ProducaoFrutoPorPaisPorAno> prodAnual;
+
     private int quantidadeProdAnual;
-    // TODO: ver se int chega (provavelmente sim?)
     private int ano;
 
     public ProducaoAno(int ano) {
         // estimativa para reduzir hashing
-        final int estimativa = 0x10;
-        this.prodAnual = new HashMap<>(estimativa);
-        setProdAnual(0);
-        this.ano = ano;
+        final int estimativa = 0x20;
 
+        this.prodAnual = new HashMap<>(estimativa);
+        this.quantidadeProdAnual = 0;
+        this.ano = ano;
     }
 
     public ProducaoFrutoPorPaisPorAno getProducaoFruto(int frutoId) {
         return this.prodAnual.get(frutoId);
     }
 
-    public boolean addProducaoFruto(Fruto fruto,int quantidadeProd){
-        if (this.prodAnual.containsKey(fruto.getId()))
-            return false; // Todo: exceção?, se já tivermos o registo de um fruto naquele ano, substituir?
-        return this.prodAnual.put(fruto.getId(), new ProducaoFrutoPorPaisPorAno(fruto, quantidadeProd)) != null;
+    public boolean addProducaoFruto(Fruto fruto, int quantidadeProd) {
+        var prodFruto = new ProducaoFrutoPorPaisPorAno(fruto, quantidadeProd);
+        boolean ok = this.prodAnual.putIfAbsent(fruto.getId(), prodFruto) == null;
+
+        if (ok)
+            incrementProdAnual(prodFruto.getQuantidadeProducao());
+        return ok;
     }
 
-    public int getProdAnual(){
-        return quantidadeProdAnual;
+    private void incrementProdAnual(int prod) {
+        this.quantidadeProdAnual += prod;
     }
 
-    private void setProdAnual(int quantidadeProdAnual){
-        this.quantidadeProdAnual=quantidadeProdAnual;
+    public int getProdAnual() {
+        return this.quantidadeProdAnual;
     }
 
     public int getAno() {
         return this.ano;
     }
 
+    @Override
     public Iterator<ProducaoFrutoPorPaisPorAno> iterator() {
         return this.prodAnual.values().iterator();
     }

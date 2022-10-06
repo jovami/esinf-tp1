@@ -5,11 +5,16 @@ public class ProducaoFrutoPorPaisPorAno {
     private Fruto fruto;
     private int quantidadeProducao;
 
+    public ProducaoFrutoPorPaisPorAno(Fruto fruto,int quantidadeProducao) {
+        setFruto(fruto);
+        setQuantidadeProducao(quantidadeProducao);
+    }
+
     public Fruto getFruto() {
         return fruto;
     }
 
-    public void setFruto(Fruto fruto) {
+    private void setFruto(Fruto fruto) {
         this.fruto = fruto;
     }
 
@@ -17,12 +22,7 @@ public class ProducaoFrutoPorPaisPorAno {
         return quantidadeProducao;
     }
 
-    public void setQuantidadeProducao(int quantidadeProducao) {
+    private void setQuantidadeProducao(int quantidadeProducao) {
         this.quantidadeProducao = quantidadeProducao;
     }
-
-    public ProducaoFrutoPorPaisPorAno(Fruto fruto,int quantidadeProducao){
-        setFruto(fruto); 
-        setQuantidadeProducao(quantidadeProducao);
-  }
 }

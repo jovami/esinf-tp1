@@ -57,13 +57,12 @@ public class Exercicio1 implements Runnable {
                 saveFruto(info[Colunas.NOMEFRUTO.getColuna()], Integer.parseInt(info[Colunas.IDFRUTO.getColuna()]));
 
                 Pais pais = app.getPaisStore().getPais(Integer.parseInt(info[Colunas.IDPAIS.getColuna()]));
-                pais.addAnoProducao(pais.createAnoProducao(Integer.parseInt(info[Colunas.ANOPRODUCAO.getColuna()])));
 
-
-                ProducaoAno producaoAno = pais.getProducaoAno(Integer.parseInt(info[Colunas.ANOPRODUCAO.getColuna()]));
-
+                ProducaoAno producaoAno = pais.createAnoProducao(Integer.parseInt(info[Colunas.ANOPRODUCAO.getColuna()]));
                 Fruto fruto = app.getFrutoStore().getFruto(Integer.parseInt(info[Colunas.IDFRUTO.getColuna()]));
                 producaoAno.addProducaoFruto(fruto, Integer.parseInt(info[Colunas.QTDPRODUCAO.getColuna()]));
+
+                pais.addAnoProducao(producaoAno);
             }
         }
     }
