@@ -1,6 +1,9 @@
 package esinf.model;
 
-import java.util.*;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+import java.util.TreeMap;
 
 public class Pais implements Iterable<ProducaoAno> {
 
@@ -61,7 +64,8 @@ public class Pais implements Iterable<ProducaoAno> {
         if (ano == null)
             throw new IllegalArgumentException("erro: ano invalido");
 
-        boolean ok = this.producaoAnual.putIfAbsent(ano.getAno(),ano) != null;
+        /* put returns the previous value */
+        boolean ok = this.producaoAnual.putIfAbsent(ano.getAno(),ano) == null;
         if (ok)
             incrementProducao(ano.getProdAnual());
         return ok;
@@ -75,7 +79,7 @@ public class Pais implements Iterable<ProducaoAno> {
         if (producoes == null || producoes.isEmpty())
             throw new IllegalArgumentException("erro: anos invalidos");
 
-        producoes.forEach(p -> this.producaoAnual.putIfAbsent(p.getAno(), p));
+        producoes.forEach(this::addAnoProducao);
     }
 
     public ProducaoAno getProducaoAno(Integer ano){
