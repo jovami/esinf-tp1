@@ -1,6 +1,8 @@
 package esinf.exercicios;
 
 import java.io.File;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.util.List;
 
 import esinf.App;
@@ -85,10 +87,20 @@ public class Exercicio1 implements Runnable {
     }
 
     // "/Users/diogonapoles/Downloads/FAOSTAT_data_9-7-2022 (1)/FAOSTAT_data_en_9-7-2022_SMALL.csv"
-    private final String FILE_DIRECTORY = "/home/mira/build/isep/esinf_tp1/FAOSTAT_data_en_9-7-2022_BIG.csv";
+    private final String FILE_NAME = "FAOSTAT_data_en_9-7-2022_BIG.csv";
+
+    private File getFileFromResource(String fileName) throws URISyntaxException {
+        ClassLoader classLoader = getClass().getClassLoader();
+        URL resource = classLoader.getResource(fileName);
+        if (resource == null) {
+            throw new IllegalArgumentException("error: file not found! " + fileName);
+        } else {
+            return new File(resource.toURI());
+        }
+    }
 
     public File fileDirReader() throws Exception {
-        File dir = new File(FILE_DIRECTORY);
+        File dir = getFileFromResource(FILE_NAME);
         if (dir.isFile() && dir.canRead())
             return dir;
         throw new Exception("erro: o ficheiro nao existe");
