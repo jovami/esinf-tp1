@@ -36,6 +36,7 @@ public class Exercicio3 implements Runnable {
     @Override
     public void run() {
 
+<<<<<<< HEAD
         Long producaoMax = 1299298911l;
 
         ArrayList<Pais> listPais = getPaisSorted();
@@ -48,6 +49,14 @@ public class Exercicio3 implements Runnable {
             System.out.printf("Os paises na base de dados não possuem uma producao suficiente para ultrapassar a producao desejada %d",producaoMax);
         
     }
+=======
+        //como serao apresentadas os paises
+        instancias();
+
+        //TODO: como receber este valor
+        int producaoMax=860;
+        int sumTotal=0;
+>>>>>>> dd4f61f ((feature/exercicio3)updated ex3 de acordo com as novas alterações nas incrementacoes das producoes)
 
     public ArrayList<Pais> getPaisSorted(){
         Stream<Pais>  paisStream = paisStore.getStream();
@@ -69,6 +78,7 @@ public class Exercicio3 implements Runnable {
         return -1;
     }
 
+<<<<<<< HEAD
     public void printPais(int numPais, List<Pais> listPais, long producaoMax) {
 
         int sumTotal=0;
@@ -86,6 +96,21 @@ public class Exercicio3 implements Runnable {
 
 
 
+=======
+        //System.out.println(listPais.toString()); //list ordenada
+
+        System.out.printf("Paises necessários para atingir um valor de producao total de %d :\n",producaoMax);
+        for (Pais pais : listPais) {
+            sumTotal += pais.getProdTotal();
+            System.out.printf("Pais:%s     Prod:%d\n",pais.getNomePais(),pais.getProdTotal());
+
+            if (sumTotal >= producaoMax){
+                System.out.printf("Prod total: %d\n",sumTotal);
+                break;
+            }
+        }
+    }
+>>>>>>> dd4f61f ((feature/exercicio3)updated ex3 de acordo com as novas alterações nas incrementacoes das producoes)
 
     //INSTANCIAS PARA TESTES
     private void instancias() {
