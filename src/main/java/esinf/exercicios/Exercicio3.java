@@ -7,6 +7,7 @@ import java.util.stream.Stream;
 import esinf.App;
 import esinf.model.Fruto;
 import esinf.model.Pais;
+import esinf.model.ProducaoAno;
 import esinf.model.store.FrutoStore;
 import esinf.model.store.PaisStore;
 
@@ -21,7 +22,7 @@ public class Exercicio3 implements Runnable {
     private FrutoStore frutoStore;
 
     private Comparator<Pais> cmpPais =
-        (t1, t2) -> Integer.compare(t2.getProdTotal(), t1.getProdTotal());
+        (p1, p2) -> Integer.compare(p2.getProdTotal(), p1.getProdTotal());
 
     public Exercicio3() {
         app = App.getInstance();
@@ -37,30 +38,25 @@ public class Exercicio3 implements Runnable {
         instancias();
 
         //TODO: como receber este valor
-        int producaoMax=901;
+        int producaoMax=860;
         int sumTotal=0;
 
         //Stream
         Stream<Pais>  paisStream = paisStore.getStream();
         List<Pais> listPais = paisStream.sorted(cmpPais).toList();//list ordenada por ordem decrescente
 
-        //    System.out.println(listPais.toString()); //list ordenada
+        //System.out.println(listPais.toString()); //list ordenada
 
-
-        System.out.printf("Pais por ordem decrescente:\n");
-
-
+        System.out.printf("Paises necessários para atingir um valor de producao total de %d :\n",producaoMax);
         for (Pais pais : listPais) {
             sumTotal += pais.getProdTotal();
             System.out.printf("Pais:%s     Prod:%d\n",pais.getNomePais(),pais.getProdTotal());
 
             if (sumTotal >= producaoMax){
-                //save this where??
+                System.out.printf("Prod total: %d\n",sumTotal);
                 break;
             }
         }
-
-
     }
 
     //INSTANCIAS PARA TESTES
@@ -73,7 +69,7 @@ public class Exercicio3 implements Runnable {
 
 
         //pera
-        final int PERAID=203;
+        final int PERAID=233;
         final String PERANOME="pessego";
         frutoStore.addFruto(PERAID,PERANOME);
         Fruto pera=frutoStore.getFruto(PERAID);
@@ -81,7 +77,8 @@ public class Exercicio3 implements Runnable {
 
 
         final int ANOPROD=2003;
-        final int ANOPROD2=2003;
+        final int ANOPROD2=2005;
+
         //   Portugal
         final int PORTUGALID=123;
         final int PORTUGALPESSEGOPROD=200;
@@ -89,7 +86,7 @@ public class Exercicio3 implements Runnable {
 
         paisStore.addPais(PORTUGALID, PORTUGAL);
         Pais portugal = paisStore.getPais(PORTUGALID);
-        var prodPT = portugal.createAnoProducao(ANOPROD);
+        ProducaoAno prodPT = portugal.createAnoProducao(ANOPROD);
         prodPT.addProducaoFruto(pessego, PORTUGALPESSEGOPROD);
         portugal.addAnoProducao(prodPT);
 
@@ -100,7 +97,7 @@ public class Exercicio3 implements Runnable {
 
         paisStore.addPais(ESPANHAID, ESPANHA);
         Pais espanha = paisStore.getPais(ESPANHAID);
-        var prodES = espanha.createAnoProducao(ANOPROD);
+        ProducaoAno prodES = espanha.createAnoProducao(ANOPROD);
         prodES.addProducaoFruto(pessego, ESPANHAPESSEGOPROD);
         espanha.addAnoProducao(prodES);
 
@@ -111,7 +108,7 @@ public class Exercicio3 implements Runnable {
 
         paisStore.addPais(GRECIAID, GRECIA);
         Pais grecia = paisStore.getPais(GRECIAID);
-        var prodGR = grecia.createAnoProducao(ANOPROD);
+        ProducaoAno prodGR = grecia.createAnoProducao(ANOPROD);
         prodGR.addProducaoFruto(pessego, GRECIAPESSEGOPROD);
         grecia.addAnoProducao(prodGR);
 
@@ -125,14 +122,13 @@ public class Exercicio3 implements Runnable {
         paisStore.addPais(ITALIAID, ITALIA);
         Pais italia = paisStore.getPais(ITALIAID);
 
-        var prodIT1 = italia.createAnoProducao(ANOPROD);
+        ProducaoAno prodIT1 = italia.createAnoProducao(ANOPROD);
         prodIT1.addProducaoFruto(pessego, ITALIAPESSEGOPROD);
         italia.addAnoProducao(prodIT1);
 
-        var prodIT2 = italia.createAnoProducao(ANOPROD2);
+        ProducaoAno prodIT2 = italia.createAnoProducao(ANOPROD2);
         prodIT2.addProducaoFruto(pera, ITALIAPERAPROD);
         italia.addAnoProducao(prodIT2);
     }
 
-    // Exercicio aqui
 }
