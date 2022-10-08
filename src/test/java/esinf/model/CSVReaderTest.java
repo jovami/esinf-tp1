@@ -12,36 +12,42 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-class CSVReaderTest {
+public class CSVReaderTest {
 
-    List<String[]> info = new ArrayList<>();
+    static List<String[]> info;
+
+    static Exercicio1 exercicio1;
 
     @BeforeAll
     public static void init(){
-        List<String[]> info = new ArrayList<>();
+        info = new ArrayList<>();
+        Exercicio1 exercicio1 = new Exercicio1();
+
         String[] line1 = {"QCL","Crops and livestock products","2","Afghanistan","5510","Production","515","Apples","1961","1961","tonnes","15100","*","Unofficial figure"};
         String[] line2 = {"QCL","Crops and livestock products","2","Afghanistan","5510","Production","515","Apples","1962","1962","tonnes","15100","F","FAO estimate"};
         String[] line3 = {"QCL","Crops and livestock products","2","Afghanistan","5510","Production","515","Apples","1962","1963","tonnes","15100","F","FAO estimate"};
         String[] line4 = {"QCL","Crops and livestock products","2","Afghanistan","5510","Production","515","Apples","1964","1964","tonnes","18400","F","FAO estimate"};
         String[] line5 = {"QCL","Crops and livestock products","4","Algeria","5510","Production","486","Bananas","1961","1961","tonnes","","M","Data not available"};
+        String[] line6 = {"QCL","Crops and livestock products","4","Algeria","5510","Production","486","Bananas","1961","1961","tonnes","72931","M","FAO estimate"};
 
         info.add(line1);
         info.add(line2);
         info.add(line3);
         info.add(line4);
         info.add(line5);
+        info.add(line6);
+
+        exercicio1.saveInfo(info);
     }
 
     @Test
     void readCSV() {
         CSVReader csvReader = new CSVReader();
-        Exercicio1 exercicio1 = new Exercicio1();
 
         try {
             csvReader.readCSV(fileDirReader(TEST_FILE1));
             csvReader.readCSV(fileDirReader(TEST_FILE2));
 
-            startArrayList();
             List<String[]> list = csvReader.readCSV(fileDirReader(TEST_FILE3));
             int i=0;
             for (String[] strings : list){
@@ -72,19 +78,5 @@ class CSVReaderTest {
         if (dir.isFile() && dir.canRead())
             return dir;
         throw new Exception("erro: o ficheiro nao existe");
-    }
-
-    private void startArrayList(){
-        String[] line1 = {"QCL","Crops and livestock products","2","Afghanistan","5510","Production","515","Apples","1961","1961","tonnes","15100","*","Unofficial figure"};
-        String[] line2 = {"QCL","Crops and livestock products","2","Afghanistan","5510","Production","515","Apples","1962","1962","tonnes","15100","F","FAO estimate"};
-        String[] line3 = {"QCL","Crops and livestock products","2","Afghanistan","5510","Production","515","Apples","1962","1963","tonnes","15100","F","FAO estimate"};
-        String[] line4 = {"QCL","Crops and livestock products","2","Afghanistan","5510","Production","515","Apples","1964","1964","tonnes","18400","F","FAO estimate"};
-        String[] line5 = {"QCL","Crops and livestock products","4","Algeria","5510","Production","486","Bananas","1961","1961","tonnes","","M","Data not available"};
-
-        info.add(line1);
-        info.add(line2);
-        info.add(line3);
-        info.add(line4);
-        info.add(line5);
     }
 }
