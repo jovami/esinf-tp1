@@ -16,6 +16,8 @@ import esinf.model.ProducaoAno;
  */
 public class Exercicio1 implements Runnable {
 
+    public final String FILE_NAME = "FAOSTAT_data_en_9-7-2022_BIG.csv";
+
     private App app;
 
     private CSVReader csvReader;
@@ -29,7 +31,7 @@ public class Exercicio1 implements Runnable {
     public void run() {
         try {
             File dir = fileDirReader();
-            saveinfo(csvReader.readCSV(dir));
+            saveInfo(csvReader.readCSV(dir));
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -49,9 +51,10 @@ public class Exercicio1 implements Runnable {
         }
     }
 
-    private void saveinfo(List<String[]> list) {
+    public void saveInfo(List<String[]> list) {
         String nomePais, nomeFruto;
         int idPais, idFruto, anoProducao, qtdProducao;
+
         for (String[] info : list) {
             nomePais = info[Colunas.NOMEPAIS.getColuna()];
             nomeFruto = info[Colunas.NOMEFRUTO.getColuna()];
@@ -94,8 +97,6 @@ public class Exercicio1 implements Runnable {
     private void saveFruto(String fruto, int id) {
         app.getFrutoStore().addFruto(id, fruto);
     }
-
-    private final String FILE_NAME = "FAOSTAT_data_en_9-7-2022_BIG.csv";
 
     private File getFileFromResource() throws URISyntaxException {
         ClassLoader classLoader = getClass().getClassLoader();
