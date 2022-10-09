@@ -11,6 +11,42 @@ import esinf.model.CSVReader;
 public class MainTest {
     static final String TEST_FILE = "FAOSTAT_data_en_9-7-2022_SMALLTEST_QUOTATIONMARKS.csv";
 
+    public static enum Frutos {
+        APPLE(515),
+        BANANAS(486),
+        BLUEBERRIES(552),
+        BRAZIL_NUTS(216),
+        CHERRIES(531),
+        INVALID_FRUIT(999);
+
+        private final int code;
+        public int getCode() {
+            return this.code;
+        }
+
+        Frutos(int i) {
+            this.code = i;
+        }
+    }
+
+    public static enum Paises {
+        AFGHANISTAN(2),
+        ALBANIA(3),
+        ALGERIA(4),
+        ANGOLA(7),
+        PANAMA(166),
+        PAPUA_NEW_GUINEA(168);
+
+        private final int code;
+        public int getCode() {
+            return this.code;
+        }
+
+        Paises(int i) {
+            this.code = i;
+        }
+    }
+
     public static void beforeEach() {
         resetSingleton();
 
@@ -22,7 +58,7 @@ public class MainTest {
         }
     }
 
-    private static void resetSingleton() {
+    public static void resetSingleton() {
         try {
             Field instance = App.class.getDeclaredField("singleton");
             instance.setAccessible(true);
