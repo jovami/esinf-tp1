@@ -1,4 +1,4 @@
-﻿Domain Code,Domain,Area Code (FAO),Area,Element Code,Element,Item Code (FAO),Item,Year Code,Year,Unit,Value,Flag,Flag Description
+Domain Code,Domain,Area Code (FAO),Area,Element Code,Element,Item Code (FAO),Item,Year Code,Year,Unit,Value,Flag,Flag Description
 "QCL","Crops and livestock products","166","Panama","5510","Production","486","Bananas","2008","2008","tonnes","456522","","Official data"
 "QCL","Crops and livestock products","166","Panama","5510","Production","486","Bananas","2009","2009","tonnes","320535","","Official data"
 "QCL","Crops and livestock products","166","Panama","5510","Production","486","Bananas","2010","2010","tonnes","338280","","Official data"
@@ -21,3 +21,12 @@
 "QCL","Crops and livestock products","168","Papua New Guinea","5510","Production","486","Bananas","1967","1967","tonnes","365000","F","FAO estimate"
 "QCL","Crops and livestock products","168","Papua New Guinea","5510","Production","486","Bananas","1968","1968","tonnes","372500","F","FAO estimate"
 "QCL","Crops and livestock products","168","Papua New Guinea","5510","Production","486","Bananas","1969","1969","tonnes","380000","F","FAO estimate"
+"QCL","Crops and livestock products","4","Algeria","5510","Production","486","Bananas","2000","2000","tonnes","1378","","Official data"
+"QCL","Crops and livestock products","4","Algeria","5510","Production","486","Bananas","2001","2001","tonnes","1598","","Official data"
+"QCL","Crops and livestock products","4","Algeria","5510","Production","486","Bananas","2002","2002","tonnes","1548","","Official data"
+"QCL","Crops and livestock products","4","Algeria","5510","Production","486","Bananas","2003","2003","tonnes","650","Im","FAO data based on imputation methodology"
+"QCL","Crops and livestock products","4","Algeria","5510","Production","486","Bananas","2004","2004","tonnes","374","","Official data"
+"QCL","Crops and livestock products","4","Algeria","5510","Production","486","Bananas","2005","2005","tonnes","278","","Official data"
+"QCL","Crops and livestock products","4","Algeria","5510","Production","486","Bananas","2006","2006","tonnes","11","","Official data"
+"QCL","Crops and livestock products","4","Algeria","5510","Production","486","Bananas","2007","2007","tonnes","11","","Official data"
+"QCL","Crops and livestock products","7","Angola","5510","Production","486","Bananas","1961","1961","tonnes","175000","*","Unofficial figure"
