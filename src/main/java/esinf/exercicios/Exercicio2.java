@@ -38,10 +38,8 @@ public class Exercicio2 implements Runnable {
         List<Triplet<Pais, Integer, Integer>> filtered;
         filtered = filtrarPaises(id, q -> q >= quantidade);
 
-        List<Pais> alineaA = sortPais(filtered, cmpA);
-
-        // filtered modificado
-        List<Pais> alineaB = sortPais(filtered, cmpB);
+        List<Pais> alineaA = sortA(filtered);
+        List<Pais> alineaB = sortB(filtered);
 
         ListPrinter.print(alineaA, "Alinea a)", null);
         System.out.printf("\n--------------------\n");
@@ -82,13 +80,21 @@ public class Exercicio2 implements Runnable {
     }
 
     /* E type alias */
-    public <E extends Triplet<Pais, Integer, Integer>> List<Pais>
-    sortPais(List<E> list, Comparator<E> cmp)
+    private <E extends Triplet<Pais, Integer, Integer>> List<Pais>
+    sortPais(List<E> list, Comparator<? super E> cmp)
     {
-        var result = new LinkedList<Pais>();
+        return list.stream().sorted(cmp).map(e -> e.getFirst()).toList();
+    }
 
-        list.sort(cmp);
-        list.forEach(e -> result.add(e.getFirst()));
-        return result;
+    public <E extends Triplet<Pais, Integer, Integer>> List<Pais>
+    sortA(List<E> list)
+    {
+        return sortPais(list, cmpA);
+    }
+
+    public <E extends Triplet<Pais, Integer, Integer>> List<Pais>
+    sortB(List<E> list)
+    {
+        return sortPais(list, cmpA.thenComparing(cmpB));
     }
 }
