@@ -32,17 +32,18 @@ public class PaisStore implements Iterable<Pais> {
     }
 
     public boolean addPais(int id, String paisNome) {
-        if (this.paisStore.containsKey(id))
-            return false; //TODO excep instead:
+        if (id < 0 || paisNome == null || paisNome.trim().isEmpty())
+            throw new IllegalArgumentException("error: invalid country id or name");
+        else if (this.paisStore.containsKey(id))
+            return false;
 
         return this.paisStore.put(id, new Pais(paisNome,id)) != null;
     }
 
     public Pais getPais(int id) {
-        // TODO: nao returnar ref?
         return this.paisStore.get(id);
     }
-    
+
 
     public Iterator<Pais> iterator() {
         return this.paisStore.values().iterator();

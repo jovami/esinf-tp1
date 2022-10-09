@@ -56,22 +56,17 @@ public class Exercicio2 implements Runnable {
             throw new RuntimeException("erro: nao ha paises armazenados");
 
         paisIter.forEachRemaining(p -> {
-            if (p == null)
-                return;
-
             var iter = p.iterator();
             while (iter.hasNext()) {
-                ProducaoAno ano;
+                ProducaoAno ano = iter.next();
 
-                if ((ano = iter.next()) != null) {
-                    var prodFruto = ano.getProducaoFruto(frutoId);
-                    int qtd;
-                    if (prodFruto != null
-                        && condicao.test((qtd = prodFruto.getQuantidadeProducao())))
-                    {
-                        triplets.add(new Triplet<Pais,Integer,Integer>(p, ano.getAno(), qtd));
-                        return; // move on to the next Pais
-                    }
+                var prodFruto = ano.getProducaoFruto(frutoId);
+                int qtd;
+                if (prodFruto != null
+                && condicao.test((qtd = prodFruto.getQuantidadeProducao())))
+                {
+                    triplets.add(new Triplet<Pais,Integer,Integer>(p, ano.getAno(), qtd));
+                    return; // move on to the next Pais
                 }
             }
         });
