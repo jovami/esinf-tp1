@@ -20,10 +20,10 @@ public class Exercicio2 implements Runnable {
     private App app;
 
     private Comparator<Triplet<Pais, Integer, Integer>> cmpA =
-        (t1, t2) -> Integer.compare(t1.getSecond(), t2.getSecond());
+        Comparator.comparing(Triplet::getSecond);
 
     private Comparator<Triplet<Pais, Integer, Integer>> cmpB =
-        (t1, t2) -> Integer.compare(t2.getThird(), t1.getThird());
+        Comparator.comparing(Triplet::getThird, (k1, k2) -> k2.compareTo(k1));
 
     public Exercicio2() {
         app = App.getInstance();
@@ -83,7 +83,7 @@ public class Exercicio2 implements Runnable {
     private <E extends Triplet<Pais, Integer, Integer>> List<Pais>
     sortPais(List<E> list, Comparator<? super E> cmp)
     {
-        return list.stream().sorted(cmp).map(e -> e.getFirst()).toList();
+        return list.stream().sorted(cmp).map(Triplet::getFirst).toList();
     }
 
     public <E extends Triplet<Pais, Integer, Integer>> List<Pais>

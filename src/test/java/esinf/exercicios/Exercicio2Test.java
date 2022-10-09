@@ -12,6 +12,7 @@ import org.junit.jupiter.api.Test;
 import esinf.MainTest;
 import esinf.MainTest.Frutos;
 import esinf.MainTest.Paises;
+import esinf.model.Pais;
 
 /**
  * Exercicio2Test
@@ -37,8 +38,6 @@ public class Exercicio2Test {
         int qtd = 14_000;
 
         MainTest.resetSingleton();
-        ex2 = new Exercicio2();
-
         assertThrows(RuntimeException.class, () -> {
             new Exercicio2().filtrarPaises(id, getPredicate(qtd));
         });
@@ -98,7 +97,7 @@ public class Exercicio2Test {
         var list = ex2.filtrarPaises(id, getPredicate(qtd));
         var sorted = ex2.sortA(list)
                         .stream()
-                        .mapToInt(p -> p.getPaisCodigo())
+                        .mapToInt(Pais::getPaisCodigo)
                         .toArray();
 
         assertTrue(sorted.length == 4);
@@ -122,7 +121,7 @@ public class Exercicio2Test {
         var list = ex2.filtrarPaises(id, getPredicate(qtd));
         var sorted = ex2.sortB(list)
                         .stream()
-                        .mapToInt(p -> p.getPaisCodigo())
+                        .mapToInt(Pais::getPaisCodigo)
                         .toArray();
 
         assertTrue(sorted.length == 4);
