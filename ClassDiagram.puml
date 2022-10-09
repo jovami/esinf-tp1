@@ -1,0 +1,171 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+skinparam classAttributeIconSize 0
+skinparam padding 2
+skinparam ranksep 100
+skinparam classFontSize 18
+
+
+'2- ADICIONAR , VERIFICAR PASSAGEM DE ATRIBUTOS SE IDENTIFICO INTEGER STRING OBJETOS ETC DENTRO DOS PARENTESIS
+
+
+class Fruto
+{
+    -nome
+    -id
+    -setNome(nome)
+    -setId(id)
+    +getNome()
+    +getId()
+    +toString()
+    +equals(Object o)
+    +hasCode()
+}
+
+class FrutoStore
+{
+    -HasMap<Integer,Fruto> frutoStore;
+    +getFruto(idFruto)
+    +addFruto(idFruto, nomeFruto)
+    +size()
+    +iterator()
+}
+
+class Pais
+{
+    -TreeMap<Integer,ProducaoAno> producaoAnual
+    -nomePais
+    -paisCodigo
+    -prodTotal
+    -setNomePais(nome)
+    -setCodigoPais(paisCodigo)
+    +getNomePais()
+    +getPaisCodigo()
+    +getProdTotal()
+    -incrementProducao(prodTotal)
+    +containsAnoProducao(ano)
+    +addAnoProducao(ProducaoAno ano)
+    +createAnoProducao(ano)
+    +getProducaoAno(ano)
+    +iterator()
+    +toString()
+    +equals()
+    +hasCode()
+}
+
+class PaisStore
+{
+    -private HasMap<Integer,Pais> paisStore
+    +getStream()
+    +getSize()
+    +checkPais(id)
+    +addPais(id,paisNome)
+    +getPais(id)
+    +iterator()
+}
+
+class ProducaoAno
+{
+    -HasMap<Integer,ProducaoFrutoPorPaisPorAno> prodAnual
+    -quantidadeProdAnual
+    -ano
+    +getProducaoFruto(frutoId)
+    +addProducaoFruto(Fruto fruto, quantidadeProd)
+    -incrementProdAnual(prod)
+    +getProdAnual()
+    +getAno()
+    +iterator()
+    +compareTo(ProducaoAno outro)
+}
+
+class ProducaoFrutoPorPaisPorAno
+{
+    -Fruto fruto
+    -quantidadeProducao
+    +getFruto()
+    -setFruto(Fruto fruto)
+    +getQuantidadeProducao()
+    -setQuantidadeProducao(quantidadeProducao)
+}
+
+class CSVReader
+{
+    -CSVHeader header
+    -EXPECTED_COLUMNS
+    -delimiter
+    -{static}BOM
+    +readCSV(File dir)
+    -isHeader(line)
+    -maybeSkipBom(Reader reader)
+    -checkQuotationMark(Reader reader)
+}
+
+enum CSVHeader
+{
+    -columns
+    -delimiter
+    +getColumnCount()
+    +getDelimiter()
+}
+
+class ListPrinter
+{
+    +{static}print()
+}
+
+class Pair
+{
+    -T first
+    -S second
+    +getFirst()
+    +getSecond()
+    +toString()
+}
+
+class Triplet
+{
+    -T first
+    -S second
+    +getFirst()
+    +getSecond()
+    +getThird()
+}
+
+class App
+{
+    -PaisStore paisStore
+    -FrutoStore frutoStore
+    +getPaisStore()
+    +getFrutoStore()
+    -{static}singleton
+    +getInstance()
+}
+
+class Main
+{
+    +{static}main(args)
+}
+
+PaisStore "1" -- "*" Pais
+Pais "1" -- "*" ProducaoAno
+ProducaoAno "1" -- "*" ProducaoFrutoPorPaisPorAno
+ProducaoFrutoPorPaisPorAno "1" -- "1" Fruto
+FrutoStore "1" -- "*" Fruto
+Main ..> Pais
+Main ..> PaisStore
+Main ..> ProducaoAno
+Main ..> ProducaoFrutoPorPaisPorAno
+Main ..> FrutoStore
+Main ..>Fruto
+Main ..> App
+Main ..> CSVReader
+Main ..> ListPrinter
+Main ..> Pair
+Main ..> Triplet
+App --> PaisStore
+App --> FrutoStore
+CSVReader --> CSVHeader
+
+
+@enduml

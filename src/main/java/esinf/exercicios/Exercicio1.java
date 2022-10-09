@@ -87,7 +87,7 @@ public class Exercicio1 implements Runnable {
         return app.getFrutoStore().addFruto(id, fruto);
     }
 
-    private final String FILE_NAME = "FAOSTAT_data_en_9-7-2022_SMALL.csv";
+    private final String FILE_NAME = "FAOSTAT_data_en_9-7-2022_BIG.csv";
 
     private File getFileFromResource(String fileName) throws URISyntaxException {
         ClassLoader classLoader = getClass().getClassLoader();
