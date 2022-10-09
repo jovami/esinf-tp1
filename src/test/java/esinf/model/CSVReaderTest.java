@@ -2,8 +2,7 @@ package esinf.model;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import esinf.exercicios.Exercicio1;
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
@@ -14,14 +13,11 @@ import java.util.List;
 
 public class CSVReaderTest {
 
-    static List<String[]> info;
+    List<String[]> info;
 
-    static Exercicio1 exercicio1;
-
-    @BeforeAll
-    public static void init(){
+    @BeforeEach
+    void startArrayList() {
         info = new ArrayList<>();
-        Exercicio1 exercicio1 = new Exercicio1();
 
         String[] line1 = {"QCL","Crops and livestock products","2","Afghanistan","5510","Production","515","Apples","1961","1961","tonnes","15100","*","Unofficial figure"};
         String[] line2 = {"QCL","Crops and livestock products","2","Afghanistan","5510","Production","515","Apples","1962","1962","tonnes","15100","F","FAO estimate"};
@@ -36,8 +32,6 @@ public class CSVReaderTest {
         info.add(line4);
         info.add(line5);
         info.add(line6);
-
-        exercicio1.saveInfo(info);
     }
 
     @Test
@@ -59,11 +53,11 @@ public class CSVReaderTest {
         }
     }
 
-    public final String TEST_FILE1 = "FAOSTAT_data_en_9-7-2022_SMALLTEST.csv";
-    public final String TEST_FILE2 = "FAOSTAT_data_en_9-7-2022_SMALLTEST_QUOTATIONMARKS.csv";
-    public final String TEST_FILE3 = "ARRAY_ASSERT_TEST.csv";
+    final String TEST_FILE1 = "FAOSTAT_data_en_9-7-2022_SMALLTEST.csv";
+    final String TEST_FILE2 = "FAOSTAT_data_en_9-7-2022_SMALLTEST_QUOTATIONMARKS.csv";
+    final String TEST_FILE3 = "ARRAY_ASSERT_TEST.csv";
 
-    private File getFileFromResource(String fileName) throws URISyntaxException {
+    File getFileFromResource(String fileName) throws URISyntaxException {
         ClassLoader classLoader = getClass().getClassLoader();
         URL resource = classLoader.getResource(fileName);
         if (resource == null) {
@@ -73,7 +67,7 @@ public class CSVReaderTest {
         }
     }
 
-    public File fileDirReader(String fileName) throws Exception {
+    File fileDirReader(String fileName) throws Exception {
         File dir = getFileFromResource(fileName);
         if (dir.isFile() && dir.canRead())
             return dir;
