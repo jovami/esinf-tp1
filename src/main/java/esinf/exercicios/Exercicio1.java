@@ -3,7 +3,6 @@ package esinf.exercicios;
 import java.io.File;
 import java.net.URISyntaxException;
 import java.net.URL;
-import java.util.Iterator;
 import java.util.List;
 
 import esinf.App;
@@ -16,6 +15,8 @@ import esinf.model.ProducaoAno;
  * Exercicio1
  */
 public class Exercicio1 implements Runnable {
+
+    public final String FILE_NAME = "FAOSTAT_data_en_9-7-2022_BIG.csv";
 
     private App app;
 
@@ -30,7 +31,7 @@ public class Exercicio1 implements Runnable {
     public void run() {
         try {
             File dir = fileDirReader();
-            saveinfo(csvReader.readCSV(dir));
+            saveInfo(csvReader.readCSV(dir));
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -39,7 +40,7 @@ public class Exercicio1 implements Runnable {
     private enum Colunas {
         NOMEPAIS(3), IDPAIS(2), NOMEFRUTO(7), IDFRUTO(6), ANOPRODUCAO(8), QTDPRODUCAO(11);
 
-        private int i;
+        private final int i;
 
         Colunas(int i) {
             this.i = i;
@@ -50,57 +51,65 @@ public class Exercicio1 implements Runnable {
         }
     }
 
-    private void saveinfo(List<String[]> list) {
+    public void saveInfo(List<String[]> list) {
+        String nomePais, nomeFruto;
+        int idPais, idFruto, anoProducao, qtdProducao;
+
         for (String[] info : list) {
+            nomePais = info[Colunas.NOMEPAIS.getColuna()];
+            nomeFruto = info[Colunas.NOMEFRUTO.getColuna()];
+            idPais = Integer.parseInt(info[Colunas.IDPAIS.getColuna()]);
+            idFruto = Integer.parseInt(info[Colunas.IDFRUTO.getColuna()]);
+            anoProducao = Integer.parseInt(info[Colunas.ANOPRODUCAO.getColuna()]);
+
+            if (info[Colunas.QTDPRODUCAO.getColuna()].matches("")) {
+                qtdProducao = 0;
+            }else {
+                qtdProducao = Integer.parseInt(info[Colunas.QTDPRODUCAO.getColuna()]);
+            }
 
             // TODO: ha linhas sem quantidade NENHUMA de producao; ver linha 242 do ficheiro
             // fazer info[Colunas.QTDPRODUCAO.getColuna()] = "0" ????
             if (info[Colunas.QTDPRODUCAO.getColuna()].matches("[0-9]+")) {
-                savePais(info[Colunas.NOMEPAIS.getColuna()], Integer.parseInt(info[Colunas.IDPAIS.getColuna()]));
-                saveFruto(info[Colunas.NOMEFRUTO.getColuna()], Integer.parseInt(info[Colunas.IDFRUTO.getColuna()]));
-
-                Pais pais = app.getPaisStore().getPais(Integer.parseInt(info[Colunas.IDPAIS.getColuna()]));
+                savePais(nomePais, idPais);
+                saveFruto(nomeFruto, idFruto);
+                Pais pais = app.getPaisStore().getPais(idPais);
 
                 ProducaoAno producaoAno;
-                int ano = Integer.parseInt(info[Colunas.ANOPRODUCAO.getColuna()]);
 
-                if (pais.containsAnoProducao(ano))
-                    producaoAno = pais.getProducaoAno(ano);
+                if (pais.containsAnoProducao(anoProducao))
+                    producaoAno = pais.getProducaoAno(anoProducao);
                 else
-                    producaoAno = pais.createAnoProducao(ano);
+                    producaoAno = pais.createAnoProducao(anoProducao);
 
-                Fruto fruto = app.getFrutoStore().getFruto(Integer.parseInt(info[Colunas.IDFRUTO.getColuna()]));
-                producaoAno.addProducaoFruto(fruto, Integer.parseInt(info[Colunas.QTDPRODUCAO.getColuna()]));
+                Fruto fruto = app.getFrutoStore().getFruto(idFruto);
+                producaoAno.addProducaoFruto(fruto, qtdProducao);
 
                 pais.addAnoProducao(producaoAno);
             }
         }
     }
 
-    //TODO excep instead:
-    private boolean savePais(String pais, int id) {
-        return app.getPaisStore().addPais(id, pais);
+    private void savePais(String pais, int id) {
+        app.getPaisStore().addPais(id, pais);
     }
 
-    //TODO excep instead:
-    private boolean saveFruto(String fruto, int id) {
-        return app.getFrutoStore().addFruto(id, fruto);
+    private void saveFruto(String fruto, int id) {
+        app.getFrutoStore().addFruto(id, fruto);
     }
 
-    private final String FILE_NAME = "FAOSTAT_data_en_9-7-2022_SMALL.csv";
-
-    private File getFileFromResource(String fileName) throws URISyntaxException {
+    private File getFileFromResource() throws URISyntaxException {
         ClassLoader classLoader = getClass().getClassLoader();
-        URL resource = classLoader.getResource(fileName);
+        URL resource = classLoader.getResource(FILE_NAME);
         if (resource == null) {
-            throw new IllegalArgumentException("error: file not found! " + fileName);
+            throw new IllegalArgumentException("error: file not found! " + FILE_NAME);
         } else {
             return new File(resource.toURI());
         }
     }
 
     public File fileDirReader() throws Exception {
-        File dir = getFileFromResource(FILE_NAME);
+        File dir = getFileFromResource();
         if (dir.isFile() && dir.canRead())
             return dir;
         throw new Exception("erro: o ficheiro nao existe");

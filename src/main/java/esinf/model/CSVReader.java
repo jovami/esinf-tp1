@@ -16,7 +16,7 @@ public class CSVReader {
 
     private final int EXPECTED_COLUMNS;
 
-    private String delimiter;
+    private final String DEFAULT_DELIMITER;
 
     private static final char BOM = '\ufeff';
 
@@ -26,7 +26,7 @@ public class CSVReader {
 
         this.header = header;
         this.EXPECTED_COLUMNS = header.getColumnCount();
-        this.delimiter = header.getDelimiter();
+        this.DEFAULT_DELIMITER = header.getDelimiter();
     }
 
     public CSVReader() {
@@ -35,6 +35,7 @@ public class CSVReader {
 
     public List<String[]> readCSV(File dir) throws Exception {
         List<String[]> info = new ArrayList<>();
+        String delimiter = DEFAULT_DELIMITER;
 
         String line;
         String[] tmp;
@@ -56,8 +57,8 @@ public class CSVReader {
                 } else {
                     // remove " at begining and " at end
                     if(quotationMarks) {
-                        tmp[0] = tmp[0].substring(1);
-                        tmp[tmp.length - 1] = tmp[tmp.length - 1].substring(0, tmp.length - 2);
+                        tmp[0] = tmp[0].replaceAll("\"", "");;
+                        tmp[tmp.length - 1] = tmp[tmp.length - 1].replaceAll("\"", "");
                     }
                     info.add(tmp);
                 }
