@@ -17,7 +17,7 @@ public class MainTest {
         BLUEBERRIES(552),
         BRAZIL_NUTS(216),
         CHERRIES(531),
-        INVALID_FRUIT(999);
+        INVALID_FRUIT(-1);
 
         private final int code;
         public int getCode() {
@@ -35,7 +35,8 @@ public class MainTest {
         ALGERIA(4),
         ANGOLA(7),
         PANAMA(166),
-        PAPUA_NEW_GUINEA(168);
+        PAPUA_NEW_GUINEA(168),
+        INVALID_COUNTRY(-1);
 
         private final int code;
         public int getCode() {
