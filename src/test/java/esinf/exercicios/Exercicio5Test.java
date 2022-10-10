@@ -1,5 +1,6 @@
 package esinf.exercicios;
 
+
 import esinf.App;
 import esinf.MainTest;
 import esinf.model.Fruto;
@@ -8,9 +9,6 @@ import esinf.model.store.PaisStore;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -113,4 +111,6 @@ class Exercicio5Test {
         assertEquals(expected,result);
 
     }
+
+
 }

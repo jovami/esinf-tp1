@@ -54,13 +54,8 @@ public class Exercicio5 implements Runnable {
 
         Iterator<Fruto> iter = app.getFrutoStore().iterator();
 
-        if (!iter.hasNext())
-            throw new RuntimeException("this shouldn't even be possible");
-
-        Fruto f1 = iter.next();
-
-        int maxSoFar = maxProducao.get(f1).getSecond() - minProducao.get(f1).getSecond();
-        Fruto frutoKey = f1;
+        int maxSoFar = 0;
+        Fruto frutoKey = null;
 
         while (iter.hasNext()) {
             Fruto f = iter.next();
