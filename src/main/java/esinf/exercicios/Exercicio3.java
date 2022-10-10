@@ -1,7 +1,9 @@
 package esinf.exercicios;
 
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import esinf.App;
@@ -34,30 +36,56 @@ public class Exercicio3 implements Runnable {
     @Override
     public void run() {
 
-        //como serao apresentadas os paises
-        instancias();
+        Long producaoMax = 1299298911l;
 
-        //TODO: como receber este valor
-        int producaoMax=860;
-        int sumTotal=0;
+        ArrayList<Pais> listPais = getPaisSorted();
+        
+        int numMinPais=getMinPais(producaoMax, getPaisSorted());
+        
+        if(numMinPais!=-1)
+            printPais(numMinPais, listPais, producaoMax);
+        else
+            System.out.printf("Os paises na base de dados não possuem uma producao suficiente para ultrapassar a producao desejada %d",producaoMax);
+        
+    }
 
-        //Stream
+    public ArrayList<Pais> getPaisSorted(){
         Stream<Pais>  paisStream = paisStore.getStream();
-        List<Pais> listPais = paisStream.sorted(cmpPais).toList();//list ordenada por ordem decrescente
+        return paisStream.sorted(cmpPais).collect(Collectors.toCollection(ArrayList::new));
+    }
 
-        //System.out.println(listPais.toString()); //list ordenada
+    public int getMinPais(long producaoMax,ArrayList<Pais> iterPais){
 
-        System.out.printf("Paises necessários para atingir um valor de producao total de %d :\n",producaoMax);
-        for (Pais pais : listPais) {
+        int numPais=0;
+        int sumTotal=0;
+        
+        for (Pais pais : iterPais) {
             sumTotal += pais.getProdTotal();
-            System.out.printf("Pais:%s     Prod:%d\n",pais.getNomePais(),pais.getProdTotal());
-
+            numPais++;
             if (sumTotal >= producaoMax){
-                System.out.printf("Prod total: %d\n",sumTotal);
-                break;
+                return numPais;
             }
         }
+        return -1;
     }
+
+    public void printPais(int numPais, List<Pais> listPais, long producaoMax) {
+
+        int sumTotal=0;
+
+        System.out.printf("Paises necessários para atingir um valor de producao total de %d :\n\n",producaoMax);
+
+        for (int i = 0 ;i<numPais;i++) {
+            Pais pais=listPais.get(i);
+
+            sumTotal += pais.getProdTotal();
+            System.out.printf("Pais:%s     Prod:%d\n",pais.getNomePais(),pais.getProdTotal());
+        }
+        System.out.printf("Prod total : %d\t Numero de paises:%d\n",sumTotal,numPais);
+    }
+
+
+
 
     //INSTANCIAS PARA TESTES
     private void instancias() {
