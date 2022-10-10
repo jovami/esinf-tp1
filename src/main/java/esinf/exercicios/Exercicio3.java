@@ -85,8 +85,6 @@ public class Exercicio3 implements Runnable {
     }
 
 
-
-
     //INSTANCIAS PARA TESTES
     private void instancias() {
         //PESSEGO
