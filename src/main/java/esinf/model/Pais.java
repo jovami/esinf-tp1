@@ -60,7 +60,7 @@ public class Pais implements Iterable<ProducaoAno> {
 
     // TreeSet
     public boolean containsAnoProducao(int ano) {
-        return this.producaoAnual.containsKey(ano);
+        return this.producaoAnual.get(ano) != null;
     }
 
     public void addAnoProducao(ProducaoAno ano) {

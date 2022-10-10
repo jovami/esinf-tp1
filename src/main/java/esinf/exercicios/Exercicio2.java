@@ -50,7 +50,7 @@ public class Exercicio2 implements Runnable {
     public List<Triplet<Pais, Integer, Integer>>
     filtrarPaises(int frutoId, IntPredicate condicao)
     {
-        if (!app.getFrutoStore().checkFrutoExistence(frutoId))
+        if (!app.getFrutoStore().hasFruto(frutoId))
             throw new NoSuchElementException("erro: fruto nao existe");
 
         var triplets = new LinkedList<Triplet<Pais, Integer, Integer>>();

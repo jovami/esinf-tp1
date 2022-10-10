@@ -27,14 +27,14 @@ public class PaisStore implements Iterable<Pais> {
     }
 
     //TODO: necessário?
-    public boolean checkPais(int id) {
-        return this.paisStore.containsKey(id);
+    public boolean hasPais(int id) {
+        return this.paisStore.get(id) != null;
     }
 
     public boolean addPais(int id, String paisNome) {
         if (id < 0 || paisNome == null || paisNome.trim().isEmpty())
             throw new IllegalArgumentException("error: invalid country id or name");
-        else if (this.paisStore.containsKey(id))
+        else if (this.hasPais(id))
             return false;
 
         return this.paisStore.put(id, new Pais(paisNome,id)) != null;

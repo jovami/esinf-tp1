@@ -1,4 +1,5 @@
 package esinf.model.store;
+
 import java.util.HashMap;
 import java.util.Iterator;
 
@@ -8,17 +9,17 @@ public class FrutoStore implements Iterable<Fruto> {
 
     private HashMap<Integer,Fruto> frutoStore;
 
-    public FrutoStore(){
+    public FrutoStore() {
         frutoStore= new HashMap<>();
     }
 
-    public Fruto getFruto(int idFruto){
+    public Fruto getFruto(int idFruto) {
         return frutoStore.get(idFruto);
     }
 
     //TODO: change method name??
-    public boolean checkFrutoExistence(int idFruto){
-        return frutoStore.containsKey(idFruto);
+    public boolean hasFruto(int idFruto) {
+        return frutoStore.get(idFruto) != null;
     }
 
 
@@ -31,8 +32,8 @@ public class FrutoStore implements Iterable<Fruto> {
 
 
     //retorna falso caso exista já um elemento destes
-    public boolean addFruto(int idFruto, String nomeFruto){
-        if (this.frutoStore.containsKey(idFruto))
+    public boolean addFruto(int idFruto, String nomeFruto) {
+        if (this.hasFruto(idFruto))
             return false; //TODO excep instead:
 
         return frutoStore.put(idFruto,new Fruto(nomeFruto, idFruto))!= null;
