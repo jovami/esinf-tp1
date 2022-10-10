@@ -20,8 +20,16 @@ public class ProducaoAno implements Comparable<ProducaoAno>, Iterable<ProducaoFr
         this.ano = ano;
     }
 
+    public boolean hasProdFruto(int frutoId) {
+        return this.prodAnual.get(frutoId) != null;
+    }
+
     public ProducaoFrutoPorPaisPorAno getProducaoFruto(int frutoId) {
-        return this.prodAnual.get(frutoId);
+        ProducaoFrutoPorPaisPorAno prod = this.prodAnual.get(frutoId);
+        if (prod != null)
+            return prod;
+        else
+            throw new IllegalArgumentException("Registo de fruto nao encontrado");
     }
 
     public void addProducaoFruto(Fruto fruto, int quantidadeProd) {
