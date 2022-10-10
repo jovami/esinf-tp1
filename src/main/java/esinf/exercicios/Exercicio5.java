@@ -2,10 +2,7 @@ package esinf.exercicios;
 
 import esinf.App;
 import esinf.model.Fruto;
-import esinf.model.Pais;
 import esinf.model.ProducaoAno;
-import esinf.model.ProducaoFrutoPorPaisPorAno;
-import esinf.util.ListPrinter;
 import esinf.util.Pair;
 import esinf.util.Triplet;
 import java.util.*;
@@ -27,8 +24,8 @@ public class Exercicio5 implements Runnable {
     @Override
     public void run() {
 
-        String estruta = getEstruturaPedida(174);
-        System.out.println(estruta);
+        String estrutura = getEstruturaPedida(174);
+        System.out.println(estrutura);
 
     }
 
@@ -47,13 +44,11 @@ public class Exercicio5 implements Runnable {
                 Fruto f = prod.getFruto();
                 int qtd = prod.getQuantidadeProducao();
 
-                if (minProducao.get(f) == null
-                        || minProducao.get(f).getSecond() > qtd)
-                    minProducao.put(f, new Pair<ProducaoAno,Integer>(ano, qtd));
+                if (minProducao.get(f) == null || minProducao.get(f).getSecond() > qtd)
+                        minProducao.put(f, new Pair<ProducaoAno,Integer>(ano, qtd));
 
-                if (maxProducao.get(f) == null
-                        || maxProducao.get(f).getSecond() < qtd)
-                    maxProducao.put(f, new Pair<ProducaoAno,Integer>(ano, qtd));
+                if (maxProducao.get(f) == null || maxProducao.get(f).getSecond() < qtd)
+                        maxProducao.put(f, new Pair<ProducaoAno,Integer>(ano, qtd));
             });
         });
 
@@ -70,16 +65,15 @@ public class Exercicio5 implements Runnable {
         while (iter.hasNext()) {
             Fruto f = iter.next();
 
-            if(!maxProducao.containsKey(f) ||  !minProducao.containsKey(f))
-                continue;
+            if(maxProducao.get(f) != null &&  minProducao.get(f) != null )
+            {
+                 int diff = maxProducao.get(f).getSecond() - minProducao.get(f).getSecond();
 
 
-            int diff = maxProducao.get(f).getSecond() - minProducao.get(f).getSecond();
-
-
-            if (diff > maxSoFar) {
-                maxSoFar = diff;
-                frutoKey = f;
+                if (diff > maxSoFar) {
+                    maxSoFar = diff;
+                    frutoKey = f;
+                }
             }
         }
 

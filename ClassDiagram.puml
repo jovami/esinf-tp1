@@ -7,15 +7,12 @@ skinparam ranksep 100
 skinparam classFontSize 18
 
 
-'2- ADICIONAR , VERIFICAR PASSAGEM DE ATRIBUTOS SE IDENTIFICO INTEGER STRING OBJETOS ETC DENTRO DOS PARENTESIS
-
-
 class Fruto
 {
-    -nome
-    -id
-    -setNome(nome)
-    -setId(id)
+    -String nome
+    -int id
+    -setNome(String nome)
+    -setId(int id)
     +getNome()
     +getId()
     +toString()
@@ -26,8 +23,8 @@ class Fruto
 class FrutoStore
 {
     -HasMap<Integer,Fruto> frutoStore;
-    +getFruto(idFruto)
-    +addFruto(idFruto, nomeFruto)
+    +getFruto(int idFruto)
+    +addFruto(int idFruto,String nomeFruto)
     +size()
     +iterator()
 }
@@ -35,19 +32,19 @@ class FrutoStore
 class Pais
 {
     -TreeMap<Integer,ProducaoAno> producaoAnual
-    -nomePais
-    -paisCodigo
-    -prodTotal
-    -setNomePais(nome)
-    -setCodigoPais(paisCodigo)
+    -String nomePais
+    -int paisCodigo
+    -int prodTotal
+    -setNomePais(String nome)
+    -setCodigoPais(int paisCodigo)
     +getNomePais()
     +getPaisCodigo()
     +getProdTotal()
-    -incrementProducao(prodTotal)
-    +containsAnoProducao(ano)
+    -incrementProducao(int prodTotal)
+    +containsAnoProducao(int ano)
     +addAnoProducao(ProducaoAno ano)
-    +createAnoProducao(ano)
-    +getProducaoAno(ano)
+    +createAnoProducao(int ano)
+    +getProducaoAno(Integer ano)
     +iterator()
     +toString()
     +equals()
@@ -56,11 +53,11 @@ class Pais
 
 class PaisStore
 {
-    -private HasMap<Integer,Pais> paisStore
+    -HasMap<Integer,Pais> paisStore
     +getStream()
     +getSize()
-    +checkPais(id)
-    +addPais(id,paisNome)
+    +checkPais(int id)
+    +addPais(int id,String paisNome)
     +getPais(id)
     +iterator()
 }
@@ -68,11 +65,11 @@ class PaisStore
 class ProducaoAno
 {
     -HasMap<Integer,ProducaoFrutoPorPaisPorAno> prodAnual
-    -quantidadeProdAnual
-    -ano
-    +getProducaoFruto(frutoId)
-    +addProducaoFruto(Fruto fruto, quantidadeProd)
-    -incrementProdAnual(prod)
+    -int quantidadeProdAnual
+    -int ano
+    +getProducaoFruto(int frutoId)
+    +addProducaoFruto(Fruto fruto, int quantidadeProd)
+    -incrementProdAnual(int prod)
     +getProdAnual()
     +getAno()
     +iterator()
@@ -82,36 +79,36 @@ class ProducaoAno
 class ProducaoFrutoPorPaisPorAno
 {
     -Fruto fruto
-    -quantidadeProducao
+    -int quantidadeProducao
     +getFruto()
     -setFruto(Fruto fruto)
     +getQuantidadeProducao()
-    -setQuantidadeProducao(quantidadeProducao)
+    -setQuantidadeProducao(int quantidadeProducao)
 }
 
 class CSVReader
 {
-    -CSVHeader header
-    -EXPECTED_COLUMNS
-    -delimiter
-    -{static}BOM
+    -final CSVHeader header
+    -final int EXPECTED_COLUMNS
+    -final String DEFAULT_DELIMITER;
+    -{static}final char BOM = '\ufeff'
     +readCSV(File dir)
-    -isHeader(line)
+    -isHeader(String line)
     -maybeSkipBom(Reader reader)
     -checkQuotationMark(Reader reader)
 }
 
 enum CSVHeader
 {
-    -columns
-    -delimiter
+    -int columns
+    -String delimiter
     +getColumnCount()
     +getDelimiter()
 }
 
 class ListPrinter
 {
-    +{static}print()
+    +{static}print(Collection<E> list, String header, PrintStream stream)
 }
 
 class Pair
@@ -138,13 +135,13 @@ class App
     -FrutoStore frutoStore
     +getPaisStore()
     +getFrutoStore()
-    -{static}singleton
+    -{static}App singleton = null
     +getInstance()
 }
 
 class Main
 {
-    +{static}main(args)
+    +{static}main(String[] args)
 }
 
 PaisStore "1" -- "*" Pais
