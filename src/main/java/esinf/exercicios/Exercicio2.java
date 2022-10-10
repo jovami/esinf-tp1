@@ -4,6 +4,7 @@ import java.util.Comparator;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.function.IntPredicate;
 
 import esinf.App;
@@ -20,17 +21,17 @@ public class Exercicio2 implements Runnable {
     private App app;
 
     private Comparator<Triplet<Pais, Integer, Integer>> cmpA =
-        (t1, t2) -> Integer.compare(t1.getSecond(), t2.getSecond());
+        Comparator.comparing(Triplet::getSecond);
 
     private Comparator<Triplet<Pais, Integer, Integer>> cmpB =
-        (t1, t2) -> Integer.compare(t2.getThird(), t1.getThird());
+        Comparator.comparing(Triplet::getThird, (k1, k2) -> k2.compareTo(k1));
 
     public Exercicio2() {
         app = App.getInstance();
     }
 
     @Override
-    public void run() throws RuntimeException
+    public void run() throws NoSuchElementException
     {
         int id = 515;
         int quantidade = 14_000;
@@ -38,10 +39,8 @@ public class Exercicio2 implements Runnable {
         List<Triplet<Pais, Integer, Integer>> filtered;
         filtered = filtrarPaises(id, q -> q >= quantidade);
 
-        List<Pais> alineaA = sortPais(filtered, cmpA);
-
-        // filtered modificado
-        List<Pais> alineaB = sortPais(filtered, cmpB);
+        List<Pais> alineaA = sortA(filtered);
+        List<Pais> alineaB = sortB(filtered);
 
         ListPrinter.print(alineaA, "Alinea a)", null);
         System.out.printf("\n--------------------\n");
@@ -51,29 +50,27 @@ public class Exercicio2 implements Runnable {
     public List<Triplet<Pais, Integer, Integer>>
     filtrarPaises(int frutoId, IntPredicate condicao)
     {
+        if (!app.getFrutoStore().hasFruto(frutoId))
+            throw new NoSuchElementException("erro: fruto nao existe");
+
         var triplets = new LinkedList<Triplet<Pais, Integer, Integer>>();
         Iterator<Pais> paisIter = app.getPaisStore().iterator();
 
         if (!paisIter.hasNext())
-            throw new RuntimeException("erro: nao ha paises armazenados");
+            throw new NoSuchElementException("erro: nao ha paises armazenados");
 
         paisIter.forEachRemaining(p -> {
-            if (p == null)
-                return;
-
             var iter = p.iterator();
             while (iter.hasNext()) {
-                ProducaoAno ano;
+                ProducaoAno ano = iter.next();
 
-                if ((ano = iter.next()) != null) {
-                    var prodFruto = ano.getProducaoFruto(frutoId);
-                    int qtd;
-                    if (prodFruto != null
-                        && condicao.test((qtd = prodFruto.getQuantidadeProducao())))
-                    {
-                        triplets.add(new Triplet<Pais,Integer,Integer>(p, ano.getAno(), qtd));
-                        return; // move on to the next Pais
-                    }
+                var prodFruto = ano.getProducaoFruto(frutoId);
+                int qtd;
+                if (prodFruto != null
+                && condicao.test((qtd = prodFruto.getQuantidadeProducao())))
+                {
+                    triplets.add(new Triplet<Pais,Integer,Integer>(p, ano.getAno(), qtd));
+                    return; // move on to the next Pais
                 }
             }
         });
@@ -82,13 +79,21 @@ public class Exercicio2 implements Runnable {
     }
 
     /* E type alias */
-    public <E extends Triplet<Pais, Integer, Integer>> List<Pais>
-    sortPais(List<E> list, Comparator<E> cmp)
+    private <E extends Triplet<Pais, Integer, Integer>> List<Pais>
+    sortPais(List<E> list, Comparator<? super E> cmp)
     {
-        var result = new LinkedList<Pais>();
+        return list.stream().sorted(cmp).map(Triplet::getFirst).toList();
+    }
 
-        list.sort(cmp);
-        list.forEach(e -> result.add(e.getFirst()));
-        return result;
+    public <E extends Triplet<Pais, Integer, Integer>> List<Pais>
+    sortA(List<E> list)
+    {
+        return sortPais(list, cmpA);
+    }
+
+    public <E extends Triplet<Pais, Integer, Integer>> List<Pais>
+    sortB(List<E> list)
+    {
+        return sortPais(list, cmpA.thenComparing(cmpB));
     }
 }
