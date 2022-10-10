@@ -12,9 +12,9 @@ import java.util.*;
  * Exercicio4
  */
 public class Exercicio4 implements Runnable {
-    private App app;
+    private final App app;
 
-    private Comparator<Pair<Pais, Integer>> comparator =
+    private final Comparator<Pair<Pais, Integer>> comparator =
             (o1, o2) -> Integer.compare(o2.getSecond(), o1.getSecond());
 
 
@@ -29,12 +29,12 @@ public class Exercicio4 implements Runnable {
 
     }
 
-    private void printListProduction(List listProduction) {
+    private <E> void printListProduction(List<E> listProduction) {
         String header = "\nPais --- Maior Crescimento\n";
         ListPrinter.print(listProduction, header, null);
     }
 
-    public List getListMaxProduction(int idFrutoEscolhido) throws NullPointerException {
+    public List<Pair<Pais, Integer>> getListMaxProduction(int idFrutoEscolhido) throws NullPointerException {
         Iterator<Pais> paisIter = app.getPaisStore().iterator();
         ArrayList<Pair<Pais, Integer>> listProduction = new ArrayList<>();
 
@@ -42,41 +42,34 @@ public class Exercicio4 implements Runnable {
             Pais p = paisIter.next();
 
             Iterator<ProducaoAno> iter = p.iterator();
-            Boolean flag;
-            int count = 0, maxCount = 0,previous=0;
-            if (iter.hasNext()) {
-                //previous = iter.next().getProducaoFruto(idFrutoEscolhido).getQuantidadeProducao();
-                do {
-                    try {
-                        previous = iter.next().getProducaoFruto(idFrutoEscolhido).getQuantidadeProducao();
-                        flag=false;
-                    } catch (NullPointerException e) {
-                        iter = paisIter.next().iterator();
-                        flag=true;
-                    }
-                }while (flag);
+            int count = 0, maxCount = 0, previous = 0;
 
 
-                while (iter.hasNext()) {
-                    ProducaoAno ano = iter.next();
+            while (iter.hasNext()) {
+                ProducaoAno ano = iter.next();
+                if (ano.hasProdFruto(idFrutoEscolhido)) {
                     int current = ano.getProducaoFruto(idFrutoEscolhido).getQuantidadeProducao();
                     if (current > previous) {
                         count++;
                         if (maxCount < count)
                             maxCount = count;
+                    } else
+                        count = 1;
 
-                    }else
-                        count=0;
                     previous = current;
 
-                }
-                listProduction.add(new Pair<Pais, Integer>(p, maxCount));
+                } else
+                    count = 0;
+
             }
+            maxCount--;
 
-            listProduction.sort(comparator);
 
-
+            if (maxCount > 0)
+                listProduction.add(new Pair<>(p, maxCount));
         }
+        listProduction.sort(comparator);
+
         return listProduction;
 
     }
