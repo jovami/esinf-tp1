@@ -4,6 +4,7 @@ import java.util.Comparator;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.function.IntPredicate;
 
 import esinf.App;
@@ -30,7 +31,7 @@ public class Exercicio2 implements Runnable {
     }
 
     @Override
-    public void run() throws RuntimeException
+    public void run() throws NoSuchElementException
     {
         int id = 515;
         int quantidade = 14_000;
@@ -49,11 +50,14 @@ public class Exercicio2 implements Runnable {
     public List<Triplet<Pais, Integer, Integer>>
     filtrarPaises(int frutoId, IntPredicate condicao)
     {
+        if (!app.getFrutoStore().checkFrutoExistence(frutoId))
+            throw new NoSuchElementException("erro: fruto nao existe");
+
         var triplets = new LinkedList<Triplet<Pais, Integer, Integer>>();
         Iterator<Pais> paisIter = app.getPaisStore().iterator();
 
         if (!paisIter.hasNext())
-            throw new RuntimeException("erro: nao ha paises armazenados");
+            throw new NoSuchElementException("erro: nao ha paises armazenados");
 
         paisIter.forEachRemaining(p -> {
             var iter = p.iterator();

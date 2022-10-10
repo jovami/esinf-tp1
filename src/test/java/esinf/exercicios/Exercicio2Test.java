@@ -4,11 +4,13 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.util.NoSuchElementException;
 import java.util.function.IntPredicate;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import esinf.App;
 import esinf.MainTest;
 import esinf.MainTest.Frutos;
 import esinf.MainTest.Paises;
@@ -33,29 +35,30 @@ public class Exercicio2Test {
     }
 
     @Test
+    void testNoSuchFruit() {
+        int id = Frutos.INVALID_FRUIT.getCode();
+        int qtd = 0; // any quantity
+
+        assertThrows(NoSuchElementException.class, () -> {
+            ex2.filtrarPaises(id, getPredicate(qtd));
+        });
+    }
+
+    @Test
     void testEmptyStore() {
         int id = Frutos.BANANAS.getCode();
-        int qtd = 14_000;
+        int qtd = 0; // any
 
         MainTest.resetSingleton();
-        assertThrows(RuntimeException.class, () -> {
+        App.getInstance().getFrutoStore().addFruto(id, "banana");
+        assertThrows(NoSuchElementException.class, () -> {
             new Exercicio2().filtrarPaises(id, getPredicate(qtd));
         });
     }
 
     @Test
-    void testEmptyListNoFruit() {
-        int id = Frutos.INVALID_FRUIT.getCode();
-        int qtd = 0;
-
-        var list = ex2.filtrarPaises(id, getPredicate(qtd));
-
-        assertTrue(list.isEmpty());
-    }
-
-    @Test
-    void testEmptyListNoQtd() {
-        int id = Frutos.APPLE.getCode();
+    void testEmptyList() {
+        int id = Frutos.BANANAS.getCode();
         int qtd = Integer.MAX_VALUE;
 
         var list = ex2.filtrarPaises(id, getPredicate(qtd));
