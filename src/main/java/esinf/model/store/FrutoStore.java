@@ -17,24 +17,14 @@ public class FrutoStore implements Iterable<Fruto> {
         return frutoStore.get(idFruto);
     }
 
-    //TODO: change method name??
     public boolean hasFruto(int idFruto) {
         return frutoStore.get(idFruto) != null;
     }
 
-
-    /* public Fruto createFruto(int idFruto, String nomeFruto){
-        if(!checkFrutoExistence(idFruto))// se já existir vai nao vai adicionar nada ao hashMap
-            return new Fruto(nomeFruto, idFruto);
-        else
-            throw new NullPointerException(String.format("Element already exist: Fruto %s"+nomeFruto));
-    } */
-
-
     //retorna falso caso exista já um elemento destes
     public boolean addFruto(int idFruto, String nomeFruto) {
         if (this.hasFruto(idFruto))
-            return false; //TODO excep instead:
+            return false;
 
         return frutoStore.put(idFruto,new Fruto(nomeFruto, idFruto))!= null;
     }

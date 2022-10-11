@@ -24,7 +24,7 @@ public class Exercicio5 implements Runnable {
     @Override
     public void run() {
 
-        String estrutura = getEstruturaPedida(174);
+        String estrutura = getEstruturaPedida(166);
         System.out.println(estrutura);
 
     }

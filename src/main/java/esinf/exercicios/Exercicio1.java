@@ -14,9 +14,10 @@ import esinf.model.ProducaoAno;
 /**
  * Exercicio1
  */
+
 public class Exercicio1 implements Runnable {
 
-    public final String FILE_NAME = "FAOSTAT_data_en_9-7-2022_BIG.csv";
+    public final String FILE_NAME = "FAOSTAT_data_en_9-7-2022_SMALLTEST_QUOTATIONMARKS.csv";
 
     private App app;
 
@@ -68,8 +69,6 @@ public class Exercicio1 implements Runnable {
                 qtdProducao = Integer.parseInt(info[Colunas.QTDPRODUCAO.getColuna()]);
             }
 
-            // TODO: ha linhas sem quantidade NENHUMA de producao; ver linha 242 do ficheiro
-            // fazer info[Colunas.QTDPRODUCAO.getColuna()] = "0" ????
             if (info[Colunas.QTDPRODUCAO.getColuna()].matches("[0-9]+")) {
                 savePais(nomePais, idPais);
                 saveFruto(nomeFruto, idFruto);

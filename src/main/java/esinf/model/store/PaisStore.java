@@ -26,7 +26,6 @@ public class PaisStore implements Iterable<Pais> {
         return this.paisStore.size();
     }
 
-    //TODO: necessário?
     public boolean hasPais(int id) {
         return this.paisStore.get(id) != null;
     }
