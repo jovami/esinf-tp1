@@ -37,6 +37,9 @@ public class Exercicio3 implements Runnable {
     public void run() {
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> c28d4217f32526e004cea1f26467393f20965fce
         Long producaoMax = 1299298911l;
 
         ArrayList<Pais> listPais = getPaisSorted();
@@ -49,6 +52,7 @@ public class Exercicio3 implements Runnable {
             System.out.printf("Os paises na base de dados não possuem uma producao suficiente para ultrapassar a producao desejada %d",producaoMax);
         
     }
+<<<<<<< HEAD
 =======
         //como serao apresentadas os paises
         instancias();
@@ -57,11 +61,14 @@ public class Exercicio3 implements Runnable {
         int producaoMax=860;
         int sumTotal=0;
 >>>>>>> dd4f61f ((feature/exercicio3)updated ex3 de acordo com as novas alterações nas incrementacoes das producoes)
+=======
+>>>>>>> c28d4217f32526e004cea1f26467393f20965fce
 
     public ArrayList<Pais> getPaisSorted(){
         Stream<Pais>  paisStream = paisStore.getStream();
         return paisStream.sorted(cmpPais).collect(Collectors.toCollection(ArrayList::new));
     }
+<<<<<<< HEAD
 
     public int getMinPais(long producaoMax,ArrayList<Pais> iterPais){
 
@@ -93,24 +100,56 @@ public class Exercicio3 implements Runnable {
         }
         System.out.printf("Prod total : %d\t Numero de paises:%d\n",sumTotal,numPais);
     }
+=======
+>>>>>>> c28d4217f32526e004cea1f26467393f20965fce
 
+    public int getMinPais(long producaoMax,ArrayList<Pais> iterPais){
 
+<<<<<<< HEAD
 
 =======
         //System.out.println(listPais.toString()); //list ordenada
 
         System.out.printf("Paises necessários para atingir um valor de producao total de %d :\n",producaoMax);
         for (Pais pais : listPais) {
+=======
+        int numPais=0;
+        int sumTotal=0;
+        
+        for (Pais pais : iterPais) {
+>>>>>>> c28d4217f32526e004cea1f26467393f20965fce
             sumTotal += pais.getProdTotal();
-            System.out.printf("Pais:%s     Prod:%d\n",pais.getNomePais(),pais.getProdTotal());
-
+            numPais++;
             if (sumTotal >= producaoMax){
+<<<<<<< HEAD
                 System.out.printf("Prod total: %d\n",sumTotal);
                 break;
             }
         }
+=======
+                return numPais;
+            }
+        }
+        return -1;
+    }
+
+    public void printPais(int numPais, List<Pais> listPais, long producaoMax) {
+
+        int sumTotal=0;
+
+        System.out.printf("Paises necessários para atingir um valor de producao total de %d :\n\n",producaoMax);
+
+        for (int i = 0 ;i<numPais;i++) {
+            Pais pais=listPais.get(i);
+
+            sumTotal += pais.getProdTotal();
+            System.out.printf("Pais:%s     Prod:%d\n",pais.getNomePais(),pais.getProdTotal());
+        }
+        System.out.printf("Prod total : %d\t Numero de paises:%d\n",sumTotal,numPais);
+>>>>>>> c28d4217f32526e004cea1f26467393f20965fce
     }
 >>>>>>> dd4f61f ((feature/exercicio3)updated ex3 de acordo com as novas alterações nas incrementacoes das producoes)
+
 
     //INSTANCIAS PARA TESTES
     private void instancias() {
