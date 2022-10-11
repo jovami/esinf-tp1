@@ -22,8 +22,9 @@ class Fruto
 
 class FrutoStore
 {
-    -HasMap<Integer,Fruto> frutoStore;
+    -HashMap<Integer,Fruto> frutoStore;
     +getFruto(int idFruto)
+    +hasFruto(int idFruto)
     +addFruto(int idFruto,String nomeFruto)
     +size()
     +iterator()
@@ -53,10 +54,9 @@ class Pais
 
 class PaisStore
 {
-    -HasMap<Integer,Pais> paisStore
+    -HashMap<Integer,Pais> paisStore
     +getStream()
-    +getSize()
-    +checkPais(int id)
+    +hasPais(int id)
     +addPais(int id,String paisNome)
     +getPais(id)
     +iterator()
@@ -64,9 +64,10 @@ class PaisStore
 
 class ProducaoAno
 {
-    -HasMap<Integer,ProducaoFrutoPorPaisPorAno> prodAnual
+    -HashMap<Integer,ProducaoFrutoPorPaisPorAno> prodAnual
     -int quantidadeProdAnual
     -int ano
+    +hasProdFruto(int frutoId)
     +getProducaoFruto(int frutoId)
     +addProducaoFruto(Fruto fruto, int quantidadeProd)
     -incrementProdAnual(int prod)
@@ -100,8 +101,8 @@ class CSVReader
 
 enum CSVHeader
 {
-    -int columns
-    -String delimiter
+    -final int columns
+    -final String delimiter
     +getColumnCount()
     +getDelimiter()
 }
@@ -147,7 +148,7 @@ class Main
 PaisStore "1" -- "*" Pais
 Pais "1" -- "*" ProducaoAno
 ProducaoAno "1" -- "*" ProducaoFrutoPorPaisPorAno
-ProducaoFrutoPorPaisPorAno "1" -- "1" Fruto
+ProducaoFrutoPorPaisPorAno "*" -- "1" Fruto
 FrutoStore "1" -- "*" Fruto
 Main ..> Pais
 Main ..> PaisStore

@@ -96,9 +96,6 @@ public class Pais implements Iterable<ProducaoAno> {
 		return this.producaoAnual.values().iterator();
 	}
 
-    public Iterator<ProducaoAno> iteradorDecrescente() {
-        return this.producaoAnual.descendingMap().values().iterator();
-    }
 
     public Stream<ProducaoAno> stream() {
         return this.producaoAnual.values().stream();

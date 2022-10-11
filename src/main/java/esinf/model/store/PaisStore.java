@@ -22,10 +22,6 @@ public class PaisStore implements Iterable<Pais> {
         return this.paisStore.values().stream();
     }
 
-    public int getSize() {
-        return this.paisStore.size();
-    }
-
     public boolean hasPais(int id) {
         return this.paisStore.get(id) != null;
     }
