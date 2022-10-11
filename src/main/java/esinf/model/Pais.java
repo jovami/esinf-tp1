@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.TreeMap;
+import java.util.stream.Stream;
 
 public class Pais implements Iterable<ProducaoAno> {
 
@@ -97,6 +98,10 @@ public class Pais implements Iterable<ProducaoAno> {
 
     public Iterator<ProducaoAno> iteradorDecrescente() {
         return this.producaoAnual.descendingMap().values().iterator();
+    }
+
+    public Stream<ProducaoAno> stream() {
+        return this.producaoAnual.values().stream();
     }
 
     @Override

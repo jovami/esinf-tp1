@@ -9,7 +9,6 @@ import java.util.function.IntPredicate;
 
 import esinf.App;
 import esinf.model.Pais;
-import esinf.model.ProducaoAno;
 import esinf.util.ListPrinter;
 import esinf.util.Triplet;
 
@@ -18,12 +17,12 @@ import esinf.util.Triplet;
  */
 public class Exercicio2 implements Runnable {
 
-    private App app;
+    private final App app;
 
-    private Comparator<Triplet<Pais, Integer, Integer>> cmpA =
+    private final Comparator<Triplet<Pais, Integer, Integer>> anoCrescente =
         Comparator.comparing(Triplet::getSecond);
 
-    private Comparator<Triplet<Pais, Integer, Integer>> cmpB =
+    private final Comparator<Triplet<Pais, Integer, Integer>> qtdDecrescente =
         Comparator.comparing(Triplet::getThird, (k1, k2) -> k2.compareTo(k1));
 
     public Exercicio2() {
@@ -60,19 +59,16 @@ public class Exercicio2 implements Runnable {
             throw new NoSuchElementException("erro: nao ha paises armazenados");
 
         paisIter.forEachRemaining(p -> {
-            var iter = p.iterator();
-            while (iter.hasNext()) {
-                ProducaoAno ano = iter.next();
+            var anoOptional =
+                p.stream()
+                 .filter(ano -> ano.hasProdFruto(frutoId)
+                         && condicao.test(ano.getProducaoFruto(frutoId).getQuantidadeProducao()))
+                 .findFirst();
 
-                var prodFruto = ano.getProducaoFruto(frutoId);
-                int qtd;
-                if (prodFruto != null
-                && condicao.test((qtd = prodFruto.getQuantidadeProducao())))
-                {
-                    triplets.add(new Triplet<Pais,Integer,Integer>(p, ano.getAno(), qtd));
-                    return; // move on to the next Pais
-                }
-            }
+            anoOptional.ifPresent(ano -> {
+                int qtd = ano.getProducaoFruto(frutoId).getQuantidadeProducao();
+                triplets.add(new Triplet<>(p, ano.getAno(), qtd));
+            });
         });
 
         return triplets;
@@ -88,12 +84,12 @@ public class Exercicio2 implements Runnable {
     public <E extends Triplet<Pais, Integer, Integer>> List<Pais>
     sortA(List<E> list)
     {
-        return sortPais(list, cmpA);
+        return sortPais(list, anoCrescente);
     }
 
     public <E extends Triplet<Pais, Integer, Integer>> List<Pais>
     sortB(List<E> list)
     {
-        return sortPais(list, cmpA.thenComparing(cmpB));
+        return sortPais(list, anoCrescente.thenComparing(qtdDecrescente));
     }
 }
