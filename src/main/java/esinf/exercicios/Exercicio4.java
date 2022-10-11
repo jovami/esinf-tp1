@@ -26,7 +26,6 @@ public class Exercicio4 implements Runnable {
     public void run() {
         int idFrutoEscolhido = 486;
         printListProduction(getListMaxProduction(idFrutoEscolhido));
-
     }
 
     private <E> void printListProduction(List<E> listProduction) {
@@ -40,10 +39,8 @@ public class Exercicio4 implements Runnable {
 
         while (paisIter.hasNext()) {
             Pais p = paisIter.next();
-
             Iterator<ProducaoAno> iter = p.iterator();
             int count = 0, maxCount = 0, previous = 0;
-
 
             while (iter.hasNext()) {
                 ProducaoAno ano = iter.next();
@@ -55,15 +52,11 @@ public class Exercicio4 implements Runnable {
                             maxCount = count;
                     } else
                         count = 1;
-
                     previous = current;
-
                 } else
                     count = 0;
-
             }
             maxCount--;
-
 
             if (maxCount > 0)
                 listProduction.add(new Pair<>(p, maxCount));
