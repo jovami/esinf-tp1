@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="1531.8px" preserveAspectRatio="none" style="width:1299px;height:1531px;background:#FFFFFF;" version="1.1" viewBox="0 0 1299 1531" width="1299px" zoomAndPan="magnify"><defs/><g><!--MD5=[39b3186233f39af95a49928f0d90e97d]
+class Fruto--><g id="elem_Fruto"><rect codeLine="9" fill="#F1F1F1" height="175.4438" id="Fruto" rx="1.5" ry="1.5" style="stroke:#181818;stroke-width:0.3;" width="120.6" x="311.7" y="1352.4"/><ellipse cx="355.65" cy="1363.3922" fill="#ADD1B2" rx="6.6" ry="6.6" style="stroke:#181818;stroke-width:0.6;"/><path d="M356.85,1361.2922 Q356.9719,1360.9922 357.1125,1360.8422 Q357.2531,1360.6922 357.4125,1360.6922 Q357.6937,1360.6922 357.8719,1360.8609 Q358.05,1361.0297 358.05,1361.4234 L358.05,1362.3609 Q358.05,1362.7547 357.8812,1362.9234 Q357.7125,1363.0922 357.45,1363.0922 Q357.2156,1363.0922 357.0656,1362.9891 Q356.9156,1362.8859 356.85,1362.6141 Q356.8219,1362.4266 356.7188,1362.3234 Q356.5313,1362.1266 356.1937,1362.0141 Q355.8563,1361.8922 355.5188,1361.8922 Q355.0969,1361.8922 354.7406,1362.0609 Q354.3938,1362.2297 354.1219,1362.6047 Q353.85,1362.9797 353.85,1363.4953 L353.85,1364.0484 Q353.85,1364.6672 354.3563,1365.0797 Q354.8625,1365.4922 355.7625,1365.4922 Q356.2969,1365.4922 356.6719,1365.3703 Q356.8875,1365.3047 357.1312,1365.0891 Q357.2906,1364.9672 357.375,1364.9297 Q357.4594,1364.8922 357.5625,1364.8922 Q357.7594,1364.8922 357.9,1365.0516 Q358.05,1365.2016 358.05,1365.4172 Q358.05,1365.6234 357.8438,1365.8672 Q357.5438,1366.2234 357.0656,1366.4203 Q356.4375,1366.6922 355.6688,1366.6922 Q354.7688,1366.6922 354.0469,1366.3359 Q353.4656,1366.0547 353.0531,1365.4453 Q352.65,1364.8359 352.65,1364.1141 L352.65,1363.4578 Q352.65,1362.7078 353.0062,1362.0516 Q353.3719,1361.3953 354,1361.0484 Q354.6375,1360.6922 355.35,1360.6922 Q355.7813,1360.6922 356.1563,1360.8422 Q356.5313,1360.9922 356.85,1361.2922 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="25.2" x="369.15" y="1367.8113">Fruto</text><line style="stroke:#181818;stroke-width:0.3;" x1="312.3" x2="431.7" y1="1374.3844" y2="1374.3844"/><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="61.2" x="316.5" y="1389.1957">-String nome</text><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="26.4" x="316.5" y="1405.1801">-int id</text><line style="stroke:#181818;stroke-width:0.3;" x1="312.3" x2="431.7" y1="1411.1531" y2="1411.1531"/><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="111" x="316.5" y="1425.9645">-setNome(String nome)</text><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="56.4" x="316.5" y="1441.9488">-setId(int id)</text><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="57" x="316.5" y="1457.9332">+getNome()</text><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="37.2" x="316.5" y="1473.9176">+getId()</text><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="51" x="316.5" y="1489.902">+toString()</text><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="85.8" x="316.5" y="1505.8863">+equals(Object o)</text><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="57" x="316.5" y="1521.8707">+hasCode()</text></g><!--MD5=[ba9da0ded9794a8f13068b7e607c58f8]
+class FrutoStore--><g id="elem_FrutoStore"><rect codeLine="22" fill="#F1F1F1" height="127.4906" id="FrutoStore" rx="1.5" ry="1.5" style="stroke:#181818;stroke-width:0.3;" width="200.4" x="4.2" y="331.2"/><ellipse cx="75.15" cy="342.1922" fill="#ADD1B2" rx="6.6" ry="6.6" style="stroke:#181818;stroke-width:0.6;"/><path d="M76.35,340.0922 Q76.4719,339.7922 76.6125,339.6422 Q76.7531,339.4922 76.9125,339.4922 Q77.1938,339.4922 77.3719,339.6609 Q77.55,339.8297 77.55,340.2234 L77.55,341.1609 Q77.55,341.5547 77.3813,341.7234 Q77.2125,341.8922 76.95,341.8922 Q76.7156,341.8922 76.5656,341.7891 Q76.4156,341.6859 76.35,341.4141 Q76.3219,341.2266 76.2188,341.1234 Q76.0313,340.9266 75.6938,340.8141 Q75.3563,340.6922 75.0188,340.6922 Q74.5969,340.6922 74.2406,340.8609 Q73.8938,341.0297 73.6219,341.4047 Q73.35,341.7797 73.35,342.2953 L73.35,342.8484 Q73.35,343.4672 73.8563,343.8797 Q74.3625,344.2922 75.2625,344.2922 Q75.7969,344.2922 76.1719,344.1703 Q76.3875,344.1047 76.6313,343.8891 Q76.7906,343.7672 76.875,343.7297 Q76.9594,343.6922 77.0625,343.6922 Q77.2594,343.6922 77.4,343.8516 Q77.55,344.0016 77.55,344.2172 Q77.55,344.4234 77.3438,344.6672 Q77.0438,345.0234 76.5656,345.2203 Q75.9375,345.4922 75.1688,345.4922 Q74.2688,345.4922 73.5469,345.1359 Q72.9656,344.8547 72.5531,344.2453 Q72.15,343.6359 72.15,342.9141 L72.15,342.2578 Q72.15,341.5078 72.5063,340.8516 Q72.8719,340.1953 73.5,339.8484 Q74.1375,339.4922 74.85,339.4922 Q75.2813,339.4922 75.6563,339.6422 Q76.0313,339.7922 76.35,340.0922 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="51" x="88.65" y="346.6113">FrutoStore</text><line style="stroke:#181818;stroke-width:0.3;" x1="4.8" x2="204" y1="353.1844" y2="353.1844"/><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="177.6" x="9" y="367.9957">-HashMap&lt;Integer,Fruto&gt; frutoStore;</text><line style="stroke:#181818;stroke-width:0.3;" x1="4.8" x2="204" y1="373.9688" y2="373.9688"/><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="102" x="9" y="388.7801">+getFruto(int idFruto)</text><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="104.4" x="9" y="404.7645">+hasFruto(int idFruto)</text><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="190.8" x="9" y="420.7488">+addFruto(int idFruto,String nomeFruto)</text><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="32.4" x="9" y="436.7332">+size()</text><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="47.4" x="9" y="452.7176">+iterator()</text></g><!--MD5=[a06955342fd54b3ea80d6f45b25e148a]
+class Pais--><g id="elem_Pais"><rect codeLine="32" fill="#F1F1F1" height="319.3031" id="Pais" rx="1.5" ry="1.5" style="stroke:#181818;stroke-width:0.3;" width="246" x="201" y="518.4"/><ellipse cx="309.75" cy="529.3922" fill="#ADD1B2" rx="6.6" ry="6.6" style="stroke:#181818;stroke-width:0.6;"/><path d="M310.95,527.2922 Q311.0719,526.9922 311.2125,526.8422 Q311.3531,526.6922 311.5125,526.6922 Q311.7938,526.6922 311.9719,526.8609 Q312.15,527.0297 312.15,527.4234 L312.15,528.3609 Q312.15,528.7547 311.9813,528.9234 Q311.8125,529.0922 311.55,529.0922 Q311.3156,529.0922 311.1656,528.9891 Q311.0156,528.8859 310.95,528.6141 Q310.9219,528.4266 310.8187,528.3234 Q310.6312,528.1266 310.2938,528.0141 Q309.9563,527.8922 309.6188,527.8922 Q309.1969,527.8922 308.8406,528.0609 Q308.4938,528.2297 308.2219,528.6047 Q307.95,528.9797 307.95,529.4953 L307.95,530.0484 Q307.95,530.6672 308.4563,531.0797 Q308.9625,531.4922 309.8625,531.4922 Q310.3969,531.4922 310.7719,531.3703 Q310.9875,531.3047 311.2313,531.0891 Q311.3906,530.9672 311.475,530.9297 Q311.5594,530.8922 311.6625,530.8922 Q311.8594,530.8922 312,531.0516 Q312.15,531.2016 312.15,531.4172 Q312.15,531.6234 311.9437,531.8672 Q311.6438,532.2234 311.1656,532.4203 Q310.5375,532.6922 309.7688,532.6922 Q308.8688,532.6922 308.1469,532.3359 Q307.5656,532.0547 307.1531,531.4453 Q306.75,530.8359 306.75,530.1141 L306.75,529.4578 Q306.75,528.7078 307.1063,528.0516 Q307.4719,527.3953 308.1,527.0484 Q308.7375,526.6922 309.45,526.6922 Q309.8812,526.6922 310.2562,526.8422 Q310.6312,526.9922 310.95,527.2922 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="21" x="323.25" y="533.8113">Pais</text><line style="stroke:#181818;stroke-width:0.3;" x1="201.6" x2="446.4" y1="540.3844" y2="540.3844"/><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="236.4" x="205.8" y="555.1957">-TreeMap&lt;Integer,ProducaoAno&gt; producaoAnual</text><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="82.2" x="205.8" y="571.1801">-String nomePais</text><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="72" x="205.8" y="587.1645">-int paisCodigo</text><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="64.2" x="205.8" y="603.1488">-int prodTotal</text><line style="stroke:#181818;stroke-width:0.3;" x1="201.6" x2="446.4" y1="609.1219" y2="609.1219"/><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="132" x="205.8" y="623.9332">-setNomePais(String nome)</text><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="148.8" x="205.8" y="639.9176">-setCodigoPais(int paisCodigo)</text><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="78" x="205.8" y="655.902">+getNomePais()</text><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="84" x="205.8" y="671.8863">+getPaisCodigo()</text><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="76.2" x="205.8" y="687.8707">+getProdTotal()</text><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="164.4" x="205.8" y="703.8551">-incrementProducao(int prodTotal)</text><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="151.2" x="205.8" y="719.8395">+containsAnoProducao(int ano)</text><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="182.4" x="205.8" y="735.8238">+addAnoProducao(ProducaoAno ano)</text><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="141" x="205.8" y="751.8082">+createAnoProducao(int ano)</text><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="147.6" x="205.8" y="767.7926">+getProducaoAno(Integer ano)</text><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="47.4" x="205.8" y="783.777">+iterator()</text><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="51" x="205.8" y="799.7613">+toString()</text><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="45.6" x="205.8" y="815.7457">+equals()</text><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="57" x="205.8" y="831.7301">+hasCode()</text></g><!--MD5=[52ae3fe5ad6c437b06d116a707e4a903]
+class PaisStore--><g id="elem_PaisStore"><rect codeLine="54" fill="#F1F1F1" height="127.4906" id="PaisStore" rx="1.5" ry="1.5" style="stroke:#181818;stroke-width:0.3;" width="178.2" x="225.9" y="331.2"/><ellipse cx="287.85" cy="342.1922" fill="#ADD1B2" rx="6.6" ry="6.6" style="stroke:#181818;stroke-width:0.6;"/><path d="M289.05,340.0922 Q289.1719,339.7922 289.3125,339.6422 Q289.4531,339.4922 289.6125,339.4922 Q289.8938,339.4922 290.0719,339.6609 Q290.25,339.8297 290.25,340.2234 L290.25,341.1609 Q290.25,341.5547 290.0813,341.7234 Q289.9125,341.8922 289.65,341.8922 Q289.4156,341.8922 289.2656,341.7891 Q289.1156,341.6859 289.05,341.4141 Q289.0219,341.2266 288.9188,341.1234 Q288.7313,340.9266 288.3938,340.8141 Q288.0563,340.6922 287.7188,340.6922 Q287.2969,340.6922 286.9406,340.8609 Q286.5938,341.0297 286.3219,341.4047 Q286.05,341.7797 286.05,342.2953 L286.05,342.8484 Q286.05,343.4672 286.5563,343.8797 Q287.0625,344.2922 287.9625,344.2922 Q288.4969,344.2922 288.8719,344.1703 Q289.0875,344.1047 289.3313,343.8891 Q289.4906,343.7672 289.575,343.7297 Q289.6594,343.6922 289.7625,343.6922 Q289.9594,343.6922 290.1,343.8516 Q290.25,344.0016 290.25,344.2172 Q290.25,344.4234 290.0438,344.6672 Q289.7438,345.0234 289.2656,345.2203 Q288.6375,345.4922 287.8688,345.4922 Q286.9688,345.4922 286.2469,345.1359 Q285.6656,344.8547 285.2531,344.2453 Q284.85,343.6359 284.85,342.9141 L284.85,342.2578 Q284.85,341.5078 285.2063,340.8516 Q285.5719,340.1953 286.2,339.8484 Q286.8375,339.4922 287.55,339.4922 Q287.9813,339.4922 288.3563,339.6422 Q288.7313,339.7922 289.05,340.0922 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="46.8" x="301.35" y="346.6113">PaisStore</text><line style="stroke:#181818;stroke-width:0.3;" x1="226.5" x2="403.5" y1="353.1844" y2="353.1844"/><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="168.6" x="230.7" y="367.9957">-HashMap&lt;Integer,Pais&gt; paisStore</text><line style="stroke:#181818;stroke-width:0.3;" x1="226.5" x2="403.5" y1="373.9688" y2="373.9688"/><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="63" x="230.7" y="388.7801">+getStream()</text><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="75" x="230.7" y="404.7645">+hasPais(int id)</text><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="157.8" x="230.7" y="420.7488">+addPais(int id,String paisNome)</text><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="58.2" x="230.7" y="436.7332">+getPais(id)</text><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="47.4" x="230.7" y="452.7176">+iterator()</text></g><!--MD5=[f475cc7343fa1c2fda19b4336f08f5aa]
+class ProducaoAno--><g id="elem_ProducaoAno"><rect codeLine="64" fill="#F1F1F1" height="207.4125" id="ProducaoAno" rx="1.5" ry="1.5" style="stroke:#181818;stroke-width:0.3;" width="304.8" x="184.8" y="897.6"/><ellipse cx="301.05" cy="908.5922" fill="#ADD1B2" rx="6.6" ry="6.6" style="stroke:#181818;stroke-width:0.6;"/><path d="M302.25,906.4922 Q302.3719,906.1922 302.5125,906.0422 Q302.6531,905.8922 302.8125,905.8922 Q303.0938,905.8922 303.2719,906.0609 Q303.45,906.2297 303.45,906.6234 L303.45,907.5609 Q303.45,907.9547 303.2813,908.1234 Q303.1125,908.2922 302.85,908.2922 Q302.6156,908.2922 302.4656,908.1891 Q302.3156,908.0859 302.25,907.8141 Q302.2219,907.6266 302.1188,907.5234 Q301.9313,907.3266 301.5938,907.2141 Q301.2562,907.0922 300.9188,907.0922 Q300.4969,907.0922 300.1406,907.2609 Q299.7938,907.4297 299.5219,907.8047 Q299.25,908.1797 299.25,908.6953 L299.25,909.2484 Q299.25,909.8672 299.7562,910.2797 Q300.2625,910.6922 301.1625,910.6922 Q301.6969,910.6922 302.0719,910.5703 Q302.2875,910.5047 302.5313,910.2891 Q302.6906,910.1672 302.775,910.1297 Q302.8594,910.0922 302.9625,910.0922 Q303.1594,910.0922 303.3,910.2516 Q303.45,910.4016 303.45,910.6172 Q303.45,910.8234 303.2438,911.0672 Q302.9437,911.4234 302.4656,911.6203 Q301.8375,911.8922 301.0687,911.8922 Q300.1688,911.8922 299.4469,911.5359 Q298.8656,911.2547 298.4531,910.6453 Q298.05,910.0359 298.05,909.3141 L298.05,908.6578 Q298.05,907.9078 298.4063,907.2516 Q298.7719,906.5953 299.4,906.2484 Q300.0375,905.8922 300.75,905.8922 Q301.1813,905.8922 301.5563,906.0422 Q301.9313,906.1922 302.25,906.4922 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="64.8" x="314.55" y="913.0113">ProducaoAno</text><line style="stroke:#181818;stroke-width:0.3;" x1="185.4" x2="489" y1="919.5844" y2="919.5844"/><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="295.2" x="189.6" y="934.3957">-HashMap&lt;Integer,ProducaoFrutoPorPaisPorAno&gt; prodAnual</text><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="121.2" x="189.6" y="950.3801">-int quantidadeProdAnual</text><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="36" x="189.6" y="966.3645">-int ano</text><line style="stroke:#181818;stroke-width:0.3;" x1="185.4" x2="489" y1="972.3375" y2="972.3375"/><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="123.6" x="189.6" y="987.1488">+hasProdFruto(int frutoId)</text><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="144.6" x="189.6" y="1003.1332">+getProducaoFruto(int frutoId)</text><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="249.6" x="189.6" y="1019.1176">+addProducaoFruto(Fruto fruto, int quantidadeProd)</text><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="143.4" x="189.6" y="1035.102">-incrementProdAnual(int prod)</text><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="78.6" x="189.6" y="1051.0863">+getProdAnual()</text><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="47.4" x="189.6" y="1067.0707">+getAno()</text><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="47.4" x="189.6" y="1083.0551">+iterator()</text><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="160.8" x="189.6" y="1099.0395">+compareTo(ProducaoAno outro)</text></g><!--MD5=[400db4378d4a4de8cf4e67e16bee21a5]
+class ProducaoFrutoPorPaisPorAno--><g id="elem_ProducaoFrutoPorPaisPorAno"><rect codeLine="79" fill="#F1F1F1" height="127.4906" id="ProducaoFrutoPorPaisPorAno" rx="1.5" ry="1.5" style="stroke:#181818;stroke-width:0.3;" width="250.8" x="246.6" y="1165.2"/><ellipse cx="295.95" cy="1176.1922" fill="#ADD1B2" rx="6.6" ry="6.6" style="stroke:#181818;stroke-width:0.6;"/><path d="M297.15,1174.0922 Q297.2719,1173.7922 297.4125,1173.6422 Q297.5531,1173.4922 297.7125,1173.4922 Q297.9938,1173.4922 298.1719,1173.6609 Q298.35,1173.8297 298.35,1174.2234 L298.35,1175.1609 Q298.35,1175.5547 298.1813,1175.7234 Q298.0125,1175.8922 297.75,1175.8922 Q297.5156,1175.8922 297.3656,1175.7891 Q297.2156,1175.6859 297.15,1175.4141 Q297.1219,1175.2266 297.0188,1175.1234 Q296.8313,1174.9266 296.4938,1174.8141 Q296.1563,1174.6922 295.8187,1174.6922 Q295.3969,1174.6922 295.0406,1174.8609 Q294.6937,1175.0297 294.4219,1175.4047 Q294.15,1175.7797 294.15,1176.2953 L294.15,1176.8484 Q294.15,1177.4672 294.6563,1177.8797 Q295.1625,1178.2922 296.0625,1178.2922 Q296.5969,1178.2922 296.9719,1178.1703 Q297.1875,1178.1047 297.4313,1177.8891 Q297.5906,1177.7672 297.675,1177.7297 Q297.7594,1177.6922 297.8625,1177.6922 Q298.0594,1177.6922 298.2,1177.8516 Q298.35,1178.0016 298.35,1178.2172 Q298.35,1178.4234 298.1438,1178.6672 Q297.8438,1179.0234 297.3656,1179.2203 Q296.7375,1179.4922 295.9688,1179.4922 Q295.0687,1179.4922 294.3469,1179.1359 Q293.7656,1178.8547 293.3531,1178.2453 Q292.95,1177.6359 292.95,1176.9141 L292.95,1176.2578 Q292.95,1175.5078 293.3063,1174.8516 Q293.6719,1174.1953 294.3,1173.8484 Q294.9375,1173.4922 295.65,1173.4922 Q296.0813,1173.4922 296.4563,1173.6422 Q296.8313,1173.7922 297.15,1174.0922 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="144.6" x="309.45" y="1180.6113">ProducaoFrutoPorPaisPorAno</text><line style="stroke:#181818;stroke-width:0.3;" x1="247.2" x2="496.8" y1="1187.1844" y2="1187.1844"/><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="53.4" x="251.4" y="1201.9957">-Fruto fruto</text><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="117.6" x="251.4" y="1217.9801">-int quantidadeProducao</text><line style="stroke:#181818;stroke-width:0.3;" x1="247.2" x2="496.8" y1="1223.9531" y2="1223.9531"/><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="54" x="251.4" y="1238.7645">+getFruto()</text><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="100.2" x="251.4" y="1254.7488">-setFruto(Fruto fruto)</text><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="130.8" x="251.4" y="1270.7332">+getQuantidadeProducao()</text><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="241.2" x="251.4" y="1286.7176">-setQuantidadeProducao(int quantidadeProducao)</text></g><!--MD5=[60b59e3d7d8b95aff167b5157d975660]
+class CSVReader--><g id="elem_CSVReader"><rect codeLine="89" fill="#F1F1F1" height="159.4594" id="CSVReader" rx="1.5" ry="1.5" style="stroke:#181818;stroke-width:0.3;" width="189" x="596.1" y="111.6"/><ellipse cx="658.35" cy="122.5922" fill="#ADD1B2" rx="6.6" ry="6.6" style="stroke:#181818;stroke-width:0.6;"/><path d="M659.55,120.4922 Q659.6719,120.1922 659.8125,120.0422 Q659.9531,119.8922 660.1125,119.8922 Q660.3938,119.8922 660.5719,120.0609 Q660.75,120.2297 660.75,120.6234 L660.75,121.5609 Q660.75,121.9547 660.5813,122.1234 Q660.4125,122.2922 660.15,122.2922 Q659.9156,122.2922 659.7656,122.1891 Q659.6156,122.0859 659.55,121.8141 Q659.5219,121.6266 659.4187,121.5234 Q659.2312,121.3266 658.8938,121.2141 Q658.5563,121.0922 658.2188,121.0922 Q657.7969,121.0922 657.4406,121.2609 Q657.0938,121.4297 656.8219,121.8047 Q656.55,122.1797 656.55,122.6953 L656.55,123.2484 Q656.55,123.8672 657.0563,124.2797 Q657.5625,124.6922 658.4625,124.6922 Q658.9969,124.6922 659.3719,124.5703 Q659.5875,124.5047 659.8313,124.2891 Q659.9906,124.1672 660.075,124.1297 Q660.1594,124.0922 660.2625,124.0922 Q660.4594,124.0922 660.6,124.2516 Q660.75,124.4016 660.75,124.6172 Q660.75,124.8234 660.5437,125.0672 Q660.2438,125.4234 659.7656,125.6203 Q659.1375,125.8922 658.3688,125.8922 Q657.4688,125.8922 656.7469,125.5359 Q656.1656,125.2547 655.7531,124.6453 Q655.35,124.0359 655.35,123.3141 L655.35,122.6578 Q655.35,121.9078 655.7063,121.2516 Q656.0719,120.5953 656.7,120.2484 Q657.3375,119.8922 658.05,119.8922 Q658.4812,119.8922 658.8562,120.0422 Q659.2312,120.1922 659.55,120.4922 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="57" x="671.85" y="127.0113">CSVReader</text><line style="stroke:#181818;stroke-width:0.3;" x1="596.7" x2="784.5" y1="133.5844" y2="133.5844"/><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="120" x="600.9" y="148.3957">-final CSVHeader header</text><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="159" x="600.9" y="164.3801">-final int EXPECTED_COLUMNS</text><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="172.8" x="600.9" y="180.3645">-final String DEFAULT_DELIMITER;</text><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" text-decoration="underline" textLength="115.2" x="600.9" y="196.3488">-final char BOM = '\ufeff'</text><line style="stroke:#181818;stroke-width:0.3;" x1="596.7" x2="784.5" y1="202.3219" y2="202.3219"/><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="89.4" x="600.9" y="217.1332">+readCSV(File dir)</text><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="102" x="600.9" y="233.1176">-isHeader(String line)</text><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="154.8" x="600.9" y="249.102">-maybeSkipBom(Reader reader)</text><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="179.4" x="600.9" y="265.0863">-checkQuotationMark(Reader reader)</text></g><!--MD5=[083af83a486c3baf039e55c66c686a06]
+class CSVHeader--><g id="elem_CSVHeader"><rect codeLine="101" fill="#F1F1F1" height="95.5219" id="CSVHeader" rx="1.5" ry="1.5" style="stroke:#181818;stroke-width:0.3;" width="107.4" x="636.9" y="347.1"/><ellipse cx="658.86" cy="358.0922" fill="#EB937F" rx="6.6" ry="6.6" style="stroke:#181818;stroke-width:0.6;"/><path d="M657.96,358.6922 L657.96,359.8922 L660.36,359.8922 L660.36,359.2922 L660.36,359.0016 L660.735,358.6922 L660.96,358.6922 L661.185,358.6922 L661.56,359.0016 L661.56,359.2922 L661.56,361.0922 L656.76,361.0922 L656.4694,361.0922 L656.16,360.7172 L656.16,360.4922 L656.16,360.2672 L656.4694,359.8922 L656.76,359.8922 L656.76,359.8922 L656.76,356.2922 L656.76,356.2922 L656.4694,356.2922 L656.16,355.9172 L656.16,355.6922 L656.16,355.4672 L656.4694,355.0922 L656.76,355.0922 L661.56,355.0922 L661.56,356.8922 L661.56,357.1828 L661.185,357.4922 L660.96,357.4922 L660.735,357.4922 L660.36,357.1828 L660.36,356.8922 L660.36,356.2922 L657.96,356.2922 L657.96,357.4922 L658.56,357.4922 L658.56,357.2016 L658.56,357.2016 L658.935,356.8922 L659.16,356.8922 L659.385,356.8922 L659.76,357.2016 L659.76,357.4922 L659.76,358.6922 L659.76,358.9828 L659.385,359.2922 L659.385,359.2922 L659.16,359.2922 L658.935,359.2922 L658.56,358.9828 L658.56,358.9828 L658.56,358.6922 L657.96,358.6922 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="57" x="671.34" y="362.5113">CSVHeader</text><line style="stroke:#181818;stroke-width:0.3;" x1="637.5" x2="743.7" y1="369.0844" y2="369.0844"/><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="80.4" x="641.7" y="383.8957">-final int columns</text><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="97.8" x="641.7" y="399.8801">-final String delimiter</text><line style="stroke:#181818;stroke-width:0.3;" x1="637.5" x2="743.7" y1="405.8531" y2="405.8531"/><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="94.2" x="641.7" y="420.6645">+getColumnCount()</text><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="70.8" x="641.7" y="436.6488">+getDelimiter()</text></g><!--MD5=[bd648356c7c69cfd829ed5fe9ffe8b1f]
+class ListPrinter--><g id="elem_ListPrinter"><rect codeLine="109" fill="#F1F1F1" height="47.5688" id="ListPrinter" rx="1.5" ry="1.5" style="stroke:#181818;stroke-width:0.3;" width="297" x="806.1" y="167.7"/><ellipse cx="926.55" cy="178.6922" fill="#ADD1B2" rx="6.6" ry="6.6" style="stroke:#181818;stroke-width:0.6;"/><path d="M927.75,176.5922 Q927.8719,176.2922 928.0125,176.1422 Q928.1531,175.9922 928.3125,175.9922 Q928.5938,175.9922 928.7719,176.1609 Q928.95,176.3297 928.95,176.7234 L928.95,177.6609 Q928.95,178.0547 928.7813,178.2234 Q928.6125,178.3922 928.35,178.3922 Q928.1156,178.3922 927.9656,178.2891 Q927.8156,178.1859 927.75,177.9141 Q927.7219,177.7266 927.6188,177.6234 Q927.4313,177.4266 927.0938,177.3141 Q926.7562,177.1922 926.4187,177.1922 Q925.9969,177.1922 925.6406,177.3609 Q925.2937,177.5297 925.0219,177.9047 Q924.75,178.2797 924.75,178.7953 L924.75,179.3484 Q924.75,179.9672 925.2562,180.3797 Q925.7625,180.7922 926.6625,180.7922 Q927.1969,180.7922 927.5719,180.6703 Q927.7875,180.6047 928.0313,180.3891 Q928.1906,180.2672 928.275,180.2297 Q928.3594,180.1922 928.4625,180.1922 Q928.6594,180.1922 928.8,180.3516 Q928.95,180.5016 928.95,180.7172 Q928.95,180.9234 928.7438,181.1672 Q928.4437,181.5234 927.9656,181.7203 Q927.3375,181.9922 926.5687,181.9922 Q925.6687,181.9922 924.9469,181.6359 Q924.3656,181.3547 923.9531,180.7453 Q923.55,180.1359 923.55,179.4141 L923.55,178.7578 Q923.55,178.0078 923.9063,177.3516 Q924.2719,176.6953 924.9,176.3484 Q925.5375,175.9922 926.25,175.9922 Q926.6813,175.9922 927.0563,176.1422 Q927.4313,176.2922 927.75,176.5922 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="48.6" x="940.05" y="183.1113">ListPrinter</text><line style="stroke:#181818;stroke-width:0.3;" x1="806.7" x2="1102.5" y1="189.6844" y2="189.6844"/><line style="stroke:#181818;stroke-width:0.3;" x1="806.7" x2="1102.5" y1="194.4844" y2="194.4844"/><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" text-decoration="underline" textLength="287.4" x="810.9" y="209.2957">+print(Collection&lt;E&gt; list, String header, PrintStream stream)</text></g><!--MD5=[220f5f32351d35cc72380e3951491ed2]
+class Pair--><g id="elem_Pair"><rect codeLine="114" fill="#F1F1F1" height="111.5063" id="Pair" rx="1.5" ry="1.5" style="stroke:#181818;stroke-width:0.3;" width="75" x="1124.1" y="135.6"/><ellipse cx="1148.49" cy="146.5922" fill="#ADD1B2" rx="6.6" ry="6.6" style="stroke:#181818;stroke-width:0.6;"/><path d="M1149.69,144.4922 Q1149.8119,144.1922 1149.9525,144.0422 Q1150.0931,143.8922 1150.2525,143.8922 Q1150.5338,143.8922 1150.7119,144.0609 Q1150.89,144.2297 1150.89,144.6234 L1150.89,145.5609 Q1150.89,145.9547 1150.7213,146.1234 Q1150.5525,146.2922 1150.29,146.2922 Q1150.0556,146.2922 1149.9056,146.1891 Q1149.7556,146.0859 1149.69,145.8141 Q1149.6619,145.6266 1149.5588,145.5234 Q1149.3713,145.3266 1149.0338,145.2141 Q1148.6963,145.0922 1148.3588,145.0922 Q1147.9369,145.0922 1147.5806,145.2609 Q1147.2338,145.4297 1146.9619,145.8047 Q1146.69,146.1797 1146.69,146.6953 L1146.69,147.2484 Q1146.69,147.8672 1147.1963,148.2797 Q1147.7025,148.6922 1148.6025,148.6922 Q1149.1369,148.6922 1149.5119,148.5703 Q1149.7275,148.5047 1149.9713,148.2891 Q1150.1306,148.1672 1150.215,148.1297 Q1150.2994,148.0922 1150.4025,148.0922 Q1150.5994,148.0922 1150.74,148.2516 Q1150.89,148.4016 1150.89,148.6172 Q1150.89,148.8234 1150.6838,149.0672 Q1150.3838,149.4234 1149.9056,149.6203 Q1149.2775,149.8922 1148.5088,149.8922 Q1147.6088,149.8922 1146.8869,149.5359 Q1146.3056,149.2547 1145.8931,148.6453 Q1145.49,148.0359 1145.49,147.3141 L1145.49,146.6578 Q1145.49,145.9078 1145.8463,145.2516 Q1146.2119,144.5953 1146.84,144.2484 Q1147.4775,143.8922 1148.19,143.8922 Q1148.6213,143.8922 1148.9963,144.0422 Q1149.3713,144.1922 1149.69,144.4922 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="19.2" x="1161.51" y="151.0113">Pair</text><line style="stroke:#181818;stroke-width:0.3;" x1="1124.7" x2="1198.5" y1="157.5844" y2="157.5844"/><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="31.2" x="1128.9" y="172.3957">-T first</text><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="48.6" x="1128.9" y="188.3801">-S second</text><line style="stroke:#181818;stroke-width:0.3;" x1="1124.7" x2="1198.5" y1="194.3531" y2="194.3531"/><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="49.8" x="1128.9" y="209.1645">+getFirst()</text><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="65.4" x="1128.9" y="225.1488">+getSecond()</text><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="51" x="1128.9" y="241.1332">+toString()</text></g><!--MD5=[bbd035254ef19fa475e788fdcf1df111]
+class Triplet--><g id="elem_Triplet"><rect codeLine="123" fill="#F1F1F1" height="111.5063" id="Triplet" rx="1.5" ry="1.5" style="stroke:#181818;stroke-width:0.3;" width="75" x="1220.1" y="135.6"/><ellipse cx="1239.36" cy="146.5922" fill="#ADD1B2" rx="6.6" ry="6.6" style="stroke:#181818;stroke-width:0.6;"/><path d="M1240.56,144.4922 Q1240.6819,144.1922 1240.8225,144.0422 Q1240.9631,143.8922 1241.1225,143.8922 Q1241.4038,143.8922 1241.5819,144.0609 Q1241.76,144.2297 1241.76,144.6234 L1241.76,145.5609 Q1241.76,145.9547 1241.5913,146.1234 Q1241.4225,146.2922 1241.16,146.2922 Q1240.9256,146.2922 1240.7756,146.1891 Q1240.6256,146.0859 1240.56,145.8141 Q1240.5319,145.6266 1240.4287,145.5234 Q1240.2412,145.3266 1239.9038,145.2141 Q1239.5662,145.0922 1239.2288,145.0922 Q1238.8069,145.0922 1238.4506,145.2609 Q1238.1038,145.4297 1237.8319,145.8047 Q1237.56,146.1797 1237.56,146.6953 L1237.56,147.2484 Q1237.56,147.8672 1238.0662,148.2797 Q1238.5725,148.6922 1239.4725,148.6922 Q1240.0069,148.6922 1240.3819,148.5703 Q1240.5975,148.5047 1240.8413,148.2891 Q1241.0006,148.1672 1241.085,148.1297 Q1241.1694,148.0922 1241.2725,148.0922 Q1241.4694,148.0922 1241.61,148.2516 Q1241.76,148.4016 1241.76,148.6172 Q1241.76,148.8234 1241.5537,149.0672 Q1241.2537,149.4234 1240.7756,149.6203 Q1240.1475,149.8922 1239.3787,149.8922 Q1238.4788,149.8922 1237.7569,149.5359 Q1237.1756,149.2547 1236.7631,148.6453 Q1236.36,148.0359 1236.36,147.3141 L1236.36,146.6578 Q1236.36,145.9078 1236.7163,145.2516 Q1237.0819,144.5953 1237.71,144.2484 Q1238.3475,143.8922 1239.06,143.8922 Q1239.4912,143.8922 1239.8662,144.0422 Q1240.2412,144.1922 1240.56,144.4922 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="30.6" x="1251.24" y="151.0113">Triplet</text><line style="stroke:#181818;stroke-width:0.3;" x1="1220.7" x2="1294.5" y1="157.5844" y2="157.5844"/><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="31.2" x="1224.9" y="172.3957">-T first</text><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="48.6" x="1224.9" y="188.3801">-S second</text><line style="stroke:#181818;stroke-width:0.3;" x1="1220.7" x2="1294.5" y1="194.3531" y2="194.3531"/><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="49.8" x="1224.9" y="209.1645">+getFirst()</text><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="65.4" x="1224.9" y="225.1488">+getSecond()</text><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="54" x="1224.9" y="241.1332">+getThird()</text></g><!--MD5=[335f4d9be48430461c68bf6d6fdba145]
+class App--><g id="elem_App"><rect codeLine="132" fill="#F1F1F1" height="127.4906" id="App" rx="1.5" ry="1.5" style="stroke:#181818;stroke-width:0.3;" width="114.6" x="246.9" y="127.8"/><ellipse cx="291.15" cy="138.7922" fill="#ADD1B2" rx="6.6" ry="6.6" style="stroke:#181818;stroke-width:0.6;"/><path d="M292.35,136.6922 Q292.4719,136.3922 292.6125,136.2422 Q292.7531,136.0922 292.9125,136.0922 Q293.1937,136.0922 293.3719,136.2609 Q293.55,136.4297 293.55,136.8234 L293.55,137.7609 Q293.55,138.1547 293.3812,138.3234 Q293.2125,138.4922 292.95,138.4922 Q292.7156,138.4922 292.5656,138.3891 Q292.4156,138.2859 292.35,138.0141 Q292.3219,137.8266 292.2188,137.7234 Q292.0313,137.5266 291.6937,137.4141 Q291.3563,137.2922 291.0188,137.2922 Q290.5969,137.2922 290.2406,137.4609 Q289.8938,137.6297 289.6219,138.0047 Q289.35,138.3797 289.35,138.8953 L289.35,139.4484 Q289.35,140.0672 289.8563,140.4797 Q290.3625,140.8922 291.2625,140.8922 Q291.7969,140.8922 292.1719,140.7703 Q292.3875,140.7047 292.6312,140.4891 Q292.7906,140.3672 292.875,140.3297 Q292.9594,140.2922 293.0625,140.2922 Q293.2594,140.2922 293.4,140.4516 Q293.55,140.6016 293.55,140.8172 Q293.55,141.0234 293.3438,141.2672 Q293.0438,141.6234 292.5656,141.8203 Q291.9375,142.0922 291.1688,142.0922 Q290.2688,142.0922 289.5469,141.7359 Q288.9656,141.4547 288.5531,140.8453 Q288.15,140.2359 288.15,139.5141 L288.15,138.8578 Q288.15,138.1078 288.5062,137.4516 Q288.8719,136.7953 289.5,136.4484 Q290.1375,136.0922 290.85,136.0922 Q291.2813,136.0922 291.6563,136.2422 Q292.0313,136.3922 292.35,136.6922 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="18.6" x="304.65" y="143.2113">App</text><line style="stroke:#181818;stroke-width:0.3;" x1="247.5" x2="360.9" y1="149.7844" y2="149.7844"/><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="99" x="251.7" y="164.5957">-PaisStore paisStore</text><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="105" x="251.7" y="180.5801">-FrutoStore frutoStore</text><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" text-decoration="underline" textLength="97.8" x="251.7" y="196.5645">-App singleton = null</text><line style="stroke:#181818;stroke-width:0.3;" x1="247.5" x2="360.9" y1="202.5375" y2="202.5375"/><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="75.6" x="251.7" y="217.3488">+getPaisStore()</text><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="79.8" x="251.7" y="233.3332">+getFrutoStore()</text><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="69" x="251.7" y="249.3176">+getInstance()</text></g><!--MD5=[84718776d214be480e4c259efcb737fc]
+class Main--><g id="elem_Main"><rect codeLine="142" fill="#F1F1F1" height="47.5688" id="Main" rx="1.5" ry="1.5" style="stroke:#181818;stroke-width:0.3;" width="104.4" x="469.2" y="4.2"/><ellipse cx="505.95" cy="15.1922" fill="#ADD1B2" rx="6.6" ry="6.6" style="stroke:#181818;stroke-width:0.6;"/><path d="M507.15,13.0922 Q507.2719,12.7922 507.4125,12.6422 Q507.5531,12.4922 507.7125,12.4922 Q507.9938,12.4922 508.1719,12.6609 Q508.35,12.8297 508.35,13.2234 L508.35,14.1609 Q508.35,14.5547 508.1813,14.7234 Q508.0125,14.8922 507.75,14.8922 Q507.5156,14.8922 507.3656,14.7891 Q507.2156,14.6859 507.15,14.4141 Q507.1219,14.2266 507.0187,14.1234 Q506.8312,13.9266 506.4938,13.8141 Q506.1563,13.6922 505.8187,13.6922 Q505.3969,13.6922 505.0406,13.8609 Q504.6937,14.0297 504.4219,14.4047 Q504.15,14.7797 504.15,15.2953 L504.15,15.8484 Q504.15,16.4672 504.6563,16.8797 Q505.1625,17.2922 506.0625,17.2922 Q506.5969,17.2922 506.9719,17.1703 Q507.1875,17.1047 507.4313,16.8891 Q507.5906,16.7672 507.675,16.7297 Q507.7594,16.6922 507.8625,16.6922 Q508.0594,16.6922 508.2,16.8516 Q508.35,17.0016 508.35,17.2172 Q508.35,17.4234 508.1437,17.6672 Q507.8438,18.0234 507.3656,18.2203 Q506.7375,18.4922 505.9688,18.4922 Q505.0687,18.4922 504.3469,18.1359 Q503.7656,17.8547 503.3531,17.2453 Q502.95,16.6359 502.95,15.9141 L502.95,15.2578 Q502.95,14.5078 503.3063,13.8516 Q503.6719,13.1953 504.3,12.8484 Q504.9375,12.4922 505.65,12.4922 Q506.0812,12.4922 506.4562,12.6422 Q506.8312,12.7922 507.15,13.0922 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" textLength="23.4" x="519.45" y="19.6113">Main</text><line style="stroke:#181818;stroke-width:0.3;" x1="469.8" x2="573" y1="26.1844" y2="26.1844"/><line style="stroke:#181818;stroke-width:0.3;" x1="469.8" x2="573" y1="30.9844" y2="30.9844"/><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacing" text-decoration="underline" textLength="94.8" x="474" y="45.7957">+main(String[] args)</text></g><!--MD5=[75c1308f99597037cb75fd3d947f374e]
+link PaisStore to Pais--><g id="link_PaisStore_Pais"><path codeLine="147" d="M317.016,458.508 C317.592,476.616 318.252,497.214 318.924,518.364 " fill="none" id="PaisStore-Pais" style="stroke:#181818;stroke-width:0.6;"/><text fill="#000000" font-family="sans-serif" font-size="7.8" lengthAdjust="spacing" textLength="4.2" x="311.5257" y="472.7036">1</text><text fill="#000000" font-family="sans-serif" font-size="7.8" lengthAdjust="spacing" textLength="3" x="314.4931" y="510.7454">*</text></g><!--MD5=[a0cf0529c6d22c9fd5bf3852e7aa1de1]
+link Pais to ProducaoAno--><g id="link_Pais_ProducaoAno"><path codeLine="148" d="M330.522,837.81 C331.356,858.108 332.19,878.442 332.97,897.522 " fill="none" id="Pais-ProducaoAno" style="stroke:#181818;stroke-width:0.6;"/><text fill="#000000" font-family="sans-serif" font-size="7.8" lengthAdjust="spacing" textLength="4.2" x="325.2177" y="852.0312">1</text><text fill="#000000" font-family="sans-serif" font-size="7.8" lengthAdjust="spacing" textLength="3" x="328.456" y="889.8493">*</text></g><!--MD5=[96d98c8999a2f96c4ac6ea47736be843]
+link ProducaoAno to ProducaoFrutoPorPaisPorAno--><g id="link_ProducaoAno_ProducaoFrutoPorPaisPorAno"><path codeLine="149" d="M353.1,1105.338 C356.232,1125.708 359.43,1146.51 362.286,1165.068 " fill="none" id="ProducaoAno-ProducaoFrutoPorPaisPorAno" style="stroke:#181818;stroke-width:0.6;"/><text fill="#000000" font-family="sans-serif" font-size="7.8" lengthAdjust="spacing" textLength="4.2" x="348.2316" y="1119.2815">1</text><text fill="#000000" font-family="sans-serif" font-size="7.8" lengthAdjust="spacing" textLength="3" x="357.2131" y="1157.4592">*</text></g><!--MD5=[58fb9da983a528778fcae1c70402f8e2]
+link ProducaoFrutoPorPaisPorAno to Fruto--><g id="link_ProducaoFrutoPorPaisPorAno_Fruto"><path codeLine="150" d="M372,1292.406 C372,1311.252 372,1332.264 372,1352.364 " fill="none" id="ProducaoFrutoPorPaisPorAno-Fruto" style="stroke:#181818;stroke-width:0.6;"/><text fill="#000000" font-family="sans-serif" font-size="7.8" lengthAdjust="spacing" textLength="3" x="367.6017" y="1306.8118">*</text><text fill="#000000" font-family="sans-serif" font-size="7.8" lengthAdjust="spacing" textLength="4.2" x="366.4298" y="1344.8321">1</text></g><!--MD5=[bf7518ee66a8671c9d08261c092e4d1c]
+link FrutoStore to Fruto--><g id="link_FrutoStore_Fruto"><path codeLine="151" d="M98.154,458.58 C85.992,612.942 73.134,1016.718 235.8,1292.4 C256.002,1326.636 285.3,1359.588 311.55,1385.592 " fill="none" id="FrutoStore-Fruto" style="stroke:#181818;stroke-width:0.6;"/><text fill="#000000" font-family="sans-serif" font-size="7.8" lengthAdjust="spacing" textLength="4.2" x="92.0828" y="472.7807">1</text><text fill="#000000" font-family="sans-serif" font-size="7.8" lengthAdjust="spacing" textLength="3" x="302.7124" y="1378.4517">*</text></g><!--MD5=[cdbaed59bed7b970ec9b08f8a979e7da]
+link Main to Pais--><g id="link_Main_Pais"><path codeLine="152" d="M500.664,51.642 C487.734,67.416 471.942,89.394 463.2,111.6 C406.182,256.416 455.478,308.226 414.6,458.4 C409.512,477.102 403.224,496.338 396.36,515.274 " fill="none" id="Main-to-Pais" style="stroke:#181818;stroke-width:0.6;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="395.25,518.31,399.3551,514.0593,396.278,515.4916,394.8457,512.4145,395.25,518.31" style="stroke:#181818;stroke-width:0.6;"/></g><!--MD5=[3b6b6bcfad8429b6654168acea64f39d]
+link Main to PaisStore--><g id="link_Main_PaisStore"><path codeLine="153" d="M483.336,51.768 C462.114,66.516 436.776,87.36 420.6,111.6 C379.44,173.274 398.454,201.93 372,271.2 C364.83,289.986 356.094,309.93 347.64,328.17 " fill="none" id="Main-to-PaisStore" style="stroke:#181818;stroke-width:0.6;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="346.284,331.08,350.733,327.1908,347.5461,328.3584,346.3784,325.1714,346.284,331.08" style="stroke:#181818;stroke-width:0.6;"/></g><!--MD5=[0e4ba8d845f54974099bd17feb0869d3]
+link Main to ProducaoAno--><g id="link_Main_ProducaoAno"><path codeLine="154" d="M516.282,51.666 C512.802,68.268 508.38,91.212 505.8,111.6 C485.514,272.01 513.426,685.782 457.8,837.6 C450.582,857.304 440.19,876.678 428.496,894.804 " fill="none" id="Main-to-ProducaoAno" style="stroke:#181818;stroke-width:0.6;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="426.762,897.468,431.7137,894.243,428.3942,894.9509,427.6864,891.6314,426.762,897.468" style="stroke:#181818;stroke-width:0.6;"/></g><!--MD5=[7f47d6eb85bd124dd3245aceddd34f57]
+link Main to ProducaoFrutoPorPaisPorAno--><g id="link_Main_ProducaoFrutoPorPaisPorAno"><path codeLine="155" d="M521.4,51.606 C521.4,109.362 521.4,264.684 521.4,394.2 C521.4,394.2 521.4,394.2 521.4,678.6 C521.4,868.428 579.192,932.496 500.4,1105.2 C490.68,1126.5 475.452,1145.976 458.826,1162.836 " fill="none" id="Main-to-ProducaoFrutoPorPaisPorAno" style="stroke:#181818;stroke-width:0.6;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="456.582,1165.092,462.0931,1162.9595,458.699,1162.9664,458.6922,1159.5723,456.582,1165.092" style="stroke:#181818;stroke-width:0.6;"/></g><!--MD5=[0df1d35d4186f9c862c133049702fa6f]
+link Main to FrutoStore--><g id="link_Main_FrutoStore"><path codeLine="156" d="M469.038,31.026 C406.77,36.636 302.916,54.57 236.4,111.6 C170.844,167.808 135.738,263.646 118.59,327.936 " fill="none" id="Main-to-FrutoStore" style="stroke:#181818;stroke-width:0.6;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="117.786,330.972,121.4786,326.3584,118.5478,328.0703,116.8359,325.1396,117.786,330.972" style="stroke:#181818;stroke-width:0.6;"/></g><!--MD5=[3d7a06cbfb75209ea8fba17cd03ecb14]
+link Main to Fruto--><g id="link_Main_Fruto"><path codeLine="157" d="M526.332,51.69 C529.728,68.304 534.126,91.254 537,111.6 C554.658,236.532 564,268.026 564,394.2 C564,394.2 564,394.2 564,1002 C564,1133.43 567.552,1175.136 508.2,1292.4 C490.284,1327.8 461.298,1360.836 434.664,1386.582 " fill="none" id="Main-to-Fruto" style="stroke:#181818;stroke-width:0.6;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="432.426,1388.736,437.9832,1386.7267,434.5898,1386.658,434.6585,1383.2646,432.426,1388.736" style="stroke:#181818;stroke-width:0.6;"/></g><!--MD5=[9565ee374c43585bd19dccdcca1c811d]
+link Main to App--><g id="link_Main_App"><path codeLine="158" d="M473.634,51.612 C444.618,66.732 407.586,88.014 378,111.6 C372.6,115.902 367.23,120.606 361.986,125.502 " fill="none" id="Main-to-App" style="stroke:#181818;stroke-width:0.6;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="359.754,127.608,365.3271,125.6431,361.9343,125.5474,362.0301,122.1546,359.754,127.608" style="stroke:#181818;stroke-width:0.6;"/></g><!--MD5=[b74e2d3764df2e58b0ab919ea79c07ec]
+link Main to CSVReader--><g id="link_Main_CSVReader"><path codeLine="159" d="M545.64,51.756 C561.6,67.062 583.536,88.104 605.514,109.188 " fill="none" id="Main-to-CSVReader" style="stroke:#181818;stroke-width:0.6;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="607.92,111.492,605.6767,106.0251,605.7521,109.4183,602.3588,109.4937,607.92,111.492" style="stroke:#181818;stroke-width:0.6;"/></g><!--MD5=[8fdc2484c9ef3cbe46ac8d63ffe8fde8]
+link Main to ListPrinter--><g id="link_Main_ListPrinter"><path codeLine="160" d="M573.834,41.58 C629.688,56.16 720.252,81.66 795.6,111.6 C835.38,127.404 878.772,149.358 910.158,166.14 " fill="none" id="Main-to-ListPrinter" style="stroke:#181818;stroke-width:0.6;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="912.966,167.646,909.3393,162.9805,910.3216,166.2293,907.0727,167.2116,912.966,167.646" style="stroke:#181818;stroke-width:0.6;"/></g><!--MD5=[d0ca89e470f87b402c1428d340fc0d07]
+link Main to Pair--><g id="link_Main_Pair"><path codeLine="161" d="M573.828,30.18 C701.628,35.16 1025.178,53.328 1113.6,111.6 C1121.994,117.132 1129.152,124.686 1135.176,132.948 " fill="none" id="Main-to-Pair" style="stroke:#181818;stroke-width:0.6;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="1137.012,135.534,1135.834,129.7433,1135.2715,133.0905,1131.9243,132.528,1137.012,135.534" style="stroke:#181818;stroke-width:0.6;"/></g><!--MD5=[339dbbd65eee2848d6d9d653ff54f5d6]
+link Main to Triplet--><g id="link_Main_Triplet"><path codeLine="162" d="M573.816,29.01 C715.842,31.29 1104.432,43.74 1209.6,111.6 C1218.108,117.09 1225.338,124.674 1231.398,132.99 " fill="none" id="Main-to-Triplet" style="stroke:#181818;stroke-width:0.6;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="1233.24,135.588,1232.085,129.7927,1231.5093,133.1376,1228.1644,132.5618,1233.24,135.588" style="stroke:#181818;stroke-width:0.6;"/></g><!--MD5=[c70877b6a03cb6a59963a281f4fb8920]
+link App to PaisStore--><g id="link_App_PaisStore"><path codeLine="163" d="M307.572,255.144 C308.808,278.322 310.212,304.614 311.466,328.05 " fill="none" id="App-to-PaisStore" style="stroke:#181818;stroke-width:0.6;"/><polygon fill="#181818" points="311.634,331.188,313.7369,325.6655,311.4709,328.1924,308.944,325.9265,311.634,331.188" style="stroke:#181818;stroke-width:0.6;"/></g><!--MD5=[53f7921b8f281f48278ddbaeda799fc8]
+link App to FrutoStore--><g id="link_App_FrutoStore"><path codeLine="164" d="M246.678,250.212 C222.396,274.788 194.01,303.516 169.008,328.812 " fill="none" id="App-to-FrutoStore" style="stroke:#181818;stroke-width:0.6;"/><polygon fill="#181818" points="166.752,331.098,172.2545,328.9433,168.8604,328.9639,168.8399,325.5698,166.752,331.098" style="stroke:#181818;stroke-width:0.6;"/></g><!--MD5=[8ad152fc2c86471d56b3ec8ff59f39b0]
+link CSVReader to CSVHeader--><g id="link_CSVReader_CSVHeader"><path codeLine="165" d="M690.6,271.332 C690.6,295.692 690.6,321.822 690.6,343.698 " fill="none" id="CSVReader-to-CSVHeader" style="stroke:#181818;stroke-width:0.6;"/><polygon fill="#181818" points="690.6,346.89,693,341.49,690.6,343.89,688.2,341.49,690.6,346.89" style="stroke:#181818;stroke-width:0.6;"/></g><!--MD5=[65e201f6e46c55532388549a2434fda5]
+@startuml
+'https://plantuml.com/class-diagram
+
+skinparam classAttributeIconSize 0
+skinparam padding 2
+skinparam ranksep 100
+skinparam classFontSize 18
+
+
+class Fruto
+{
+    -String nome
+    -int id
+    -setNome(String nome)
+    -setId(int id)
+    +getNome()
+    +getId()
+    +toString()
+    +equals(Object o)
+    +hasCode()
+}
+
+class FrutoStore
+{
+    -HashMap<Integer,Fruto> frutoStore;
+    +getFruto(int idFruto)
+    +hasFruto(int idFruto)
+    +addFruto(int idFruto,String nomeFruto)
+    +size()
+    +iterator()
+}
+
+class Pais
+{
+    -TreeMap<Integer,ProducaoAno> producaoAnual
+    -String nomePais
+    -int paisCodigo
+    -int prodTotal
+    -setNomePais(String nome)
+    -setCodigoPais(int paisCodigo)
+    +getNomePais()
+    +getPaisCodigo()
+    +getProdTotal()
+    -incrementProducao(int prodTotal)
+    +containsAnoProducao(int ano)
+    +addAnoProducao(ProducaoAno ano)
+    +createAnoProducao(int ano)
+    +getProducaoAno(Integer ano)
+    +iterator()
+    +toString()
+    +equals()
+    +hasCode()
+}
+
+class PaisStore
+{
+    -HashMap<Integer,Pais> paisStore
+    +getStream()
+    +hasPais(int id)
+    +addPais(int id,String paisNome)
+    +getPais(id)
+    +iterator()
+}
+
+class ProducaoAno
+{
+    -HashMap<Integer,ProducaoFrutoPorPaisPorAno> prodAnual
+    -int quantidadeProdAnual
+    -int ano
+    +hasProdFruto(int frutoId)
+    +getProducaoFruto(int frutoId)
+    +addProducaoFruto(Fruto fruto, int quantidadeProd)
+    -incrementProdAnual(int prod)
+    +getProdAnual()
+    +getAno()
+    +iterator()
+    +compareTo(ProducaoAno outro)
+}
+
+class ProducaoFrutoPorPaisPorAno
+{
+    -Fruto fruto
+    -int quantidadeProducao
+    +getFruto()
+    -setFruto(Fruto fruto)
+    +getQuantidadeProducao()
+    -setQuantidadeProducao(int quantidadeProducao)
+}
+
+class CSVReader
+{
+    -final CSVHeader header
+    -final int EXPECTED_COLUMNS
+    -final String DEFAULT_DELIMITER;
+    -{static}final char BOM = '\ufeff'
+    +readCSV(File dir)
+    -isHeader(String line)
+    -maybeSkipBom(Reader reader)
+    -checkQuotationMark(Reader reader)
+}
+
+enum CSVHeader
+{
+    -final int columns
+    -final String delimiter
+    +getColumnCount()
+    +getDelimiter()
+}
+
+class ListPrinter
+{
+    +{static}print(Collection<E> list, String header, PrintStream stream)
+}
+
+class Pair
+{
+    -T first
+    -S second
+    +getFirst()
+    +getSecond()
+    +toString()
+}
+
+class Triplet
+{
+    -T first
+    -S second
+    +getFirst()
+    +getSecond()
+    +getThird()
+}
+
+class App
+{
+    -PaisStore paisStore
+    -FrutoStore frutoStore
+    +getPaisStore()
+    +getFrutoStore()
+    -{static}App singleton = null
+    +getInstance()
+}
+
+class Main
+{
+    +{static}main(String[] args)
+}
+
+PaisStore "1" - - "*" Pais
+Pais "1" - - "*" ProducaoAno
+ProducaoAno "1" - - "*" ProducaoFrutoPorPaisPorAno
+ProducaoFrutoPorPaisPorAno "*" - - "1" Fruto
+FrutoStore "1" - - "*" Fruto
+Main ..> Pais
+Main ..> PaisStore
+Main ..> ProducaoAno
+Main ..> ProducaoFrutoPorPaisPorAno
+Main ..> FrutoStore
+Main ..>Fruto
+Main ..> App
+Main ..> CSVReader
+Main ..> ListPrinter
+Main ..> Pair
+Main ..> Triplet
+App - -> PaisStore
+App - -> FrutoStore
+CSVReader - -> CSVHeader
+
+
+@enduml
+
+@startuml
+
+skinparam classAttributeIconSize 0
+skinparam padding 2
+skinparam ranksep 100
+skinparam classFontSize 18
+
+
+class Fruto
+{
+    -String nome
+    -int id
+    -setNome(String nome)
+    -setId(int id)
+    +getNome()
+    +getId()
+    +toString()
+    +equals(Object o)
+    +hasCode()
+}
+
+class FrutoStore
+{
+    -HashMap<Integer,Fruto> frutoStore;
+    +getFruto(int idFruto)
+    +hasFruto(int idFruto)
+    +addFruto(int idFruto,String nomeFruto)
+    +size()
+    +iterator()
+}
+
+class Pais
+{
+    -TreeMap<Integer,ProducaoAno> producaoAnual
+    -String nomePais
+    -int paisCodigo
+    -int prodTotal
+    -setNomePais(String nome)
+    -setCodigoPais(int paisCodigo)
+    +getNomePais()
+    +getPaisCodigo()
+    +getProdTotal()
+    -incrementProducao(int prodTotal)
+    +containsAnoProducao(int ano)
+    +addAnoProducao(ProducaoAno ano)
+    +createAnoProducao(int ano)
+    +getProducaoAno(Integer ano)
+    +iterator()
+    +toString()
+    +equals()
+    +hasCode()
+}
+
+class PaisStore
+{
+    -HashMap<Integer,Pais> paisStore
+    +getStream()
+    +hasPais(int id)
+    +addPais(int id,String paisNome)
+    +getPais(id)
+    +iterator()
+}
+
+class ProducaoAno
+{
+    -HashMap<Integer,ProducaoFrutoPorPaisPorAno> prodAnual
+    -int quantidadeProdAnual
+    -int ano
+    +hasProdFruto(int frutoId)
+    +getProducaoFruto(int frutoId)
+    +addProducaoFruto(Fruto fruto, int quantidadeProd)
+    -incrementProdAnual(int prod)
+    +getProdAnual()
+    +getAno()
+    +iterator()
+    +compareTo(ProducaoAno outro)
+}
+
+class ProducaoFrutoPorPaisPorAno
+{
+    -Fruto fruto
+    -int quantidadeProducao
+    +getFruto()
+    -setFruto(Fruto fruto)
+    +getQuantidadeProducao()
+    -setQuantidadeProducao(int quantidadeProducao)
+}
+
+class CSVReader
+{
+    -final CSVHeader header
+    -final int EXPECTED_COLUMNS
+    -final String DEFAULT_DELIMITER;
+    -{static}final char BOM = '\ufeff'
+    +readCSV(File dir)
+    -isHeader(String line)
+    -maybeSkipBom(Reader reader)
+    -checkQuotationMark(Reader reader)
+}
+
+enum CSVHeader
+{
+    -final int columns
+    -final String delimiter
+    +getColumnCount()
+    +getDelimiter()
+}
+
+class ListPrinter
+{
+    +{static}print(Collection<E> list, String header, PrintStream stream)
+}
+
+class Pair
+{
+    -T first
+    -S second
+    +getFirst()
+    +getSecond()
+    +toString()
+}
+
+class Triplet
+{
+    -T first
+    -S second
+    +getFirst()
+    +getSecond()
+    +getThird()
+}
+
+class App
+{
+    -PaisStore paisStore
+    -FrutoStore frutoStore
+    +getPaisStore()
+    +getFrutoStore()
+    -{static}App singleton = null
+    +getInstance()
+}
+
+class Main
+{
+    +{static}main(String[] args)
+}
+
+PaisStore "1" - - "*" Pais
+Pais "1" - - "*" ProducaoAno
+ProducaoAno "1" - - "*" ProducaoFrutoPorPaisPorAno
+ProducaoFrutoPorPaisPorAno "*" - - "1" Fruto
+FrutoStore "1" - - "*" Fruto
+Main ..> Pais
+Main ..> PaisStore
+Main ..> ProducaoAno
+Main ..> ProducaoFrutoPorPaisPorAno
+Main ..> FrutoStore
+Main ..>Fruto
+Main ..> App
+Main ..> CSVReader
+Main ..> ListPrinter
+Main ..> Pair
+Main ..> Triplet
+App - -> PaisStore
+App - -> FrutoStore
+CSVReader - -> CSVHeader
+
+
+@enduml
+
+PlantUML version 1.2022.4(Sat Apr 09 14:29:17 BST 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1252
+Language: en
+Country: US
+--></g></svg>
