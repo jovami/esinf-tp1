@@ -57,7 +57,7 @@ public class CSVReader {
                 } else {
                     // remove " at begining and " at end
                     if(quotationMarks) {
-                        tmp[0] = tmp[0].replaceAll("\"", "");;
+                        tmp[0] = tmp[0].replaceAll("\"", "");
                         tmp[tmp.length - 1] = tmp[tmp.length - 1].replaceAll("\"", "");
                     }
                     info.add(tmp);

@@ -9,8 +9,8 @@ import esinf.model.store.PaisStore;
  * used to obtain the PaisStore
  */
 public class App {
-    private PaisStore paisStore;
-    private FrutoStore frutoStore;
+    private final PaisStore paisStore;
+    private final FrutoStore frutoStore;
 
     private App() {
         this.paisStore = new PaisStore();

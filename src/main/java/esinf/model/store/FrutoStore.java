@@ -7,7 +7,7 @@ import esinf.model.Fruto;
 
 public class FrutoStore implements Iterable<Fruto> {
 
-    private HashMap<Integer,Fruto> frutoStore;
+    private final HashMap<Integer,Fruto> frutoStore;
 
     public FrutoStore() {
         frutoStore= new HashMap<>();

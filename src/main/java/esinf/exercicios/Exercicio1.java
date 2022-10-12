@@ -17,11 +17,11 @@ import esinf.model.ProducaoAno;
 
 public class Exercicio1 implements Runnable {
 
-    public final String FILE_NAME = "FAOSTAT_data_en_9-7-2022_SMALLTEST_QUOTATIONMARKS.csv";
+    public final String FILE_NAME = "FAOSTAT_data_en_9-7-2022_BIG.csv";
 
-    private App app;
+    private final App app;
 
-    private CSVReader csvReader;
+    private final CSVReader csvReader;
 
     public Exercicio1() {
         app = App.getInstance();
@@ -34,7 +34,7 @@ public class Exercicio1 implements Runnable {
             File dir = fileDirReader();
             saveInfo(csvReader.readCSV(dir));
         } catch (Exception e) {
-            System.out.println(e);
+            e.printStackTrace();
         }
     }
 

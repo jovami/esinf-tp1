@@ -5,9 +5,9 @@ package esinf.util;
  */
 public class Triplet<T, S, U> {
 
-    private T first;
-    private S second;
-    private U third;
+    private final T first;
+    private final S second;
+    private final U third;
 
     public Triplet(T fst, S snd, U trd) {
         this.first = fst;

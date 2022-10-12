@@ -6,10 +6,10 @@ import java.util.Iterator;
 public class ProducaoAno implements Comparable<ProducaoAno>, Iterable<ProducaoFrutoPorPaisPorAno> {
 
     // Key: FrutoID
-    private HashMap<Integer, ProducaoFrutoPorPaisPorAno> prodAnual;
+    private final HashMap<Integer, ProducaoFrutoPorPaisPorAno> prodAnual;
 
     private int quantidadeProdAnual;
-    private int ano;
+    private final int ano;
 
     public ProducaoAno(int ano) {
         // estimativa para reduzir hashing

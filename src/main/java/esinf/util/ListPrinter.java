@@ -27,8 +27,7 @@ public class ListPrinter {
         if (header != null)
             stream.println(header);
 
-        Iterator<E> iter = list.iterator();
-        while (iter.hasNext())
-            stream.printf("%d. %s\n", ++i, iter.next());
+        for (E e : list)
+            stream.printf("%d. %s\n", ++i, e);
     }
 }

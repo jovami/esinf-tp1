@@ -23,7 +23,7 @@ public class Exercicio2 implements Runnable {
         Comparator.comparing(Triplet::getSecond);
 
     private final Comparator<Triplet<Pais, Integer, Integer>> qtdDecrescente =
-        Comparator.comparing(Triplet::getThird, (k1, k2) -> k2.compareTo(k1));
+        Comparator.comparing(Triplet::getThird, Comparator.reverseOrder());
 
     public Exercicio2() {
         app = App.getInstance();
@@ -42,7 +42,7 @@ public class Exercicio2 implements Runnable {
         List<Pais> alineaB = sortB(filtered);
 
         ListPrinter.print(alineaA, "Alinea a)", null);
-        System.out.printf("\n--------------------\n");
+        System.out.print("\n--------------------\n");
         ListPrinter.print(alineaB, "Alinea b)", null);
     }
 

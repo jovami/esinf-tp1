@@ -13,7 +13,7 @@ import java.util.*;
  */
 public class Exercicio5 implements Runnable {
 
-    private App app;
+    private final App app;
 
     public Exercicio5() {
         app = App.getInstance();
@@ -45,10 +45,10 @@ public class Exercicio5 implements Runnable {
                 int qtd = prod.getQuantidadeProducao();
 
                 if (minProducao.get(f) == null || minProducao.get(f).getSecond() > qtd)
-                        minProducao.put(f, new Pair<ProducaoAno,Integer>(ano, qtd));
+                        minProducao.put(f, new Pair<>(ano, qtd));
 
                 if (maxProducao.get(f) == null || maxProducao.get(f).getSecond() < qtd)
-                        maxProducao.put(f, new Pair<ProducaoAno,Integer>(ano, qtd));
+                        maxProducao.put(f, new Pair<>(ano, qtd));
             });
         });
 

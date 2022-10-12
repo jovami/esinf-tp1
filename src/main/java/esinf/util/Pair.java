@@ -7,8 +7,8 @@ package esinf.util;
  */
 public class Pair<T, S> {
 
-    private T first;
-    private S second;
+    private final T first;
+    private final S second;
 
     public Pair(T fst, S snd) {
         this.first = fst;

@@ -8,7 +8,7 @@ import java.util.stream.Stream;
 
 public class Pais implements Iterable<ProducaoAno> {
 
-    private TreeMap<Integer, ProducaoAno> producaoAnual;
+    private final TreeMap<Integer, ProducaoAno> producaoAnual;
 
     private String nomePais;
     private int paisCodigo;

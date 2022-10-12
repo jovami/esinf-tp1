@@ -8,7 +8,7 @@ import esinf.model.Pais;
 
 public class PaisStore implements Iterable<Pais> {
 
-    private HashMap<Integer,Pais> paisStore;
+    private final HashMap<Integer,Pais> paisStore;
 
     public PaisStore() {
         // num paises no mundo; evita re-hashing

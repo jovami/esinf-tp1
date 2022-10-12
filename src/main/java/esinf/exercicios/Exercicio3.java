@@ -15,23 +15,22 @@ import esinf.model.store.PaisStore;
  */
 public class Exercicio3 implements Runnable {
 
-    private App app;
+    private final App app;
 
-    private PaisStore paisStore;
+    private final PaisStore paisStore;
 
-    private Comparator<Pais> cmpPais =
+    private final Comparator<Pais> cmpPais =
         (p1, p2) -> Integer.compare(p2.getProdTotal(), p1.getProdTotal());
 
     public Exercicio3() {
         app = App.getInstance();
-
         paisStore = app.getPaisStore();
     }
 
     @Override
     public void run() {
 
-        Long producaoMax = 1299298911l;
+        long producaoMax = 1299298911L;
 
         ArrayList<Pais> listPais = getPaisSorted();
         
